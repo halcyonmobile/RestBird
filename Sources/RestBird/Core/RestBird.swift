@@ -9,7 +9,7 @@
 import Foundation
 
 /// This protocol represents a backend server configuration.
-protocol NetworkManagerConfiguration {
+public protocol RestBirdConfiguration {
     /// The base URL of the backend service
     var baseUrl: String { get }
     /// Define session manager interface. Can be Alamofire, URLSession
@@ -21,12 +21,12 @@ public class RestBird {
 
     // MARK: - Properties
 
-    fileprivate let config: NetworkManagerConfiguration
+    fileprivate let config: RestBirdConfiguration
     fileprivate var parseQueue: DispatchQueue
 
     // MARK: - Lifecycle
 
-    init(configuration: NetworkManagerConfiguration) {
+    public init(configuration: RestBirdConfiguration) {
         self.config = configuration
         parseQueue = DispatchQueue(label: "response-parse")
     }
@@ -36,7 +36,7 @@ public class RestBird {
 
 extension RestBird {
 
-    func execute<Request: DataRequest>(request: Request, completion: @escaping (Result<Void>) -> Void) {
+    public func execute<Request: DataRequest>(request: Request, completion: @escaping (Result<Void>) -> Void) {
         performDataTask(request: request) { result in
             self.parseQueue.async {
                 let response = result.map { _ in () }
@@ -47,7 +47,7 @@ extension RestBird {
         }
     }
 
-    func execute<Request: DataRequest>(request: Request, decoder: JSONDecoder = JSONDecoder(), completion: @escaping (Result<Request.ResponseType>) -> Void) {
+    public func execute<Request: DataRequest>(request: Request, decoder: JSONDecoder = JSONDecoder(), completion: @escaping (Result<Request.ResponseType>) -> Void) {
         performDataTask(request: request) { result in
             self.parseQueue.async {
                 let response: Result<Request.ResponseType> = result.map { try $0.decoded() }
@@ -58,7 +58,7 @@ extension RestBird {
         }
     }
 
-    func execute<Request: DataRequest>(request: Request, completion: @escaping (Result<[Request.ResponseType]>) -> Void) {
+    public func execute<Request: DataRequest>(request: Request, completion: @escaping (Result<[Request.ResponseType]>) -> Void) {
         performDataTask(request: request) { result in
             self.parseQueue.async {
                 let response: Result<[Request.ResponseType]> = result.map { try $0.decodedArray() }
@@ -78,7 +78,7 @@ extension RestBird {
 
 extension RestBird {
 
-    func execute<Request: UploadRequest>(request: Request, completion: @escaping (Result<Request.ResponseType>) -> Void) {
+    public func execute<Request: UploadRequest>(request: Request, completion: @escaping (Result<Request.ResponseType>) -> Void) {
         performUploadTask(request: request) { result in
             self.parseQueue.async {
                 let response: Result<Request.ResponseType> = result.map { try $0.decoded() }

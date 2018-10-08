@@ -44,7 +44,7 @@ class AlamofireSessionManager: SessionManager {
                                                   to: "hello",
                                                   method: request.method.alamofireMethod,
                                                   headers: nil)
-        case .steam(let stream):
+        case .stream(let stream):
             uploadRequest = sessionManager.upload(stream,
                                                   to: "hello",
                                                   method: request.method.alamofireMethod,
