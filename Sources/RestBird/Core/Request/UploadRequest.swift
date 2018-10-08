@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum UploadSource {
+public enum UploadSource {
     case url(URL)
     case data(Data)
-    case steam(InputStream)
+    case stream(InputStream)
 }
 
 /// Represents an upload request.
-protocol UploadRequest: Request {
+public protocol UploadRequest: Request {
     var source: UploadSource { get }
 }
 

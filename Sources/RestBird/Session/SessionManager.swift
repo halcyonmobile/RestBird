@@ -9,7 +9,7 @@
 import Foundation
 
 /// URL session interface
-protocol SessionManager {
+public protocol SessionManager {
 
     /// Perform data task.
     ///
