@@ -20,6 +20,34 @@
                ReferencedContainer = "container:RestBird.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RestBird::RestBird-URLSession"
+               BuildableName = "RestBird_URLSession.framework"
+               BlueprintName = "RestBird-URLSession"
+               ReferencedContainer = "container:RestBird.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RestBird::RestBird-Alamofire"
+               BuildableName = "RestBird_Alamofire.framework"
+               BlueprintName = "RestBird-Alamofire"
+               ReferencedContainer = "container:RestBird.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

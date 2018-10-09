@@ -1,6 +1,6 @@
 //
-//  RestBird.swift
-//  RestBird
+//  NetworkClient.swift
+//  NetworkClient
 //
 //  Created by Botond Magyarosi on 01/10/2018.
 //  Copyright © 2018 Halcyon Mobile. All rights reserved.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// This protocol represents a backend server configuration.
-public protocol RestBirdConfiguration {
+public protocol NetworkClientConfiguration {
     /// The base URL of the backend service
     var baseUrl: String { get }
     /// Define session manager interface. Can be Alamofire, URLSession
@@ -17,16 +17,16 @@ public protocol RestBirdConfiguration {
 }
 
 /// This manager class does all the heavy lifting. Calls the backend code
-public class RestBird {
+public class NetworkClient {
 
     // MARK: - Properties
 
-    fileprivate let config: RestBirdConfiguration
+    fileprivate let config: NetworkClientConfiguration
     fileprivate var parseQueue: DispatchQueue
 
     // MARK: - Lifecycle
 
-    public init(configuration: RestBirdConfiguration) {
+    public init(configuration: NetworkClientConfiguration) {
         self.config = configuration
         parseQueue = DispatchQueue(label: "response-parse")
     }
@@ -34,7 +34,7 @@ public class RestBird {
 
 // MARK: - Data request
 
-extension RestBird {
+extension NetworkClient {
 
     public func execute<Request: DataRequest>(request: Request, completion: @escaping (Result<Void>) -> Void) {
         performDataTask(request: request) { result in
@@ -76,7 +76,7 @@ extension RestBird {
 
 // MARK: - Upload request
 
-extension RestBird {
+extension NetworkClient {
 
     public func execute<Request: UploadRequest>(request: Request, completion: @escaping (Result<Request.ResponseType>) -> Void) {
         performUploadTask(request: request) { result in

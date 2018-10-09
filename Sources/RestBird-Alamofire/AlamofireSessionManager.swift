@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import RestBird
 import Alamofire
 
-class AlamofireSessionManager: SessionManager {
+public class AlamofireSessionManager: RestBird.SessionManager {
 
     private(set) var sessionManager: Alamofire.SessionManager
 
@@ -19,7 +20,7 @@ class AlamofireSessionManager: SessionManager {
 
     // MARK: - Data Task
 
-    func performDataTask<Request: DataRequest>(request: Request, completion: @escaping (Result<Data>) -> Void) {
+    public func performDataTask<Request: RestBird.DataRequest>(request: Request, completion: @escaping (RestBird.Result<Data>) -> Void) {
         let dataRequest = sessionManager.request("hello",
                                                  method: .post,
                                                  parameters: request.parameters,
@@ -31,7 +32,7 @@ class AlamofireSessionManager: SessionManager {
         }
     }
 
-    func performUploadTask<Request: UploadRequest>(request: Request, completion: @escaping (Result<Data>) -> Void) {
+    public func performUploadTask<Request: RestBird.UploadRequest>(request: Request, completion: @escaping (RestBird.Result<Data>) -> Void) {
         let uploadRequest: Alamofire.UploadRequest
         switch request.source {
         case .url(let url):
@@ -59,7 +60,7 @@ class AlamofireSessionManager: SessionManager {
 
 extension Alamofire.DataResponse {
 
-    func toResult() -> Result<Value> {
+    func toResult() -> RestBird.Result<Value> {
         switch self.result {
         case .success(let value):
             return .success(value)
@@ -69,7 +70,7 @@ extension Alamofire.DataResponse {
     }
 }
 
-fileprivate extension HTTPMethod {
+fileprivate extension RestBird.HTTPMethod {
 
     var alamofireMethod: Alamofire.HTTPMethod {
         switch self {
