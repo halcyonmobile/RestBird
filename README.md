@@ -31,8 +31,33 @@ Lightweight, stateless REST network manager over the Codable protocol.
 
 ### Swift Package Manager
 
+Add RestBird as a dependency to your project.
+
 ```swift
 .Package(url: "https://github.com/halcyonmobile/RestBird.git", majorVersion: 1)
+```
+
+You can use RestBird and implement your own session handling or use one of the built-in drivers implemented by RestBird (Alamofire and URLSession).
+
+```swift
+// Use RestBird without any driver
+targets: [
+    Target(name: "YourTarget", dependencies: ["RestBird"])
+]
+
+// Use the URLSession Driver
+targets: [
+    Target(name: "YourTarget", dependencies: [
+        .product(name: "RestBird-URLSession", package: "RestBird")
+    ])
+]
+
+// Use the Alamofire Driver
+targets: [
+    Target(name: "YourTarget", dependencies: [
+        .product(name: "RestBird-Alamofire", package: "RestBird")
+    ])
+]
 ```
 
 ### CocoaPods
