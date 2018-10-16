@@ -23,9 +23,9 @@ public protocol Request {
 
 extension Request {
 
-    var method: HTTPMethod { return .get }
+    public var method: HTTPMethod { return .get }
     
-    var suffix: String? { return nil }
+    public var suffix: String? { return nil }
 
-    var headers: [String: Any]? { return nil }
+    public var headers: [String: Any]? { return nil }
 }

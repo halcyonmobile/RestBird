@@ -26,6 +26,8 @@ Lightweight, stateless REST network manager over the Codable protocol.
 ## Features
 
 - [x] Codable support.
+- [ ] Built-in Alamofire driver.
+- [ ] Built-in URLSession driver.
 
 ## Installation Instructions
 
@@ -63,7 +65,17 @@ targets: [
 ### CocoaPods
 
 ```ruby
+# use RestBird without any driver
 pod 'RestBird'
+
+# use RestBird with Alamofire driver
+por 'RestBird/Alamofire'
+```
+
+You can also try it out by running
+
+```bash
+pod try RestBird
 ```
 
 ### Carthage
@@ -73,6 +85,21 @@ github "halcyonmobile/RestBird"
 ```
 
 ## Usage
+
+First you need to create your `NetworkClientConfiguration` configuration with your custom or one of the provided session manager drivers. We're going to use the AlamofireSessionManager.
+
+```swift
+struct MainAPIConfiguration: NetworkClientConfiguration {
+    let baseUrl = "https://api.example.com"
+    let sessionManager = AlamofireSessionManager()
+}
+```
+
+Now we can pass this configuration to the network client.
+
+```swift
+let networkClient = NetworkClient(configuration: MainAPIConfiguration())
+```
 
 ## License
 

@@ -1,0 +1,6 @@
+framework module RestBird {
+  umbrella header "RestBird-umbrella.h"
+
+  export *
+  module * { export * }
+}

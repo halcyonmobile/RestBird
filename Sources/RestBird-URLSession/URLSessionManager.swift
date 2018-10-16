@@ -9,7 +9,7 @@
 import Foundation
 import RestBird
 
-public class URLSessionManager: SessionManager {
+public final class URLSessionManager: SessionManager {
 
     private(set) var session: URLSession
 

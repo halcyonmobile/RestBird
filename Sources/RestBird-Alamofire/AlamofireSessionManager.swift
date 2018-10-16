@@ -7,14 +7,16 @@
 //
 
 import Foundation
+#if !COCOAPODS
 import RestBird
+#endif
 import Alamofire
 
-public class AlamofireSessionManager: RestBird.SessionManager {
+public final class AlamofireSessionManager: RestBird.SessionManager {
 
     private(set) var sessionManager: Alamofire.SessionManager
 
-    init(sessionManager: Alamofire.SessionManager = .default) {
+    public init(sessionManager: Alamofire.SessionManager = .default) {
         self.sessionManager = sessionManager
     }
 
@@ -31,6 +33,20 @@ public class AlamofireSessionManager: RestBird.SessionManager {
             completion(response.toResult())
         }
     }
+
+    // MARK: - Private
+
+    private func urlWithBaseUrl<Request: RestBird.Request>(_ baseUrl: String, request: Request) -> String {
+        if let suffix = request.suffix {
+            return baseUrl + suffix
+        }
+        return baseUrl
+    }
+}
+
+// MARK: - Upload task
+
+extension AlamofireSessionManager {
 
     public func performUploadTask<Request: RestBird.UploadRequest>(request: Request, baseUrl: String, completion: @escaping (RestBird.Result<Data>) -> Void) {
         let uploadRequest: Alamofire.UploadRequest
@@ -55,15 +71,6 @@ public class AlamofireSessionManager: RestBird.SessionManager {
         uploadRequest.responseData { response in
             completion(response.toResult())
         }
-    }
-
-    // MARK: - Private
-
-    private func urlWithBaseUrl<Request: RestBird.Request>(_ baseUrl: String, request: Request) -> String {
-        if let suffix = request.suffix {
-            return baseUrl + suffix
-        }
-        return baseUrl
     }
 }
 

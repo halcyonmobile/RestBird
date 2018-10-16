@@ -16,5 +16,5 @@ public protocol DataRequest: Request {
 // default implementations
 
 extension DataRequest {
-    var parameters: [String: Any]? { return nil }
+    public var parameters: [String: Any]? { return nil }
 }

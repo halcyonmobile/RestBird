@@ -13,14 +13,20 @@ Pod::Spec.new do |s|
   
   s.source                  = { :git => "https://github.com/halcyonmobile/RestBird.git", :tag => "v#{s.version}" }
 
-  s.source_files            = "Sources/RestBird/*.swift"
+  s.default_subspec         = 'Core'
   
-  s.subspec 'Alamofire' do |sp|
-    sp.source_files         = "Sources/RestBird-Alamofire/*.swift"
-    sp.dependency           "Alamofire"
+  s.subspec 'Core' do |s|
+    s.source_files          = "Sources/RestBird/**/*.swift"
+  end
+
+  s.subspec 'Alamofire' do |s|
+    s.source_files          = "Sources/RestBird-Alamofire/*.swift"
+    s.dependency            "RestBird/Core"
+    s.dependency            "Alamofire"
   end
   
-  s.subspec 'URLSession' do |sp|
-    sp.source_files         = "Sources/RestBird-URLSession/*.swift"
+  s.subspec 'URLSession' do |s|
+    s.source_files          = "Sources/RestBird-URLSession/*.swift"
+    s.dependency            "RestBird/Core"
   end
 end
