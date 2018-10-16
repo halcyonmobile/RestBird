@@ -7,21 +7,24 @@
 //
 
 import Foundation
+#if !COCOAPODS
+import RestBird
+#endif
 import Alamofire
 
-class AlamofireSessionManager: SessionManager {
+public final class AlamofireSessionManager: RestBird.SessionManager {
 
     private(set) var sessionManager: Alamofire.SessionManager
 
-    init(sessionManager: Alamofire.SessionManager = .default) {
+    public init(sessionManager: Alamofire.SessionManager = .default) {
         self.sessionManager = sessionManager
     }
 
     // MARK: - Data Task
 
-    func performDataTask<Request: DataRequest>(request: Request, completion: @escaping (Result<Data>) -> Void) {
-        let dataRequest = sessionManager.request("hello",
-                                                 method: .post,
+    public func performDataTask<Request: RestBird.DataRequest>(request: Request, baseUrl: String, completion: @escaping (RestBird.Result<Data>) -> Void) {
+        let dataRequest = sessionManager.request(urlWithBaseUrl(baseUrl, request: request),
+                                                 method: request.method.alamofireMethod,
                                                  parameters: request.parameters,
                                                  encoding: request.method.encoding,
                                                  headers: nil)
@@ -31,22 +34,36 @@ class AlamofireSessionManager: SessionManager {
         }
     }
 
-    func performUploadTask<Request: UploadRequest>(request: Request, completion: @escaping (Result<Data>) -> Void) {
+    // MARK: - Private
+
+    private func urlWithBaseUrl<Request: RestBird.Request>(_ baseUrl: String, request: Request) -> String {
+        if let suffix = request.suffix {
+            return baseUrl + suffix
+        }
+        return baseUrl
+    }
+}
+
+// MARK: - Upload task
+
+extension AlamofireSessionManager {
+
+    public func performUploadTask<Request: RestBird.UploadRequest>(request: Request, baseUrl: String, completion: @escaping (RestBird.Result<Data>) -> Void) {
         let uploadRequest: Alamofire.UploadRequest
         switch request.source {
         case .url(let url):
             uploadRequest = sessionManager.upload(url,
-                                                  to: "hello",
+                                                  to: urlWithBaseUrl(baseUrl, request: request),
                                                   method: request.method.alamofireMethod,
                                                   headers: nil)
         case .data(let data):
             uploadRequest = sessionManager.upload(data,
-                                                  to: "hello",
+                                                  to: urlWithBaseUrl(baseUrl, request: request),
                                                   method: request.method.alamofireMethod,
                                                   headers: nil)
         case .stream(let stream):
             uploadRequest = sessionManager.upload(stream,
-                                                  to: "hello",
+                                                  to: urlWithBaseUrl(baseUrl, request: request),
                                                   method: request.method.alamofireMethod,
                                                   headers: nil)
         }
@@ -57,9 +74,11 @@ class AlamofireSessionManager: SessionManager {
     }
 }
 
+// MARK: - DataResponse -> Result<Data>
+
 extension Alamofire.DataResponse {
 
-    func toResult() -> Result<Value> {
+    func toResult() -> RestBird.Result<Value> {
         switch self.result {
         case .success(let value):
             return .success(value)
@@ -69,7 +88,9 @@ extension Alamofire.DataResponse {
     }
 }
 
-fileprivate extension HTTPMethod {
+// MARK: - RestBird.HTTPMethod -> Alamofire.HTTPMethod
+
+fileprivate extension RestBird.HTTPMethod {
 
     var alamofireMethod: Alamofire.HTTPMethod {
         switch self {

@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import RestBird
 
-class URLSessionManager: SessionManager {
+public final class URLSessionManager: SessionManager {
 
     private(set) var session: URLSession
 
@@ -16,11 +17,11 @@ class URLSessionManager: SessionManager {
         self.session = session
     }
 
-    func performDataTask<Request: DataRequest>(request: Request, completion: @escaping (Result<Data>) -> Void) {
+    public func performDataTask<Request: DataRequest>(request: Request, baseUrl: String, completion: @escaping (Result<Data>) -> Void) {
         fatalError("Not implemented")
     }
 
-    func performUploadTask<Request: UploadRequest>(request: Request, completion: @escaping (Result<Data>) -> Void) {
+    public func performUploadTask<Request: UploadRequest>(request: Request, baseUrl: String, completion: @escaping (Result<Data>) -> Void) {
         fatalError("Not implemented")
     }
 }

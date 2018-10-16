@@ -26,19 +26,56 @@ Lightweight, stateless REST network manager over the Codable protocol.
 ## Features
 
 - [x] Codable support.
+- [ ] Built-in Alamofire driver.
+- [ ] Built-in URLSession driver.
 
 ## Installation Instructions
 
 ### Swift Package Manager
 
+Add RestBird as a dependency to your project.
+
 ```swift
 .Package(url: "https://github.com/halcyonmobile/RestBird.git", majorVersion: 1)
+```
+
+You can use RestBird and implement your own session handling or use one of the built-in drivers implemented by RestBird (Alamofire and URLSession).
+
+```swift
+// Use RestBird without any driver
+targets: [
+    Target(name: "YourTarget", dependencies: ["RestBird"])
+]
+
+// Use the URLSession Driver
+targets: [
+    Target(name: "YourTarget", dependencies: [
+        .product(name: "RestBird-URLSession", package: "RestBird")
+    ])
+]
+
+// Use the Alamofire Driver
+targets: [
+    Target(name: "YourTarget", dependencies: [
+        .product(name: "RestBird-Alamofire", package: "RestBird")
+    ])
+]
 ```
 
 ### CocoaPods
 
 ```ruby
+# use RestBird without any driver
 pod 'RestBird'
+
+# use RestBird with Alamofire driver
+por 'RestBird/Alamofire'
+```
+
+You can also try it out by running
+
+```bash
+pod try RestBird
 ```
 
 ### Carthage
@@ -48,6 +85,21 @@ github "halcyonmobile/RestBird"
 ```
 
 ## Usage
+
+First you need to create your `NetworkClientConfiguration` configuration with your custom or one of the provided session manager drivers. We're going to use the AlamofireSessionManager.
+
+```swift
+struct MainAPIConfiguration: NetworkClientConfiguration {
+    let baseUrl = "https://api.example.com"
+    let sessionManager = AlamofireSessionManager()
+}
+```
+
+Now we can pass this configuration to the network client.
+
+```swift
+let networkClient = NetworkClient(configuration: MainAPIConfiguration())
+```
 
 ## License
 
