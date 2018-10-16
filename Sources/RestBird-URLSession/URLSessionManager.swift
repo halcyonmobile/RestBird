@@ -17,11 +17,11 @@ public class URLSessionManager: SessionManager {
         self.session = session
     }
 
-    public func performDataTask<Request: DataRequest>(request: Request, completion: @escaping (Result<Data>) -> Void) {
+    public func performDataTask<Request: DataRequest>(request: Request, baseUrl: String, completion: @escaping (Result<Data>) -> Void) {
         fatalError("Not implemented")
     }
 
-    public func performUploadTask<Request: UploadRequest>(request: Request, completion: @escaping (Result<Data>) -> Void) {
+    public func performUploadTask<Request: UploadRequest>(request: Request, baseUrl: String, completion: @escaping (Result<Data>) -> Void) {
         fatalError("Not implemented")
     }
 }

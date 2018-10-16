@@ -20,9 +20,9 @@ public class AlamofireSessionManager: RestBird.SessionManager {
 
     // MARK: - Data Task
 
-    public func performDataTask<Request: RestBird.DataRequest>(request: Request, completion: @escaping (RestBird.Result<Data>) -> Void) {
-        let dataRequest = sessionManager.request("hello",
-                                                 method: .post,
+    public func performDataTask<Request: RestBird.DataRequest>(request: Request, baseUrl: String, completion: @escaping (RestBird.Result<Data>) -> Void) {
+        let dataRequest = sessionManager.request(urlWithBaseUrl(baseUrl, request: request),
+                                                 method: request.method.alamofireMethod,
                                                  parameters: request.parameters,
                                                  encoding: request.method.encoding,
                                                  headers: nil)
@@ -32,22 +32,22 @@ public class AlamofireSessionManager: RestBird.SessionManager {
         }
     }
 
-    public func performUploadTask<Request: RestBird.UploadRequest>(request: Request, completion: @escaping (RestBird.Result<Data>) -> Void) {
+    public func performUploadTask<Request: RestBird.UploadRequest>(request: Request, baseUrl: String, completion: @escaping (RestBird.Result<Data>) -> Void) {
         let uploadRequest: Alamofire.UploadRequest
         switch request.source {
         case .url(let url):
             uploadRequest = sessionManager.upload(url,
-                                                  to: "hello",
+                                                  to: urlWithBaseUrl(baseUrl, request: request),
                                                   method: request.method.alamofireMethod,
                                                   headers: nil)
         case .data(let data):
             uploadRequest = sessionManager.upload(data,
-                                                  to: "hello",
+                                                  to: urlWithBaseUrl(baseUrl, request: request),
                                                   method: request.method.alamofireMethod,
                                                   headers: nil)
         case .stream(let stream):
             uploadRequest = sessionManager.upload(stream,
-                                                  to: "hello",
+                                                  to: urlWithBaseUrl(baseUrl, request: request),
                                                   method: request.method.alamofireMethod,
                                                   headers: nil)
         }
@@ -56,7 +56,18 @@ public class AlamofireSessionManager: RestBird.SessionManager {
             completion(response.toResult())
         }
     }
+
+    // MARK: - Private
+
+    private func urlWithBaseUrl<Request: RestBird.Request>(_ baseUrl: String, request: Request) -> String {
+        if let suffix = request.suffix {
+            return baseUrl + suffix
+        }
+        return baseUrl
+    }
 }
+
+// MARK: - DataResponse -> Result<Data>
 
 extension Alamofire.DataResponse {
 
@@ -69,6 +80,8 @@ extension Alamofire.DataResponse {
         }
     }
 }
+
+// MARK: - RestBird.HTTPMethod -> Alamofire.HTTPMethod
 
 fileprivate extension RestBird.HTTPMethod {
 

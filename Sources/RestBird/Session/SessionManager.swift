@@ -15,13 +15,15 @@ public protocol SessionManager {
     ///
     /// - Parameters:
     ///   - request: DataRequest object.
+    ///   - baseUrl: The base URL for the upload task.
     ///   - completion: Request completion handler.
-    func performDataTask<Request: DataRequest>(request: Request, completion: @escaping (Result<Data>) -> Void)
+    func performDataTask<Request: DataRequest>(request: Request, baseUrl: String, completion: @escaping (Result<Data>) -> Void)
 
     /// Perform upload task
     ///
     /// - Parameters:
     ///   - request: UploadRequest object.
+    ///   - baseUrl: The base URL for the upload task.
     ///   - completion: Request completion handler.
-    func performUploadTask<Request: UploadRequest>(request: Request, completion: @escaping (Result<Data>) -> Void)
+    func performUploadTask<Request: UploadRequest>(request: Request, baseUrl: String, completion: @escaping (Result<Data>) -> Void)
 }

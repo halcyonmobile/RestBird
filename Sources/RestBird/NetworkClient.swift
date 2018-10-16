@@ -69,8 +69,10 @@ extension NetworkClient {
         }
     }
 
+    // MARK: - Private
+
     private func performDataTask<Request: DataRequest>(request: Request, completion: @escaping (Result<Data>) -> Void) {
-        config.sessionManager.performDataTask(request: request, completion: completion)
+        config.sessionManager.performDataTask(request: request, baseUrl: config.baseUrl, completion: completion)
     }
 }
 
@@ -89,7 +91,9 @@ extension NetworkClient {
         }
     }
 
+    // MARK: - Private
+
     private func performUploadTask<Request: UploadRequest>(request: Request, completion: @escaping (Result<Data>) -> Void) {
-        config.sessionManager.performUploadTask(request: request, completion: completion)
+        config.sessionManager.performUploadTask(request: request, baseUrl: config.baseUrl, completion: completion)
     }
 }
