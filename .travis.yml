@@ -4,4 +4,4 @@ language: swift
 osx_image: xcode10
 install: swift package update
 script:
-  - xcodebuild -scheme ReleaseRadar-Package build test
+  - xcodebuild -scheme RestBird-Package build test
