@@ -36,7 +36,7 @@ public class NetworkClient {
 
 extension NetworkClient {
 
-    public func execute<Request: DataRequest>(request: Request, completion: @escaping (Result<Void>) -> Void) {
+    public func execute<Request: DataRequest>(request: Request, completion: @escaping (Result<Void>) -> Void)  where Request.ResponseType == EmptyResponse {
         performDataTask(request: request) { result in
             self.parseQueue.async {
                 let response = result.map { _ in () }
