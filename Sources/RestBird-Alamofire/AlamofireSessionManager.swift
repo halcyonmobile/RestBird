@@ -27,7 +27,7 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
                                                  method: request.method.alamofireMethod,
                                                  parameters: request.parameters,
                                                  encoding: request.method.encoding,
-                                                 headers: nil)
+                                                 headers: request.headers?.mapValues { String(describing: $0) })
 
         dataRequest.responseData { response in
             completion(response.toResult())
@@ -36,6 +36,8 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
 
     // MARK: - Private
 
+    // TODO: Improve the way URL strings are built.
+    // Take a look at https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/Extensions/Foundation/URLExtensions.swift
     private func urlWithBaseUrl<Request: RestBird.Request>(_ baseUrl: String, request: Request) -> String {
         if let suffix = request.suffix {
             return baseUrl + suffix
@@ -55,17 +57,17 @@ extension AlamofireSessionManager {
             uploadRequest = sessionManager.upload(url,
                                                   to: urlWithBaseUrl(baseUrl, request: request),
                                                   method: request.method.alamofireMethod,
-                                                  headers: nil)
+                                                  headers: request.headers?.mapValues { String(describing: $0) })
         case .data(let data):
             uploadRequest = sessionManager.upload(data,
                                                   to: urlWithBaseUrl(baseUrl, request: request),
                                                   method: request.method.alamofireMethod,
-                                                  headers: nil)
+                                                  headers: request.headers?.mapValues { String(describing: $0) })
         case .stream(let stream):
             uploadRequest = sessionManager.upload(stream,
                                                   to: urlWithBaseUrl(baseUrl, request: request),
                                                   method: request.method.alamofireMethod,
-                                                  headers: nil)
+                                                  headers: request.headers?.mapValues { String(describing: $0) })
         }
 
         uploadRequest.responseData { response in
