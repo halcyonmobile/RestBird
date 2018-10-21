@@ -2,7 +2,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/681dfe685db146c182483b44bd962a06)](https://app.codacy.com/app/Halcyon-Mobile/RestBird?utm_source=github.com&utm_medium=referral&utm_content=halcyonmobile/RestBird&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/halcyonmobile/RestBird.svg?branch=master)](https://travis-ci.org/halcyonmobile/RestBird)
-[![Coverage Status](https://coveralls.io/repos/github/halcyonmobile/RestBird/badge.svg)](https://coveralls.io/github/halcyonmobile/RestBird)
+[![codecov](https://codecov.io/gh/halcyonmobile/RestBird/branch/master/graph/badge.svg)](https://codecov.io/gh/halcyonmobile/RestBird)
 
 Lightweight, stateless REST network manager over the Codable protocol.
 
@@ -27,7 +27,7 @@ Lightweight, stateless REST network manager over the Codable protocol.
 ## Features
 
 - [x] Codable support.
-- [ ] Built-in Alamofire driver.
+- [x] Built-in Alamofire driver.
 - [ ] Built-in URLSession driver.
 
 ## Installation Instructions
