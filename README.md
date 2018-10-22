@@ -13,6 +13,7 @@ Lightweight, stateless REST network manager over the Codable protocol.
     - [Swift Package Manager](#swift-package-manager)
     - [CocoaPods](#cocoapods)
     - [Carthage](#carthage)
+- [Setup](#setup)
 - [Usage](#usage)
 - [License](#license)
 
@@ -70,7 +71,7 @@ targets: [
 pod 'RestBird'
 
 # use RestBird with Alamofire driver
-por 'RestBird/Alamofire'
+pod 'RestBird/Alamofire'
 ```
 
 You can also try it out by running
@@ -84,6 +85,13 @@ pod try RestBird
 ```swift
 github "halcyonmobile/RestBird"
 ```
+
+## Setup
+
+Steps for setting up the project for development:
+- Clone the repo
+- Generate Xcode project by executing `swift package generate-xcodeproj`
+- Open project
 
 ## Usage
 
