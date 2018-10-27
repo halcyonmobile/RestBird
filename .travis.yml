@@ -2,6 +2,6 @@ os:
   - osx
 language: swift
 osx_image: xcode10
-install: swift package update
 script:
+  - swift package generate-xcodeproj
   - xcodebuild -scheme RestBird-Package build test
