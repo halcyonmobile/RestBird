@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A161AB621870AFF00C8FEF7 /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A161AB521870AFF00C8FEF7 /* EmptyResponse.swift */; };
+		1A161AB72187239200C8FEF7 /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A161AB521870AFF00C8FEF7 /* EmptyResponse.swift */; };
 		1FC3FD39157C2FFFF3869A1300730086 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195D73DD9EF275A3C56569E2B1CA8026 /* SessionDelegate.swift */; };
 		36FF8853CB34A9297AFAA8F5F7456324 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C037B4034EDA3D7955BC5E4E9D9D6 /* TaskDelegate.swift */; };
 		4E1A913EFB404FB11524718FF0298EFE /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCB8C44DE758E906C0BCDA455937B85 /* Alamofire.swift */; };
@@ -513,7 +513,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A161AB621870AFF00C8FEF7 /* EmptyResponse.swift in Sources */,
 				BE4BA1EDE444A770F834605F4B65348E /* AFError.swift in Sources */,
 				D4C3899574E9D5DF5E5DA52310560BCC /* Alamofire-dummy.m in Sources */,
 				4E1A913EFB404FB11524718FF0298EFE /* Alamofire.swift in Sources */,
@@ -539,6 +538,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A161AB72187239200C8FEF7 /* EmptyResponse.swift in Sources */,
 				CED49219012FF96FE2DDB2C752070638 /* AlamofireSessionManager.swift in Sources */,
 				D21145CDE9124300E2715EF81BAA13EC /* Data+Codable.swift in Sources */,
 				8575DE4016DF5A988337761DC0060650 /* DataRequest.swift in Sources */,
