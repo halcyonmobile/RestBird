@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A161AB621870AFF00C8FEF7 /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A161AB521870AFF00C8FEF7 /* EmptyResponse.swift */; };
 		1FC3FD39157C2FFFF3869A1300730086 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195D73DD9EF275A3C56569E2B1CA8026 /* SessionDelegate.swift */; };
 		36FF8853CB34A9297AFAA8F5F7456324 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C037B4034EDA3D7955BC5E4E9D9D6 /* TaskDelegate.swift */; };
 		4E1A913EFB404FB11524718FF0298EFE /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCB8C44DE758E906C0BCDA455937B85 /* Alamofire.swift */; };
@@ -79,6 +80,7 @@
 		181C1369B6E09DF1EF3128EAB3847081 /* RestBird-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RestBird-umbrella.h"; sourceTree = "<group>"; };
 		195D73DD9EF275A3C56569E2B1CA8026 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
 		1D3AC70722DDBAB2BBBA8710FC02CAA0 /* RestBird.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = RestBird.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		1A161AB521870AFF00C8FEF7 /* EmptyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmptyResponse.swift; path = Sources/RestBird/EmptyResponse.swift; sourceTree = "<group>"; };
 		1E230A0448B394DE26E688DAC8E6201E /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		2E524BB44C60193F6500160F157A05CA /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
 		32B030D27CAC730C5EB0F22390645310 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				E001655CCBFE9D282F37AF80E105D027 /* NetworkClient.swift */,
 				9078B8C6FC37554E64FC5C09D1D8DC36 /* NetworkError.swift */,
 				09D16A25F00676E848596233E3D61D5C /* Result.swift */,
+				1A161AB521870AFF00C8FEF7 /* EmptyResponse.swift */,
 				DAA2EECF9542878FBD0E3C1C0170B8B1 /* Request */,
 				17C4FEAA14541309D0AD6DC2CA8616EA /* Session */,
 				84C733F392BE89D178B204062D63FA9F /* Utility */,
@@ -348,8 +351,8 @@
 		DAA2EECF9542878FBD0E3C1C0170B8B1 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				3C5913E7A65733C9AC511FD5126D6160 /* DataRequest.swift */,
 				892749D01CE59B78ECE0808F3AF2914E /* Request.swift */,
+				3C5913E7A65733C9AC511FD5126D6160 /* DataRequest.swift */,
 				50186F20FF950AC879ED6EEFA69CAC73 /* UploadRequest.swift */,
 			);
 			name = Request;
@@ -510,6 +513,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A161AB621870AFF00C8FEF7 /* EmptyResponse.swift in Sources */,
 				BE4BA1EDE444A770F834605F4B65348E /* AFError.swift in Sources */,
 				D4C3899574E9D5DF5E5DA52310560BCC /* Alamofire-dummy.m in Sources */,
 				4E1A913EFB404FB11524718FF0298EFE /* Alamofire.swift in Sources */,
