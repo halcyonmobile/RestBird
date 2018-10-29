@@ -26,6 +26,8 @@ public protocol Request {
     /// The parameter dictionary of the request. Default: nil
     var parameters: RequestParameters? { get }
 
+    /// If true, networking layer will print information about this request to the console. False by default
+    var isDebugModeEnabled: Bool { get }
 }
 
 extension Request {
@@ -37,4 +39,6 @@ extension Request {
     public var headers: RequestHeaders? { return nil }
 
     public var parameters: RequestParameters? { return nil }
+
+    public var isDebugModeEnabled: Bool { return false }
 }
