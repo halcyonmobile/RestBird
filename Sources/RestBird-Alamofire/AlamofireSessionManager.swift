@@ -15,28 +15,25 @@ import Alamofire
 public final class AlamofireSessionManager: RestBird.SessionManager {
 
     private(set) var sessionManager: Alamofire.SessionManager
+    private let logger: NetworkLogger
 
-    public init(sessionManager: Alamofire.SessionManager = .default) {
+    public init(sessionManager: Alamofire.SessionManager = .default, logger: NetworkLogger = NetworkConsoleLogger()) {
         self.sessionManager = sessionManager
+        self.logger = logger
     }
 
     // MARK: - Data Task
 
     public func performDataTask<Request: RestBird.DataRequest>(request: Request, baseUrl: String, completion: @escaping (RestBird.Result<Data>) -> Void) {
-        let method = request.method
-        let url = urlWithBaseUrl(baseUrl, request: request)
-        let headers = request.headers?.mapValues { String(describing: $0) }
-        let parameters = request.parameters
-        if request.isDebugModeEnabled {
-            print("[NETWORK]: Request url: \(method) \(url)")
-            print("[NETWORK]: Request headers: \(headers ?? [:])")
-            print("[NETWORK]: Request parameters: \(parameters ?? [:])")
-        }
-        let dataRequest = sessionManager.request(url,
-                                                 method: method.alamofireMethod,
-                                                 parameters: parameters,
+        let dataRequest = sessionManager.request(urlWithBaseUrl(baseUrl, request: request),
+                                                 method: request.method.alamofireMethod,
+                                                 parameters: request.parameters,
                                                  encoding: request.method.encoding,
-                                                 headers: headers)
+                                                 headers: request.headers?.mapValues { String(describing: $0) })
+
+        if request.isDebugModeEnabled, let request = dataRequest.request {
+            logger.log(request: request)
+        }
 
         dataRequest.responseData { response in
             completion(response.toResult())
