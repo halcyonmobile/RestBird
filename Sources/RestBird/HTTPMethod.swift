@@ -21,5 +21,3 @@ import Foundation
 public enum HTTPMethod {
     case get, head, post, put, delete, patch
 }
-
-public struct EmptyResponse: Decodable { }

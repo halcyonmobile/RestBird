@@ -15,5 +15,7 @@ extension Request.Beer {
         typealias ResponseType = Beer
 
         var suffix: String? = "/beers"
+
+        var isDebugModeEnabled: Bool = true
     }
 }

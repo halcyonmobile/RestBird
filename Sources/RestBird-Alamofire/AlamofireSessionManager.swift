@@ -15,9 +15,11 @@ import Alamofire
 public final class AlamofireSessionManager: RestBird.SessionManager {
 
     private(set) var sessionManager: Alamofire.SessionManager
+    private let logger: NetworkLogger
 
-    public init(sessionManager: Alamofire.SessionManager = .default) {
+    public init(sessionManager: Alamofire.SessionManager = .default, logger: NetworkLogger = NetworkConsoleLogger()) {
         self.sessionManager = sessionManager
+        self.logger = logger
     }
 
     // MARK: - Data Task
@@ -28,6 +30,10 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
                                                  parameters: request.parameters,
                                                  encoding: request.method.encoding,
                                                  headers: request.headers?.mapValues { String(describing: $0) })
+
+        if request.isDebugModeEnabled, let request = dataRequest.request {
+            logger.log(request: request)
+        }
 
         dataRequest.responseData { response in
             completion(response.toResult())
