@@ -18,6 +18,11 @@ import Foundation
 /// - put: Replace all current representations of the target resource with the request payload.
 /// - delete: Remove all current representations of the target resource.
 /// - patch: Apply partial modifications to a resource the target resource.
-public enum HTTPMethod {
-    case get, head, post, put, delete, patch
+public enum HTTPMethod: String {
+    case get = "GET"
+    case head = "HEAD"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
+    case patch = "PATCH"
 }
