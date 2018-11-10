@@ -17,7 +17,7 @@ extension Encodable {
     /// - Parameter encoder: encoder instance. default `JSONEncoder()`.
     /// - Returns: encoded data.
     /// - Throws: error in case of encoding error.
-    func encoded(encoder: JSONEncoder = JSONEncoder()) throws -> Data {
+    func encoded(encoder: JSONEncoder) throws -> Data {
         return try encoder.encode(self)
     }
 }
@@ -31,7 +31,7 @@ extension Data {
     /// - Parameter decoder: decoder instance. default `JSONDecoder()`.
     /// - Returns: decoded json object.
     /// - Throws: error in case of decoding error.
-    func decoded<T: Decodable>(decoder: JSONDecoder = JSONDecoder()) throws -> T {
+    func decoded<T: Decodable>(decoder: JSONDecoder) throws -> T {
         return try decoder.decode(T.self, from: self)
     }
 
@@ -40,7 +40,7 @@ extension Data {
     /// - Parameter decoder: decoder instance. default `JSONDecoder()`.
     /// - Returns: decoded array of json objects.
     /// - Throws: error in case of decoding error.
-    func decodedArray<T: Decodable>(decoder: JSONDecoder = JSONDecoder()) throws -> [T] {
+    func decodedArray<T: Decodable>(decoder: JSONDecoder) throws -> [T] {
         return try decoder.decode([T].self, from: self)
     }
 }

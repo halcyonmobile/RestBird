@@ -14,6 +14,10 @@ public protocol NetworkClientConfiguration {
     var baseUrl: String { get }
     /// Define session manager interface. Can be Alamofire, URLSession
     var sessionManager: SessionManager { get }
+    /// JSON encoder
+    var jsonEncoder: JSONEncoder { get }
+    /// JSON decoder
+    var jsonDecoder: JSONDecoder { get }
 }
 
 /// This manager class does all the heavy lifting. Calls the backend code
@@ -48,9 +52,9 @@ extension NetworkClient {
     }
 
     public func execute<Request: DataRequest>(request: Request, decoder: JSONDecoder = JSONDecoder(), completion: @escaping (Result<Request.ResponseType>) -> Void) {
-        performDataTask(request: request) { result in
+        performDataTask(request: request) { [config] result in
             self.parseQueue.async {
-                let response: Result<Request.ResponseType> = result.map { try $0.decoded() }
+                let response: Result<Request.ResponseType> = result.map { [config] in try $0.decoded(decoder: config.jsonDecoder) }
                 DispatchQueue.main.async {
                     completion(response)
                 }
@@ -59,9 +63,9 @@ extension NetworkClient {
     }
 
     public func execute<Request: DataRequest>(request: Request, completion: @escaping (Result<[Request.ResponseType]>) -> Void) {
-        performDataTask(request: request) { result in
+        performDataTask(request: request) { [config] result in
             self.parseQueue.async {
-                let response: Result<[Request.ResponseType]> = result.map { try $0.decodedArray() }
+                let response: Result<[Request.ResponseType]> = result.map { try $0.decodedArray(decoder: config.jsonDecoder) }
                 DispatchQueue.main.async {
                     completion(response)
                 }
@@ -81,9 +85,9 @@ extension NetworkClient {
 extension NetworkClient {
 
     public func execute<Request: UploadRequest>(request: Request, completion: @escaping (Result<Request.ResponseType>) -> Void) {
-        performUploadTask(request: request) { result in
+        performUploadTask(request: request) { [config] result in
             self.parseQueue.async {
-                let response: Result<Request.ResponseType> = result.map { try $0.decoded() }
+                let response: Result<Request.ResponseType> = result.map { try $0.decoded(decoder: config.jsonDecoder) }
                 DispatchQueue.main.async {
                     completion(response)
                 }
