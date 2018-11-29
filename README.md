@@ -15,6 +15,7 @@ Lightweight, stateless REST network manager over the Codable protocol.
     - [Carthage](#carthage)
 - [Setup](#setup)
 - [Usage](#usage)
+- [Convenience](#convenience)
 - [License](#license)
 
 ## About
@@ -29,7 +30,8 @@ Lightweight, stateless REST network manager over the Codable protocol.
 
 - [x] Codable support.
 - [x] Built-in Alamofire driver.
-- [ ] Built-in URLSession driver.
+- [x] Built-in URLSession driver.
+- [x] PromiseKit wrapper.
 
 ## Installation Instructions
 
@@ -109,6 +111,12 @@ Now we can pass this configuration to the network client.
 ```swift
 let networkClient = NetworkClient(configuration: MainAPIConfiguration())
 ```
+
+## Convenience
+
+You can find convenience wrappers for RestBird which are not distributed through the package. This includes a PromiseKit wrapper.
+
+Check out [here](https://github.com/halcyonmobile/RestBird/tree/master/Convenience).
 
 ## License
 
