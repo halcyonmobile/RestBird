@@ -74,6 +74,9 @@ pod 'RestBird'
 
 # use RestBird with Alamofire driver
 pod 'RestBird/Alamofire'
+
+# use RestBird with URLSession driver
+pod 'RestBird/URLSession'
 ```
 
 You can also try it out by running
