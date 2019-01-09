@@ -115,6 +115,32 @@ Now we can pass this configuration to the network client.
 let networkClient = NetworkClient(configuration: MainAPIConfiguration())
 ```
 
+In order to make requests, a `DataRequest` object should be defined.
+
+```swift
+struct SignIn: DataRequest {
+    typealias ResponseType = Authentication
+
+    let email: String
+    let password: String
+
+    let suffix: String? = API.Path.login
+    let method: HTTPMethod = .post
+    var parameters: [String : Any]? {
+        return [API.Param.email: email, API.Param.password: password]
+    }
+}
+```
+
+Now use your network client to execute requests.
+
+```swift
+let request = SignIn(email: "john-doe@acme.inc", password: "123456")
+networkClient.execute(request: request, completion: { result: Result<Authentication> in 
+    print(result)
+})
+```
+
 ## Convenience
 
 You can find convenience wrappers for RestBird which are not distributed through the package. This includes a PromiseKit wrapper.
