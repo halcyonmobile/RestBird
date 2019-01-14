@@ -33,6 +33,7 @@ Lightweight, stateless REST network manager over the Codable protocol.
 - [x] Built-in Alamofire driver.
 - [x] Built-in URLSession driver.
 - [x] PromiseKit wrapper.
+- [ ] Automatic request parameter serialization (Codable?)
 
 ## Driver coverage
 
