@@ -9,6 +9,7 @@ Lightweight, stateless REST network manager over the Codable protocol.
 - [About](#about)
 - [Requirements](#requirements)
 - [Features](#features)
+- [Driver Coverage](#driver-coverage)
 - [Installation Instructions](#installation-instructions)
     - [Swift Package Manager](#swift-package-manager)
     - [CocoaPods](#cocoapods)
@@ -32,6 +33,15 @@ Lightweight, stateless REST network manager over the Codable protocol.
 - [x] Built-in Alamofire driver.
 - [x] Built-in URLSession driver.
 - [x] PromiseKit wrapper.
+
+## Driver coverage
+
+The following table describes how much the specific drivers cover `SessionManager` defined in the Core of RestBird.
+
+|                         | Coverage |
+|-------------------------|----------|
+| AlamofireSessionManager | 100%     |
+| URLSessionManager       | 70%      |
 
 ## Installation Instructions
 
