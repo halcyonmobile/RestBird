@@ -28,11 +28,24 @@ public class NetworkClient {
     fileprivate let config: NetworkClientConfiguration
     fileprivate var parseQueue: DispatchQueue
 
+    private var preMiddlewares: [PreMiddleware] = []
+    private var postMiddlewares: [PostMiddleware] = []
+
     // MARK: - Lifecycle
 
     public init(configuration: NetworkClientConfiguration) {
         self.config = configuration
         parseQueue = DispatchQueue(label: "response-parse")
+    }
+
+    // MARK: - Middleware
+
+    func register(_ middleware: PreMiddleware) {
+        self.preMiddlewares.append(middleware)
+    }
+
+    func register(_ middleware: PostMiddleware) {
+        self.postMiddlewares.append(middleware)
     }
 }
 
@@ -40,7 +53,10 @@ public class NetworkClient {
 
 extension NetworkClient {
 
-    public func execute<Request: DataRequest>(request: Request, completion: @escaping (Result<Void>) -> Void)  where Request.ResponseType == EmptyResponse {
+    public func execute<Request: DataRequest>(
+        request: Request,
+        completion: @escaping (Result<Void>) -> Void
+    ) where Request.ResponseType == EmptyResponse {
         performDataTask(request: request) { result in
             self.parseQueue.async {
                 let response = result.map { _ in () }
@@ -51,7 +67,11 @@ extension NetworkClient {
         }
     }
 
-    public func execute<Request: DataRequest>(request: Request, decoder: JSONDecoder = JSONDecoder(), completion: @escaping (Result<Request.ResponseType>) -> Void) {
+    public func execute<Request: DataRequest>(
+        request: Request,
+        decoder: JSONDecoder = JSONDecoder(),
+        completion: @escaping (Result<Request.ResponseType>) -> Void
+    ) {
         performDataTask(request: request) { [config] result in
             self.parseQueue.async {
                 let response: Result<Request.ResponseType> = result.map { [config] in try $0.decoded(decoder: config.jsonDecoder) }
