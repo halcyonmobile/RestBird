@@ -40,10 +40,16 @@ public final class NetworkClient {
 
     // MARK: - Middleware
 
+    /// Register pre execution middleware.
+    ///
+    /// - Parameter middleware: Middleware instance.
     func register(_ middleware: PreMiddleware) {
         self.preMiddlewares.append(middleware)
     }
 
+    /// Register post execution middleware.
+    ///
+    /// - Parameter middleware: Middleware instance.
     func register(_ middleware: PostMiddleware) {
         self.postMiddlewares.append(middleware)
     }
@@ -56,7 +62,7 @@ extension NetworkClient {
     /// Perform DataRequest when Void response is expected.
     ///
     /// - Parameters:
-    ///   - request: DataRequest object
+    ///   - request: DataRequest instance
     ///   - completion: Void Result callback.
     public func execute<Request: DataRequest>(
         request: Request,
@@ -75,7 +81,7 @@ extension NetworkClient {
     /// Perform DataRequest when a single object response is expected.
     ///
     /// - Parameters:
-    ///   - request: DataRequest object
+    ///   - request: DataRequest instance
     ///   - completion: Single object Result callback.
     public func execute<Request: DataRequest>(
         request: Request,
@@ -94,7 +100,7 @@ extension NetworkClient {
     /// Perform DataRequest when an array of object response is expected.
     ///
     /// - Parameters:
-    ///   - request: DataRequest object
+    ///   - request: DataRequest instance
     ///   - completion: An array of objects Result callback.
     public func execute<Request: DataRequest>(
         request: Request,
@@ -115,7 +121,7 @@ extension NetworkClient {
     /// Perform DataRequest and return the raw Data.
     ///
     /// - Parameters:
-    ///   - request: DataRequest object
+    ///   - request: DataRequest instance
     ///   - completion: Data Result callback.
     private func performDataTask<Request: DataRequest>(
         request: Request,
@@ -132,7 +138,7 @@ extension NetworkClient {
     /// Perform UploadRequest a single object response is expected.
     ///
     /// - Parameters:
-    ///   - request: UploadRequest object.
+    ///   - request: UploadRequest instance.
     ///   - completion: Single object Result callback.
     public func execute<Request: UploadRequest>(
         request: Request,
@@ -153,7 +159,7 @@ extension NetworkClient {
     /// Perform DataRequest and return the raw Data.
     ///
     /// - Parameters:
-    ///   - request: DataRequest object
+    ///   - request: DataRequest instance
     ///   - completion: Data Result callback.
     private func performUploadTask<Request: UploadRequest>(
         request: Request,
@@ -163,7 +169,7 @@ extension NetworkClient {
     }
 }
 
-// MARK: - Se
+// MARK: - SessionManagerDelegate
 
 extension NetworkClient: SessionManagerDelegate {
 
