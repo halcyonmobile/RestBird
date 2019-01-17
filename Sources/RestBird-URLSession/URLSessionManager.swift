@@ -13,6 +13,8 @@ public final class URLSessionManager: SessionManager {
 
     private(set) var session: URLSession
 
+    public weak var delegate: SessionManagerDelegate?
+
     init(session: URLSession = .shared) {
         self.session = session
     }

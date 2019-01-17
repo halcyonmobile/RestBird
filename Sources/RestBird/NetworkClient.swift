@@ -21,15 +21,15 @@ public protocol NetworkClientConfiguration {
 }
 
 /// This manager class does all the heavy lifting. Calls the backend code
-public class NetworkClient {
+public final class NetworkClient {
 
     // MARK: - Properties
 
     fileprivate let config: NetworkClientConfiguration
     fileprivate var parseQueue: DispatchQueue
 
-    private var preMiddlewares: [PreMiddleware] = []
-    private var postMiddlewares: [PostMiddleware] = []
+    private(set) var preMiddlewares: [PreMiddleware] = []
+    private(set) var postMiddlewares: [PostMiddleware] = []
 
     // MARK: - Lifecycle
 
@@ -49,10 +49,15 @@ public class NetworkClient {
     }
 }
 
-// MARK: - Data request
+// MARK: - DataRequest
 
 extension NetworkClient {
 
+    /// Perform DataRequest when Void response is expected.
+    ///
+    /// - Parameters:
+    ///   - request: DataRequest object
+    ///   - completion: Void Result callback.
     public func execute<Request: DataRequest>(
         request: Request,
         completion: @escaping (Result<Void>) -> Void
@@ -67,9 +72,13 @@ extension NetworkClient {
         }
     }
 
+    /// Perform DataRequest when a single object response is expected.
+    ///
+    /// - Parameters:
+    ///   - request: DataRequest object
+    ///   - completion: Single object Result callback.
     public func execute<Request: DataRequest>(
         request: Request,
-        decoder: JSONDecoder = JSONDecoder(),
         completion: @escaping (Result<Request.ResponseType>) -> Void
     ) {
         performDataTask(request: request) { [config] result in
@@ -82,7 +91,15 @@ extension NetworkClient {
         }
     }
 
-    public func execute<Request: DataRequest>(request: Request, completion: @escaping (Result<[Request.ResponseType]>) -> Void) {
+    /// Perform DataRequest when an array of object response is expected.
+    ///
+    /// - Parameters:
+    ///   - request: DataRequest object
+    ///   - completion: An array of objects Result callback.
+    public func execute<Request: DataRequest>(
+        request: Request,
+        completion: @escaping (Result<[Request.ResponseType]>) -> Void
+    ) {
         performDataTask(request: request) { [config] result in
             self.parseQueue.async {
                 let response: Result<[Request.ResponseType]> = result.map { try $0.decodedArray(decoder: config.jsonDecoder) }
@@ -95,16 +112,32 @@ extension NetworkClient {
 
     // MARK: - Private
 
-    private func performDataTask<Request: DataRequest>(request: Request, completion: @escaping (Result<Data>) -> Void) {
+    /// Perform DataRequest and return the raw Data.
+    ///
+    /// - Parameters:
+    ///   - request: DataRequest object
+    ///   - completion: Data Result callback.
+    private func performDataTask<Request: DataRequest>(
+        request: Request,
+        completion: @escaping (Result<Data>) -> Void
+    ) {
         config.sessionManager.performDataTask(request: request, baseUrl: config.baseUrl, completion: completion)
     }
 }
 
-// MARK: - Upload request
+// MARK: - UploadRequest
 
 extension NetworkClient {
 
-    public func execute<Request: UploadRequest>(request: Request, completion: @escaping (Result<Request.ResponseType>) -> Void) {
+    /// Perform UploadRequest a single object response is expected.
+    ///
+    /// - Parameters:
+    ///   - request: UploadRequest object.
+    ///   - completion: Single object Result callback.
+    public func execute<Request: UploadRequest>(
+        request: Request,
+        completion: @escaping (Result<Request.ResponseType>) -> Void
+    ) {
         performUploadTask(request: request) { [config] result in
             self.parseQueue.async {
                 let response: Result<Request.ResponseType> = result.map { try $0.decoded(decoder: config.jsonDecoder) }
@@ -117,7 +150,33 @@ extension NetworkClient {
 
     // MARK: - Private
 
-    private func performUploadTask<Request: UploadRequest>(request: Request, completion: @escaping (Result<Data>) -> Void) {
+    /// Perform DataRequest and return the raw Data.
+    ///
+    /// - Parameters:
+    ///   - request: DataRequest object
+    ///   - completion: Data Result callback.
+    private func performUploadTask<Request: UploadRequest>(
+        request: Request,
+        completion: @escaping (Result<Data>) -> Void
+    ) {
         config.sessionManager.performUploadTask(request: request, baseUrl: config.baseUrl, completion: completion)
+    }
+}
+
+// MARK: - Se
+
+extension NetworkClient: SessionManagerDelegate {
+
+    public func sessionManager(_ sessionManager: SessionManager, didPerform request: URLRequest, response: URLResponse) throws {
+        try postMiddlewares.forEach {
+            try $0.didPerform(request, response: response)
+        }
+    }
+
+
+    public func sessionManager(_ sessionManager: SessionManager, willPerform request: URLRequest) throws {
+        try preMiddlewares.forEach {
+            try $0.willPerform(request)
+        }
     }
 }

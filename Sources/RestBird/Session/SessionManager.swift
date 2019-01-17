@@ -8,8 +8,33 @@
 
 import Foundation
 
+public protocol SessionManagerDelegate: class {
+
+    /// Informs delegate that a URLRequest is about to be executed.
+    ///
+    /// - Parameters:
+    ///   - sessionManager: SessionManager instance.
+    ///   - request: URLRequest instance.
+    /// - Throws: The delegate can throw if preconditions are not met.
+    func sessionManager(_ sessionManager: SessionManager, willPerform request: URLRequest) throws
+
+    /// Informs delegate that a URLRequest was executed.
+    ///
+    /// - Parameters:
+    ///   - sessionManager: SessionManager instance.
+    ///   - request: URLRequest instance.
+    ///   - response: URLResponse instance.
+    /// - Throws: The delegate can throw if postconditions are not met.
+    func sessionManager(_ sessionManager: SessionManager, didPerform request: URLRequest, response: URLResponse) throws
+
+}
+
 /// URL session interface
 public protocol SessionManager {
+
+    /// Delegate for ULR request state callbacks.
+    /// !!! DO NOT OVERRIDE THIS VARIABLE !!!
+    var delegate: SessionManagerDelegate? { get set }
 
     /// Perform data task.
     ///
