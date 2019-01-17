@@ -8,9 +8,21 @@
 import Foundation
 
 protocol PreMiddleware {
+
+    /// NetworkClient will call this method before executing a network request.
+    ///
+    /// - Parameter request: network request instance.
+    /// - Throws: the method might throw to prevent execution.
     func willPerform(_ request: URLRequest) throws
 }
 
 protocol PostMiddleware {
+
+    /// NetworkClient will call this method after executing a network request.
+    ///
+    /// - Parameters:
+    ///   - request: network request instance.
+    ///   - response: response instance.
+    /// - Throws: the method might throw to prevent futher execution.
     func didPerform(_ request: URLRequest, response: URLResponse) throws
 }
