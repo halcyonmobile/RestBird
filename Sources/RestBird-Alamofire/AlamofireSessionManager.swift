@@ -17,11 +17,9 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
     public weak var delegate: SessionManagerDelegate?
 
     private(set) var sessionManager: Alamofire.SessionManager
-    private let logger: NetworkLogger
 
-    public init(sessionManager: Alamofire.SessionManager = .default, logger: NetworkLogger = NetworkConsoleLogger()) {
+    public init(sessionManager: Alamofire.SessionManager = .default) {
         self.sessionManager = sessionManager
-        self.logger = logger
     }
 
     // MARK: - Data Task
@@ -36,9 +34,6 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
         
 
 
-        if request.isDebugModeEnabled, let request = dataRequest.request {
-            logger.log(request: request)
-        }
 
         if let request = dataRequest.request {
             do {
