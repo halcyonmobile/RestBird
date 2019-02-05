@@ -50,9 +50,9 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
         }
         
         dataRequest.responseData { response in
-            if let request = response.request, let response = response.response {
+            if let urlRequest = response.request, let urlResponse = response.response {
                 do {
-                    try self.delegate?.sessionManager(self, didPerform: request, response: response)
+                    try self.delegate?.sessionManager(self, didPerform: urlRequest, response: urlResponse, data: response.data)
                 } catch {
                     completion(.failure(error))
                     return
@@ -106,9 +106,9 @@ extension AlamofireSessionManager {
             }
         }
         uploadRequest.responseData { response in
-            if let request = response.request, let response = response.response {
+            if let urlRequest = response.request, let urlResponse = response.response {
                 do {
-                    try self.delegate?.sessionManager(self, didPerform: request, response: response)
+                    try self.delegate?.sessionManager(self, didPerform: urlRequest, response: urlResponse, data: response.data)
                 } catch {
                     completion(.failure(error))
                     return

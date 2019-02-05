@@ -173,9 +173,9 @@ extension NetworkClient {
 
 extension NetworkClient: SessionManagerDelegate {
 
-    public func sessionManager(_ sessionManager: SessionManager, didPerform request: URLRequest, response: URLResponse) throws {
+    public func sessionManager(_ sessionManager: SessionManager, didPerform request: URLRequest, response: URLResponse, data: Data?) throws {
         try postMiddlewares.forEach {
-            try $0.didPerform(request, response: response)
+            try $0.didPerform(request, response: response, data: data)
         }
     }
 

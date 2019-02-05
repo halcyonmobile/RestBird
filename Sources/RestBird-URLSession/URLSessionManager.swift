@@ -36,7 +36,7 @@ public final class URLSessionManager: SessionManager {
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let response = response {
                 do {
-                    try self.delegate?.sessionManager(self, didPerform: urlRequest, response: response)
+                    try self.delegate?.sessionManager(self, didPerform: urlRequest, response: response, data: data)
                 } catch {
                     completion(.failure(error))
                     return
@@ -71,7 +71,7 @@ public final class URLSessionManager: SessionManager {
         let completionHandler: (Data?, URLResponse?, Error?) -> Void = { data, response, error in
             if let response = response {
                 do {
-                    try self.delegate?.sessionManager(self, didPerform: urlRequest, response: response)
+                    try self.delegate?.sessionManager(self, didPerform: urlRequest, response: response, data: data)
                 } catch {
                     completion(.failure(error))
                     return

@@ -23,6 +23,7 @@ public protocol PostMiddleware {
     /// - Parameters:
     ///   - request: network request instance.
     ///   - response: response instance.
+    ///   - data: response data.
     /// - Throws: the method might throw to prevent futher execution.
-    func didPerform(_ request: URLRequest, response: URLResponse) throws
+    func didPerform(_ request: URLRequest, response: URLResponse, data: Data?) throws
 }
