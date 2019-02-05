@@ -43,14 +43,14 @@ public final class NetworkClient {
     /// Register pre execution middleware.
     ///
     /// - Parameter middleware: Middleware instance.
-    func register(_ middleware: PreMiddleware) {
+    public func register(_ middleware: PreMiddleware) {
         self.preMiddlewares.append(middleware)
     }
 
     /// Register post execution middleware.
     ///
     /// - Parameter middleware: Middleware instance.
-    func register(_ middleware: PostMiddleware) {
+    public func register(_ middleware: PostMiddleware) {
         self.postMiddlewares.append(middleware)
     }
 }

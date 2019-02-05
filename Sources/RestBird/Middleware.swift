@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol PreMiddleware {
+public protocol PreMiddleware {
 
     /// NetworkClient will call this method before executing a network request.
     ///
@@ -16,7 +16,7 @@ protocol PreMiddleware {
     func willPerform(_ request: URLRequest) throws
 }
 
-protocol PostMiddleware {
+public protocol PostMiddleware {
 
     /// NetworkClient will call this method after executing a network request.
     ///
