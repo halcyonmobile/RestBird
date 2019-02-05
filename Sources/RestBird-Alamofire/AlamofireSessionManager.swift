@@ -35,7 +35,7 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
             logger.log(request: request)
         }
 
-        dataRequest.responseData { response in
+        dataRequest.validate().responseData { response in
             completion(response.toResult())
         }
     }
@@ -76,7 +76,7 @@ extension AlamofireSessionManager {
                                                   headers: request.headers?.mapValues { String(describing: $0) })
         }
 
-        uploadRequest.responseData { response in
+        uploadRequest.validate().responseData { response in
             completion(response.toResult())
         }
     }
