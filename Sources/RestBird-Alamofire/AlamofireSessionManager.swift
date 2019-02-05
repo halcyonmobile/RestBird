@@ -40,7 +40,24 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
             logger.log(request: request)
         }
 
+        if let request = dataRequest.request {
+            do {
+                try delegate?.sessionManager(self, willPerform: request)
+            } catch {
+                completion(.failure(error))
+                return
+            }
+        }
+        
         dataRequest.responseData { response in
+            if let request = response.request, let response = response.response {
+                do {
+                    try self.delegate?.sessionManager(self, didPerform: request, response: response)
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
             completion(response.toResult())
         }
     }
@@ -81,7 +98,22 @@ extension AlamofireSessionManager {
                                                   headers: request.headers?.mapValues { String(describing: $0) })
         }
 
+        if let request = uploadRequest.request {
+            do {
+                try delegate?.sessionManager(self, willPerform: request)
+            } catch {
+                completion(.failure(error))
+            }
+        }
         uploadRequest.responseData { response in
+            if let request = response.request, let response = response.response {
+                do {
+                    try self.delegate?.sessionManager(self, didPerform: request, response: response)
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
             completion(response.toResult())
         }
     }
