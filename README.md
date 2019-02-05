@@ -52,7 +52,7 @@ The following table describes how much the specific drivers cover `SessionManage
 Add RestBird as a dependency to your project.
 
 ```swift
-.Package(url: "https://github.com/halcyonmobile/RestBird.git", majorVersion: 0, minorVersion: 3)
+.Package(url: "https://github.com/halcyonmobile/RestBird.git", majorVersion: 0, minorVersion: 4)
 ```
 
 You can use RestBird and implement your own session handling or use one of the built-in drivers implemented by RestBird (Alamofire and URLSession).
