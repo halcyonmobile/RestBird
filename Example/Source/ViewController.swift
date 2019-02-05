@@ -19,6 +19,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        apiClient.register(RequestLoggerMiddleware())
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         loadBeers()
     }

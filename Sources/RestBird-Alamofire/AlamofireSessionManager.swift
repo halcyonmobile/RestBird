@@ -14,12 +14,12 @@ import Alamofire
 
 public final class AlamofireSessionManager: RestBird.SessionManager {
 
-    private(set) var sessionManager: Alamofire.SessionManager
-    private let logger: NetworkLogger
+    public weak var delegate: SessionManagerDelegate?
 
-    public init(sessionManager: Alamofire.SessionManager = .default, logger: NetworkLogger = NetworkConsoleLogger()) {
+    private(set) var sessionManager: Alamofire.SessionManager
+
+    public init(sessionManager: Alamofire.SessionManager = .default) {
         self.sessionManager = sessionManager
-        self.logger = logger
     }
 
     // MARK: - Data Task
@@ -31,11 +31,24 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
                                                  encoding: request.method.encoding,
                                                  headers: request.headers?.mapValues { String(describing: $0) })
 
-        if request.isDebugModeEnabled, let request = dataRequest.request {
-            logger.log(request: request)
+        if let request = dataRequest.request {
+            do {
+                try delegate?.sessionManager(self, willPerform: request)
+            } catch {
+                completion(.failure(error))
+                return
+            }
         }
-
+        
         dataRequest.validate().responseData { response in
+            if let urlRequest = response.request, let urlResponse = response.response {
+                do {
+                    try self.delegate?.sessionManager(self, didPerform: urlRequest, response: urlResponse, data: response.data)
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
             completion(response.toResult())
         }
     }
@@ -76,7 +89,22 @@ extension AlamofireSessionManager {
                                                   headers: request.headers?.mapValues { String(describing: $0) })
         }
 
+        if let request = uploadRequest.request {
+            do {
+                try delegate?.sessionManager(self, willPerform: request)
+            } catch {
+                completion(.failure(error))
+            }
+        }
         uploadRequest.validate().responseData { response in
+            if let urlRequest = response.request, let urlResponse = response.response {
+                do {
+                    try self.delegate?.sessionManager(self, didPerform: urlRequest, response: urlResponse, data: response.data)
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
             completion(response.toResult())
         }
     }

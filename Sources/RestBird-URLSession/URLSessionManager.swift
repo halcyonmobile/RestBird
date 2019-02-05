@@ -13,6 +13,8 @@ public final class URLSessionManager: SessionManager {
 
     private(set) var session: URLSession
 
+    public weak var delegate: SessionManagerDelegate?
+
     init(session: URLSession = .shared) {
         self.session = session
     }
@@ -23,8 +25,23 @@ public final class URLSessionManager: SessionManager {
             return
         }
 
+        do {
+            try delegate?.sessionManager(self, willPerform: urlRequest)
+        } catch {
+            completion(.failure(error))
+            return
+        }
+
         // Execute request
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            if let response = response {
+                do {
+                    try self.delegate?.sessionManager(self, didPerform: urlRequest, response: response, data: data)
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -43,7 +60,23 @@ public final class URLSessionManager: SessionManager {
             assertionFailure("Not a valid url for request: \(request)")
             return
         }
+
+        do {
+            try delegate?.sessionManager(self, willPerform: urlRequest)
+        } catch {
+            completion(.failure(error))
+            return
+        }
+
         let completionHandler: (Data?, URLResponse?, Error?) -> Void = { data, response, error in
+            if let response = response {
+                do {
+                    try self.delegate?.sessionManager(self, didPerform: urlRequest, response: response, data: data)
+                } catch {
+                    completion(.failure(error))
+                    return
+                }
+            }
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -73,6 +106,7 @@ public final class URLSessionManager: SessionManager {
 // MARK: - DataRequest
 
 private extension URLSessionManager {
+
     func createRequestFor<Request: DataRequest>(dataRequest: Request, baseUrl: String) -> URLRequest? {
         var urlString = baseUrl
         if let suffix = dataRequest.suffix {
@@ -130,6 +164,7 @@ private extension URLSessionManager {
 // MARK: - UploadRequest
 
 private extension URLSessionManager {
+
     func createRequestFor<Request: UploadRequest>(uploadRequest: Request, baseUrl: String) -> URLRequest? {
         var urlString = baseUrl
         if let suffix = uploadRequest.suffix {

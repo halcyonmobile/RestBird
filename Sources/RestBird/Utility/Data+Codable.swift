@@ -29,7 +29,7 @@ extension Data {
     /// Decode Data into a Decodable object.
     ///
     /// - Parameter decoder: decoder instance. default `JSONDecoder()`.
-    /// - Returns: decoded json object.
+    /// - Returns: decoded json objects.
     /// - Throws: error in case of decoding error.
     func decoded<T: Decodable>(decoder: JSONDecoder) throws -> T {
         return try decoder.decode(T.self, from: self)
