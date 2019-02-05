@@ -16,6 +16,7 @@ Lightweight, stateless REST network manager over the Codable protocol.
     - [Carthage](#carthage)
 - [Setup](#setup)
 - [Usage](#usage)
+
 - [Convenience](#convenience)
 - [License](#license)
 
@@ -111,6 +112,8 @@ Steps for setting up the project for development:
 
 ## Usage
 
+### General
+
 First you need to create your `NetworkClientConfiguration` configuration with your custom or one of the provided session manager drivers. We're going to use the AlamofireSessionManager.
 
 ```swift
@@ -147,9 +150,38 @@ Now use your network client to execute requests.
 
 ```swift
 let request = SignIn(email: "john-doe@acme.inc", password: "123456")
-networkClient.execute(request: request, completion: { result: Result<Authentication> in 
+networkClient.execute(request: request, completion: { result: Result<Authentication> in
     print(result)
 })
+```
+
+### Middlewares
+
+Middlewares are a powerful way to intercept network requests or react to the response the endpoint returns.
+
+At the moment, middlewares fall under two categories:
+
+- Pre Middlewares (evaluated before the request is about to be executed)
+- Post Middlewares (evaluated after the request was executed)
+
+```Swift
+struct LoggerMiddleware: PreMiddleware {
+    func willPerform(_ request: URLRequest) throws {
+        Logger.log(resquest)
+    }
+}
+
+struct ErrorMiddleware: PostMiddleware {
+    func didPerform(_ request: URLRequest, response: URLResponse, data: Data?) throws {
+        if let data = data, let error = ErrorProvider.provide(for: data) {
+            throw error
+        }
+    }
+}
+
+// Register middleware
+networkClient.register(LoggerMiddleware())
+networkClient.register(ErrorMiddleware())
 ```
 
 ## Convenience
