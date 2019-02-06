@@ -36,6 +36,7 @@ public final class NetworkClient {
     public init(configuration: NetworkClientConfiguration) {
         self.config = configuration
         parseQueue = DispatchQueue(label: "response-parse")
+        config.sessionManager.delegate = self
     }
 
     // MARK: - Middleware
