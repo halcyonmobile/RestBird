@@ -41,7 +41,7 @@
 		D4C3899574E9D5DF5E5DA52310560BCC /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BC8802B90D6D34BB8A6C74415E2913 /* Alamofire-dummy.m */; };
 		D784DCC6FE326EE7DC83947F74A48E60 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B209AF7E2B9DB934ED4EF00637EB651 /* Request.swift */; };
 		DBE6E2E4D205545E7988CFA5057C31D6 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCBF1EED873F61C6D46CE37FA5C39D3 /* DispatchQueue+Alamofire.swift */; };
-		DBF536D2220B17A600C2D428 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF536D1220B17A600C2D428 /* ParameterEncoding.swift */; };
+		DBF536D4220B1C4E00C2D428 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF536D3220B1C4D00C2D428 /* ParameterEncoding.swift */; };
 		E9932AFDA32FD6AE68F12E11DC85BFB7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706C7AFFE37BA158C3553250F4B5FAED /* Alamofire.framework */; };
 		EBEA938576E6BB5CFAED2368582DFE22 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DD2837AEC12E5E0CD244A2B48440DA /* DataRequest.swift */; };
 		EF1461221681BCA12A4147900A704727 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A8AE7E7ED606685A23324D56F03FB9C2 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -117,7 +117,7 @@
 		CB79DB6F594767219360A20B70231F90 /* RestBird-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RestBird-umbrella.h"; sourceTree = "<group>"; };
 		CE36FC2535227AC7AF72292A41068590 /* RestBird-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RestBird-prefix.pch"; sourceTree = "<group>"; };
 		DB9F66ED7A250BB1AE2875F8D38C7398 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		DBF536D1220B17A600C2D428 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		DBF536D3220B1C4D00C2D428 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Sources/RestBird/ParameterEncoding.swift; sourceTree = "<group>"; };
 		DC78F5D84FB60D48F3E5222FBB748F70 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		DFCB8C44DE758E906C0BCDA455937B85 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		E12A9D89EA485D0CE5C1B00AA5E6DB47 /* UploadRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UploadRequest.swift; sourceTree = "<group>"; };
@@ -261,9 +261,9 @@
 		92D8144A3F5FF12DC221FE64436E91DE /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				DBF536D3220B1C4D00C2D428 /* ParameterEncoding.swift */,
 				EC0FAB932F96C7966F302953A9D3C29F /* EmptyResponse.swift */,
 				751C1AFBFA1802ABF017E1A97FFE0CBA /* HTTPMethod.swift */,
-				DBF536D1220B17A600C2D428 /* ParameterEncoding.swift */,
 				EFF7B4F4C8D49C7DF9E70B7F6C1089E4 /* Middleware.swift */,
 				354E2146A2BC9910CF16F2E615107FB1 /* NetworkClient.swift */,
 				C9034F48AA21A4BF21F8268E758AF9D3 /* NetworkError.swift */,
@@ -518,7 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBF536D2220B17A600C2D428 /* ParameterEncoding.swift in Sources */,
+				DBF536D4220B1C4E00C2D428 /* ParameterEncoding.swift in Sources */,
 				7AEBE4B106CFA65B9086A4C6480FC57B /* AlamofireSessionManager.swift in Sources */,
 				23FBF1FAE1D9874EF5FFBFF67DC72EDE /* Data+Codable.swift in Sources */,
 				EBEA938576E6BB5CFAED2368582DFE22 /* DataRequest.swift in Sources */,
