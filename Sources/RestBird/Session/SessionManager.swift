@@ -31,7 +31,7 @@ public protocol SessionManagerDelegate: class {
 }
 
 /// URL session interface
-public protocol SessionManager {
+public protocol SessionManager: class {
 
     /// Delegate for ULR request state callbacks.
     /// !!! DO NOT OVERRIDE THIS VARIABLE !!!
