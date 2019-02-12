@@ -19,5 +19,5 @@ public protocol UploadRequest: Request {
 }
 
 extension UploadRequest {
-    var method: HTTPMethod { return .post }
+    public var method: HTTPMethod { return .post }
 }
