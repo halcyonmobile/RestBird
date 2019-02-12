@@ -11,7 +11,7 @@ public enum UploadSource {
     case url(URL)
     case data(Data)
     case stream(InputStream)
-    case multipart
+    case multipart(name: String, fileName: String, mimeType: String)
 }
 
 /// Represents an upload request.
@@ -20,13 +20,11 @@ public protocol UploadRequest: Request {
     /// The HTTP Method of the request. Default: `.post`.
     var method: HTTPMethod { get }
     
-    /// The source of the request. Default: `.multipart`.
+    /// The source of the request.
     var source: UploadSource { get }
 }
 
 extension UploadRequest {
     
     public var method: HTTPMethod { return .post }
-    
-    public var source: UploadSource { return .multipart }
 }
