@@ -7,8 +7,8 @@
 
 import Foundation
 
-public typealias RequestHeaders     = [String: Any]
-public typealias RequestParameters  = [String: Any]
+public typealias RequestHeaders    = [String: Any]
+public typealias RequestParameters = [String: Any]
 
 /// Abstract REST request protocol.
 public protocol Request {
@@ -23,10 +23,10 @@ public protocol Request {
     /// Additional headers for the request. Default: `nil`.
     var headers: RequestHeaders? { get }
 
-    /// The parameter dictionary of the request. Default: nil
+    /// The parameter dictionary of the request. Default: nil.
     var parameters: RequestParameters? { get }
 
-    /// If true, networking layer will print information about this request to the console. False by default
+    /// If true, networking layer will print information about this request to the console. False by default.
     var isDebugModeEnabled: Bool { get }
     
     /// Parameter encoding for the request. Default: `.url` in case of .get, .head HTTPMethod, `.json` in case of .post, .put, .delete, .patch HTTPMethod
