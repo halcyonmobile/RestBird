@@ -73,4 +73,17 @@ extension PromiseBase where Base: NetworkClient {
             }
         })
     }
+
+    public func execute<Request: UploadRequest>(request: Request) -> Promise<Request.ResponseType> {
+        return Promise(resolver: { resolver in
+            base.execute(request: request) { (result: RestBird.Result<Request.ResponseType>) in
+                switch result {
+                case .success(let object):
+                    resolver.fulfill(object)
+                case .failure(let error):
+                    resolver.reject(error)
+                }
+            }
+        })
+    }
 }
