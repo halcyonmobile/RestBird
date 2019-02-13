@@ -26,3 +26,19 @@ public enum HTTPMethod: String {
     case delete = "DELETE"
     case patch = "PATCH"
 }
+
+/// Default ParameterEncoding for the given method
+extension HTTPMethod {
+    var defaultParameterEncoding: ParameterEncoding {
+        switch self {
+        case .get,
+             .head:
+            return .url
+        case .post,
+             .put,
+             .delete,
+             .patch:
+            return .json
+        }
+    }
+}

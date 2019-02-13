@@ -28,7 +28,7 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
         let dataRequest = sessionManager.request(urlWithBaseUrl(baseUrl, request: request),
                                                  method: request.method.alamofireMethod,
                                                  parameters: request.parameters,
-                                                 encoding: request.method.encoding,
+                                                 encoding: request.parameterEncoding.alamofireParameterEncoding,
                                                  headers: request.headers?.mapValues { String(describing: $0) })
 
         if let request = dataRequest.request {
@@ -138,16 +138,16 @@ fileprivate extension RestBird.HTTPMethod {
         case .patch: return .patch
         }
     }
+}
 
-    var encoding: ParameterEncoding {
+// MARK: - RestBird.ParameterEncoding -> Alamofire.ParameterEncoding
+
+fileprivate extension RestBird.ParameterEncoding {
+    var alamofireParameterEncoding: Alamofire.ParameterEncoding {
         switch self {
-        case .get,
-             .head:
+        case .url:
             return URLEncoding.default
-        case .post,
-             .put,
-             .delete,
-             .patch:
+        case .json:
             return JSONEncoding.default
         }
     }

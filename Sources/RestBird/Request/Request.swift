@@ -28,6 +28,9 @@ public protocol Request {
 
     /// If true, networking layer will print information about this request to the console. False by default
     var isDebugModeEnabled: Bool { get }
+    
+    /// Parameter encoding for the request. Default: `.url` in case of .get, .head HTTPMethod, `.json` in case of .post, .put, .delete, .patch HTTPMethod
+    var parameterEncoding: ParameterEncoding { get }
 }
 
 extension Request {
@@ -41,4 +44,6 @@ extension Request {
     public var parameters: RequestParameters? { return nil }
 
     public var isDebugModeEnabled: Bool { return false }
+    
+    public var parameterEncoding: ParameterEncoding { return method.defaultParameterEncoding }
 }
