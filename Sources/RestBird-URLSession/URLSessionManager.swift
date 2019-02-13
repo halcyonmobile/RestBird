@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RestBird
 
 public final class URLSessionManager: SessionManager {
 
@@ -15,7 +14,7 @@ public final class URLSessionManager: SessionManager {
 
     public weak var delegate: SessionManagerDelegate?
 
-    init(session: URLSession = .shared) {
+    public init(session: URLSession = .shared) {
         self.session = session
     }
 
@@ -98,6 +97,8 @@ public final class URLSessionManager: SessionManager {
             // TODO: track the progress of the upload
             urlRequest.httpBodyStream = inputStream
             uploadTask = URLSession.shared.uploadTask(withStreamedRequest: urlRequest)
+        case .multipart(let name, let fileName, let mimeType):
+            fatalError("Not implemented")
         }
         uploadTask.resume()
     }
