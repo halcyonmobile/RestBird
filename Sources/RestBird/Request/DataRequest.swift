@@ -7,6 +7,6 @@
 
 import Foundation
 
-/// Represents a network request
+/// Represents a network request.
 public protocol DataRequest: Request {
 }
