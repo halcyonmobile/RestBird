@@ -1,0 +1,187 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/EmptyResponse.swift",
+      "line": 10,
+      "symbol": "EmptyResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/HTTPMethod.swift",
+      "line": 22,
+      "symbol": "HTTPMethod.get",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/HTTPMethod.swift",
+      "line": 23,
+      "symbol": "HTTPMethod.head",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/HTTPMethod.swift",
+      "line": 24,
+      "symbol": "HTTPMethod.post",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/HTTPMethod.swift",
+      "line": 25,
+      "symbol": "HTTPMethod.put",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/HTTPMethod.swift",
+      "line": 26,
+      "symbol": "HTTPMethod.delete",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/HTTPMethod.swift",
+      "line": 27,
+      "symbol": "HTTPMethod.patch",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/Middleware.swift",
+      "line": 10,
+      "symbol": "PreMiddleware",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/Middleware.swift",
+      "line": 19,
+      "symbol": "PostMiddleware",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/NetworkClient.swift",
+      "line": 36,
+      "symbol": "NetworkClient.init(configuration:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/ParameterEncoding.swift",
+      "line": 10,
+      "symbol": "ParameterEncoding",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/ParameterEncoding.swift",
+      "line": 11,
+      "symbol": "ParameterEncoding.url",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/ParameterEncoding.swift",
+      "line": 12,
+      "symbol": "ParameterEncoding.json",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/Request/Request.swift",
+      "line": 10,
+      "symbol": "RequestHeaders",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/Request/Request.swift",
+      "line": 11,
+      "symbol": "RequestParameters",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/Request/Request.swift",
+      "line": 15,
+      "symbol": "Request.ResponseType",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/Request/UploadRequest.swift",
+      "line": 10,
+      "symbol": "UploadSource",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/Request/UploadRequest.swift",
+      "line": 11,
+      "symbol": "UploadSource.url(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/Request/UploadRequest.swift",
+      "line": 12,
+      "symbol": "UploadSource.data(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/Request/UploadRequest.swift",
+      "line": 13,
+      "symbol": "UploadSource.stream(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/Request/UploadRequest.swift",
+      "line": 14,
+      "symbol": "UploadSource.multipart(name:fileName:mimeType:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/Request/UploadRequest.swift",
+      "line": 29,
+      "symbol": "UploadRequest.method",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/Result.swift",
+      "line": 11,
+      "symbol": "Result",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/Result.swift",
+      "line": 12,
+      "symbol": "Result.success(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/Result.swift",
+      "line": 13,
+      "symbol": "Result.failure(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/botix/Documents/Work/RestBird/Sources/RestBird/Session/SessionManager.swift",
+      "line": 11,
+      "symbol": "SessionManagerDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/botix/Documents/Work/RestBird"
+}
