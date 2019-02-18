@@ -4,8 +4,6 @@
 [![Build Status](https://travis-ci.org/halcyonmobile/RestBird.svg?branch=master)](https://travis-ci.org/halcyonmobile/RestBird)
 [![codecov](https://codecov.io/gh/halcyonmobile/RestBird/branch/master/graph/badge.svg)](https://codecov.io/gh/halcyonmobile/RestBird)
 
-Lightweight, stateless REST network manager over the Codable protocol.
-
 - [About](#about)
 - [Requirements](#requirements)
 - [Features](#features)
@@ -21,6 +19,10 @@ Lightweight, stateless REST network manager over the Codable protocol.
 - [License](#license)
 
 ## About
+
+Lightweight, stateless REST network manager over the Codable protocol.
+
+To learn more aboit this library, check out the [documentation](https://halcyonmobile.github.io/RestBird/).
 
 ## Requirements
 
