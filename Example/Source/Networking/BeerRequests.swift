@@ -12,7 +12,7 @@ import RestBird
 extension Request.Beer {
 
     struct GetAll: DataRequest  {
-        typealias ResponseType = Beer
+        typealias ResponseType = [Beer]
 
         var suffix: String? = "/beers"
 

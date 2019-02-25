@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 
     private func loadBeers() {
         let request = Request.Beer.GetAll()
-        apiClient.execute(request: request) { (result: Result<[Beer]>) in
+        apiClient.execute(request: request) { result in
             switch result {
             case .success(let data):
                 self.beers = data

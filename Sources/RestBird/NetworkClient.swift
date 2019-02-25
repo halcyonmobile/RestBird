@@ -90,26 +90,7 @@ extension NetworkClient {
     ) {
         performDataTask(request: request) { [config] result in
             self.parseQueue.async {
-                let response: Result<Request.ResponseType> = result.map { [config] in try $0.decoded(decoder: config.jsonDecoder) }
-                DispatchQueue.main.async {
-                    completion(response)
-                }
-            }
-        }
-    }
-
-    /// Perform DataRequest when an array of object response is expected.
-    ///
-    /// - Parameters:
-    ///   - request: DataRequest instance
-    ///   - completion: An array of objects Result callback.
-    public func execute<Request: DataRequest>(
-        request: Request,
-        completion: @escaping (Result<[Request.ResponseType]>) -> Void
-    ) {
-        performDataTask(request: request) { [config] result in
-            self.parseQueue.async {
-                let response: Result<[Request.ResponseType]> = result.map { try $0.decodedArray(decoder: config.jsonDecoder) }
+                let response = result.map { [config] in try $0.decoded(Request.ResponseType.self, with: config.jsonDecoder) }
                 DispatchQueue.main.async {
                     completion(response)
                 }
@@ -147,7 +128,7 @@ extension NetworkClient {
     ) {
         performUploadTask(request: request) { [config] result in
             self.parseQueue.async {
-                let response: Result<Request.ResponseType> = result.map { try $0.decoded(decoder: config.jsonDecoder) }
+                let response = result.map { try $0.decoded(Request.ResponseType.self, with: config.jsonDecoder) }
                 DispatchQueue.main.async {
                     completion(response)
                 }
