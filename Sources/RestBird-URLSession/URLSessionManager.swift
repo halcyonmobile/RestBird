@@ -7,6 +7,9 @@
 //
 
 import Foundation
+#if !COCOAPODS
+import RestBird
+#endif
 
 public final class URLSessionManager: SessionManager {
 
