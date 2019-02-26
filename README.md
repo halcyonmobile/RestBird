@@ -209,7 +209,7 @@ protocol PostService {
 
 ## Convenience
 
-You can find convenience wrappers for RestBird which are not distributed through the package. This includes a PromiseKit wrapper.
+You can find convenience wrappers for RestBird which are not distributed through the package. This includes a PromiseKit and an RxSwift wrapper.
 
 Check out [here](https://github.com/halcyonmobile/RestBird/tree/master/Convenience).
 
