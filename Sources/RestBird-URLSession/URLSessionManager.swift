@@ -21,24 +21,19 @@ public final class URLSessionManager: SessionManager {
         self.session = session
     }
 
-    public func performDataTask<Request: DataRequest>(request: Request, baseUrl: String, completion: @escaping (Result<Data>) -> Void) {
-        guard let urlRequest = createRequestFor(dataRequest: request, baseUrl: baseUrl) else {
-            assertionFailure("Not a valid url for request: \(request)")
-            return
-        }
-
+    public func performDataTask(request: URLRequest, completion: @escaping (Result<Data>) -> Void) {
         do {
-            try delegate?.sessionManager(self, willPerform: urlRequest)
+            try delegate?.sessionManager(self, willPerform: request)
         } catch {
             completion(.failure(error))
             return
         }
 
         // Execute request
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             if let response = response {
                 do {
-                    try self.delegate?.sessionManager(self, didPerform: urlRequest, response: response, data: data)
+                    try self.delegate?.sessionManager(self, didPerform: request, response: response, data: data)
                 } catch {
                     completion(.failure(error))
                     return
@@ -57,14 +52,13 @@ public final class URLSessionManager: SessionManager {
         dataTask.resume()
     }
 
-    public func performUploadTask<Request: UploadRequest>(request: Request, baseUrl: String, completion: @escaping (Result<Data>) -> Void) {
-        guard var urlRequest = createRequestFor(uploadRequest: request, baseUrl: baseUrl) else {
-            assertionFailure("Not a valid url for request: \(request)")
-            return
-        }
-
+    func performUploadTask(
+        request: URLRequest,
+        source: UploadSource,
+        completion: @escaping (RestBird.Result<Data>) -> Void
+    ) {
         do {
-            try delegate?.sessionManager(self, willPerform: urlRequest)
+            try delegate?.sessionManager(self, willPerform: request)
         } catch {
             completion(.failure(error))
             return
@@ -73,7 +67,7 @@ public final class URLSessionManager: SessionManager {
         let completionHandler: (Data?, URLResponse?, Error?) -> Void = { data, response, error in
             if let response = response {
                 do {
-                    try self.delegate?.sessionManager(self, didPerform: urlRequest, response: response, data: data)
+                    try self.delegate?.sessionManager(self, didPerform: request, response: response, data: data)
                 } catch {
                     completion(.failure(error))
                     return
@@ -91,7 +85,7 @@ public final class URLSessionManager: SessionManager {
         }
 
         let uploadTask: URLSessionUploadTask
-        switch request.source {
+        switch source {
         case .data(let data):
             uploadTask = URLSession.shared.uploadTask(with: urlRequest, from: data, completionHandler: completionHandler)
         case .url(let url):
@@ -104,64 +98,6 @@ public final class URLSessionManager: SessionManager {
             fatalError("Not implemented")
         }
         uploadTask.resume()
-    }
-}
-
-// MARK: - DataRequest
-
-private extension URLSessionManager {
-
-    func createRequestFor<Request: DataRequest>(dataRequest: Request, baseUrl: String) -> URLRequest? {
-        var urlString = baseUrl
-        if let suffix = dataRequest.suffix {
-            urlString += suffix
-        }
-
-        if includeParamsInQuery(request: dataRequest), let query = queryString(for: dataRequest.parameters) {
-            urlString += "?\(query)"
-        }
-
-        guard let url = URL(string: urlString) else { return nil }
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = dataRequest.method.rawValue
-
-        if let headers = dataRequest.headers?.mapValues({ String(describing: $0) }) {
-            for (key, value) in headers {
-                urlRequest.setValue(value, forHTTPHeaderField: key)
-            }
-        }
-
-        if !includeParamsInQuery(request: dataRequest) {
-            if isJSONContentType(request: urlRequest) {
-                if let parameters = dataRequest.parameters {
-                    urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
-                }
-            } else if let query = queryString(for: dataRequest.parameters) {
-                urlRequest.httpBody = query.data(using: .utf8)
-            }
-        }
-
-        return urlRequest
-    }
-
-    func includeParamsInQuery<A: Request>(request: A) -> Bool {
-        switch request.method {
-        case .get, .head, .delete: return true
-        case .post, .put, .patch: return false
-        }
-    }
-
-    func isJSONContentType(request: URLRequest) -> Bool {
-        if let contentType = request.allHTTPHeaderFields?["Content-Type"] {
-            return contentType == "application/json"
-        }
-        return false
-    }
-
-    func queryString(for parameters: [String: Any]?) -> String? {
-        guard let parameters = parameters else { return nil }
-        let query = parameters.mapValues { String(describing: $0) }.map { "\($0)=\($1)" }.joined(separator: "&")
-        return query
     }
 }
 

@@ -43,7 +43,7 @@ public protocol SessionManager: class {
     ///   - request: DataRequest instance.
     ///   - baseUrl: The base URL for the upload task.
     ///   - completion: Request completion handler.
-    func performDataTask<Request: DataRequest>(request: Request, baseUrl: String, completion: @escaping (Result<Data>) -> Void)
+    func performDataTask(request: URLRequest, completion: @escaping (Result<Data>) -> Void)
 
     /// Perform upload task
     ///
@@ -51,5 +51,5 @@ public protocol SessionManager: class {
     ///   - request: UploadRequest instance.
     ///   - baseUrl: The base URL for the upload task.
     ///   - completion: Request completion handler.
-    func performUploadTask<Request: UploadRequest>(request: Request, baseUrl: String, completion: @escaping (Result<Data>) -> Void)
+    func performUploadTask(request: URLRequest, source: UploadSource, completion: @escaping (Result<Data>) -> Void)
 }

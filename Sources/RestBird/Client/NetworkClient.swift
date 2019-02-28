@@ -25,7 +25,7 @@ public final class NetworkClient {
 
     // MARK: - Properties
 
-    fileprivate let config: NetworkClientConfiguration
+    let config: NetworkClientConfiguration
     fileprivate var parseQueue: DispatchQueue
 
     private(set) var preMiddlewares: [PreMiddleware] = []
@@ -109,7 +109,12 @@ extension NetworkClient {
         request: Request,
         completion: @escaping (Result<Data>) -> Void
     ) {
-        config.sessionManager.performDataTask(request: request, baseUrl: config.baseUrl, completion: completion)
+        do {
+            let urlRequest = try request.toUrlRequest(using: config)
+            config.sessionManager.performDataTask(request: urlRequest, completion: completion)
+        } catch {
+            completion(.failure(error))
+        }
     }
 }
 
@@ -147,7 +152,12 @@ extension NetworkClient {
         request: Request,
         completion: @escaping (Result<Data>) -> Void
     ) {
-        config.sessionManager.performUploadTask(request: request, baseUrl: config.baseUrl, completion: completion)
+        do {
+            let urlRequest = try request.toUrlRequest(using: config)
+            config.sessionManager.performUploadTask(request: urlRequest, source: request.source, completion: completion)
+        } catch {
+            completion(.failure(error))
+        }
     }
 }
 
