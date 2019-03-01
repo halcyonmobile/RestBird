@@ -216,3 +216,7 @@ Check out [here](https://github.com/halcyonmobile/RestBird/tree/master/Convenien
 ## License
 
 RestBird is released under the MIT license. [See LICENSE](https://github.com/halcyonmobile/RestBird/blob/master/LICENSE) for details.
+
+If you use the open-source library in your project, please make sure to credit and backlink to http://halcyonmobile.com
+
+
