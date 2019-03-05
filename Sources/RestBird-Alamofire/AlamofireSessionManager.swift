@@ -119,7 +119,7 @@ extension AlamofireSessionManager {
                     }
 
                     if let data = value as? Data {
-                        multipartFormData.append(data, withName: name, fileName: fileName, mimeType: mimeType)
+                        multipartFormData.append(data, withName: name, fileName: fileName, mimeType: mimeType.rawValue)
                     }
                 }
             }
