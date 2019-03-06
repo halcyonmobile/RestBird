@@ -19,7 +19,13 @@ public enum UploadSource {
     case stream(InputStream)
     case multipart(name: String, fileName: String, mimeType: MimeType)
     
-    public static let multipart: UploadSource = .multipart(name: .name, fileName: .fileName(for: .imagePNG), mimeType: .imagePNG)
+    /// Default multipart with the following format: `(name: "image", fileName: "image.png", mimeType: "image/png")`.
+    public static let multipart: UploadSource = .multipart(mimeType: .imagePNG)
+    
+    /// Returns a multipart UploadSource for the specified mime type with default name and file name with the following format: `(name: "image", fileName: "image.*", mimeType: mimeType)`.
+    public static func multipart(mimeType: MimeType) -> UploadSource {
+        return .multipart(name: .name, fileName: .fileName(for: mimeType), mimeType: mimeType)
+    }
 }
 
 /// Represents an upload request.
@@ -41,7 +47,13 @@ private extension String {
     
     static let name = "image"
     
-    static func fileName(for mimeType: UploadSource.MimeType) -> String {
+    /// Returns a file name for the specified mime type.
+    ///
+    /// - Parameters:
+    ///   - name: The name of the file. Default is `"image"`.
+    ///   - mimeType: The mime type based on which the file name extension will be created.
+    /// - Returns: A String representing the file name. E.g. `"image.png"`.
+    static func fileName(with name: String = .name, for mimeType: UploadSource.MimeType) -> String {
         let `extension`: String
         
         switch mimeType {
@@ -51,6 +63,6 @@ private extension String {
             `extension` = "jpg"
         }
         
-        return .name + "." + `extension`
+        return name + "." + `extension`
     }
 }
