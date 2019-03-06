@@ -69,7 +69,16 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
 
 extension AlamofireSessionManager {
 
-    public func performUploadTask<Request: RestBird.UploadRequest>(request: Request, baseUrl: String, completion: @escaping (RestBird.Result<Data>) -> Void) {
+    public func performUploadTask<Request: RestBird.UploadRequest>(request: Request,
+                                                                   baseUrl: String,
+                                                                   completion: @escaping (RestBird.Result<Data>) -> Void) {
+        performUploadTask(request: request, baseUrl: baseUrl, uploadProgress: nil, completion: completion)
+    }
+
+    public func performUploadTask<Request: RestBird.UploadRequest>(request: Request,
+                                                                   baseUrl: String,
+                                                                   uploadProgress: Alamofire.UploadRequest.ProgressHandler?,
+                                                                   completion: @escaping (RestBird.Result<Data>) -> Void) {
         // We need to observe when `uploadRequest` gets set as in case of `.multipart` this will be set later, in `encodingCompletion` and we can't call these methods right after `sessionManager.upload` as `uploadRequest` will be nil at that point.
         var uploadRequest: Alamofire.UploadRequest? {
             didSet {
@@ -81,6 +90,9 @@ extension AlamofireSessionManager {
                         completion(.failure(error))
                     }
                 }
+
+                uploadRequest?.uploadProgress { uploadProgress?($0) }
+
                 uploadRequest?.validate().responseData { response in
                     if let urlRequest = response.request, let urlResponse = response.response {
                         do {

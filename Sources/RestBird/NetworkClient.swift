@@ -140,12 +140,14 @@ extension NetworkClient {
     ///
     /// - Parameters:
     ///   - request: UploadRequest instance.
+    ///   - uploadProgress: The closure used to monitor the progress of the upload request.
     ///   - completion: Single object Result callback.
     public func execute<Request: UploadRequest>(
         request: Request,
+        uploadProgress: UploadRequest.ProgressHandler? = nil,
         completion: @escaping (Result<Request.ResponseType>) -> Void
     ) {
-        performUploadTask(request: request) { [config] result in
+        performUploadTask(request: request, uploadProgress: uploadProgress) { [config] result in
             self.parseQueue.async {
                 let response = result.map { try $0.decoded(Request.ResponseType.self, with: config.jsonDecoder) }
                 DispatchQueue.main.async {
@@ -157,16 +159,18 @@ extension NetworkClient {
 
     // MARK: - Private
 
-    /// Perform DataRequest and return the raw Data.
+    /// Perform UploadRequest and return the raw Data.
     ///
     /// - Parameters:
-    ///   - request: DataRequest instance
+    ///   - request: UploadRequest instance.
+    ///   - uploadProgress: The closure used to monitor the progress of the upload request.
     ///   - completion: Data Result callback.
     private func performUploadTask<Request: UploadRequest>(
         request: Request,
+        uploadProgress: UploadRequest.ProgressHandler?,
         completion: @escaping (Result<Data>) -> Void
     ) {
-        config.sessionManager.performUploadTask(request: request, baseUrl: config.baseUrl, completion: completion)
+        config.sessionManager.performUploadTask(request: request, baseUrl: config.baseUrl, uploadProgress: uploadProgress, completion: completion)
     }
 }
 

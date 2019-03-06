@@ -31,6 +31,9 @@ public enum UploadSource {
 /// Represents an upload request.
 public protocol UploadRequest: Request {
     
+    /// A closure executed when monitoring upload progress of a request.
+    typealias ProgressHandler = (Progress) -> Void
+    
     /// The HTTP Method of the request. Default: `.post`.
     var method: HTTPMethod { get }
     
