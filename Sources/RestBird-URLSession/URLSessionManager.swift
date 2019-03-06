@@ -58,6 +58,10 @@ public final class URLSessionManager: SessionManager {
     }
 
     public func performUploadTask<Request: UploadRequest>(request: Request, baseUrl: String, completion: @escaping (Result<Data>) -> Void) {
+        performUploadTask(request: request, baseUrl: baseUrl, uploadProgress: nil, completion: completion)
+    }
+
+    public func performUploadTask<Request : UploadRequest>(request: Request, baseUrl: String, uploadProgress: ((Progress) -> Void)?, completion: @escaping (Result<Data>) -> Void) {
         guard var urlRequest = createRequestFor(uploadRequest: request, baseUrl: baseUrl) else {
             assertionFailure("Not a valid url for request: \(request)")
             return
