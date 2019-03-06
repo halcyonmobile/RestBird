@@ -36,8 +36,8 @@ extension NetworkClient: PromiseCompatible { }
 extension PromiseBase where Base: NetworkClient {
 
     public func execute<Request: DataRequest>(request: Request) -> Promise<Void> where Request.ResponseType == EmptyResponse {
-        return Promise(resolver: { resolver in
-            base.execute(request: request) { (result: RestBird.Result<Void>) in
+        return Promise(resolver: { [weak base] resolver in
+            base?.execute(request: request) { (result: RestBird.Result<Void>) in
                 switch result {
                 case .success:
                     resolver.fulfill(())
@@ -49,8 +49,8 @@ extension PromiseBase where Base: NetworkClient {
     }
 
     public func execute<Request: DataRequest>(request: Request) -> Promise<Request.ResponseType> {
-        return Promise(resolver: { resolver in
-            base.execute(request: request) { (result: RestBird.Result<Request.ResponseType>) in
+        return Promise(resolver: { [weak base] resolver in
+            base?.execute(request: request) { (result: RestBird.Result<Request.ResponseType>) in
                 switch result {
                 case .success(let object):
                     resolver.fulfill(object)
@@ -62,8 +62,8 @@ extension PromiseBase where Base: NetworkClient {
     }
 
     public func execute<Request: DataRequest>(request: Request) -> Promise<[Request.ResponseType]> {
-        return Promise(resolver: { resolver in
-            base.execute(request: request) { (result: RestBird.Result<[Request.ResponseType]>) in
+        return Promise(resolver: { [weak base] resolver in
+            base?.execute(request: request) { (result: RestBird.Result<[Request.ResponseType]>) in
                 switch result {
                 case .success(let array):
                     resolver.fulfill(array)
@@ -74,9 +74,9 @@ extension PromiseBase where Base: NetworkClient {
         })
     }
 
-    public func execute<Request: UploadRequest>(request: Request) -> Promise<Request.ResponseType> {
-        return Promise(resolver: { resolver in
-            base.execute(request: request) { (result: RestBird.Result<Request.ResponseType>) in
+    public func execute<Request: UploadRequest>(request: Request, uploadProgress: UploadRequest.ProgressHandler? = nil) -> Promise<Request.ResponseType> {
+        return Promise(resolver: { [weak base] resolver in
+            base?.execute(request: request, uploadProgress: uploadProgress) { (result: RestBird.Result<Request.ResponseType>) in
                 switch result {
                 case .success(let object):
                     resolver.fulfill(object)
