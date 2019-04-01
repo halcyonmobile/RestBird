@@ -13,7 +13,7 @@ public typealias RequestParameters = [String: Any]
 /// Abstract REST request protocol.
 public protocol Request {
     associatedtype ResponseType: Decodable
-    typealias RequestParameterType = Encodable
+    associatedtype RequestParameterType: Encodable
 
     /// The HTTP Method of the request. Default: `.get`.
     var method: HTTPMethod { get }
@@ -42,7 +42,7 @@ extension Request {
 
     public var headers: RequestHeaders? { return nil }
 
-    public var parameters: RequestParameterType? { return nil }
+    public var parameters: Encodable? { return nil }
 
     public var isDebugModeEnabled: Bool { return false }
     

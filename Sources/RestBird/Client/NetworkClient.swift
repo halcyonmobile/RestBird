@@ -171,7 +171,6 @@ extension NetworkClient: SessionManagerDelegate {
         }
     }
 
-
     public func sessionManager(_ sessionManager: SessionManager, willPerform request: URLRequest) throws {
         try preMiddlewares.forEach {
             try $0.willPerform(request)

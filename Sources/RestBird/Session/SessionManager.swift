@@ -27,7 +27,6 @@ public protocol SessionManagerDelegate: class {
     ///   - data: response data.
     /// - Throws: The delegate can throw if postconditions are not met.
     func sessionManager(_ sessionManager: SessionManager, didPerform request: URLRequest, response: URLResponse, data: Data?) throws
-
 }
 
 /// URL session interface

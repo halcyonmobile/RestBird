@@ -11,7 +11,7 @@ public enum UploadSource {
     case url(URL)
     case data(Data)
     case stream(InputStream)
-    case multipart(name: String, fileName: String, mimeType: String)
+    case multipart(data: Data, name: String, fileName: String, mimeType: String)
 }
 
 /// Represents an upload request.

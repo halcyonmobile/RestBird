@@ -52,7 +52,7 @@ public final class URLSessionManager: SessionManager {
         dataTask.resume()
     }
 
-    func performUploadTask(
+    public func performUploadTask(
         request: URLRequest,
         source: UploadSource,
         completion: @escaping (RestBird.Result<Data>) -> Void
@@ -87,14 +87,15 @@ public final class URLSessionManager: SessionManager {
         let uploadTask: URLSessionUploadTask
         switch source {
         case .data(let data):
-            uploadTask = URLSession.shared.uploadTask(with: urlRequest, from: data, completionHandler: completionHandler)
+            uploadTask = URLSession.shared.uploadTask(with: request, from: data, completionHandler: completionHandler)
         case .url(let url):
-            uploadTask = URLSession.shared.uploadTask(with: urlRequest, fromFile: url, completionHandler: completionHandler)
+            uploadTask = URLSession.shared.uploadTask(with: request, fromFile: url, completionHandler: completionHandler)
         case .stream(let inputStream):
             // TODO: track the progress of the upload
-            urlRequest.httpBodyStream = inputStream
-            uploadTask = URLSession.shared.uploadTask(withStreamedRequest: urlRequest)
-        case .multipart(let name, let fileName, let mimeType):
+            var request = request
+            request.httpBodyStream = inputStream
+            uploadTask = URLSession.shared.uploadTask(withStreamedRequest: request)
+        case .multipart(let data, let name, let fileName, let mimeType):
             fatalError("Not implemented")
         }
         uploadTask.resume()

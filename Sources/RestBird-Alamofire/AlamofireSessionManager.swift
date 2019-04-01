@@ -14,7 +14,6 @@ import Alamofire
 
 public final class AlamofireSessionManager: RestBird.SessionManager {
 
-
     public weak var delegate: SessionManagerDelegate?
 
     private(set) var sessionManager: Alamofire.SessionManager
@@ -25,7 +24,7 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
 
     // MARK: - Data Task
 
-    func performDataTask(
+    public func performDataTask(
         request: URLRequest,
         completion: @escaping (RestBird.Result<Data>) -> Void
     ) {
@@ -58,7 +57,7 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
 
 extension AlamofireSessionManager {
 
-    func performUploadTask(
+    public func performUploadTask(
         request: URLRequest,
         source: UploadSource,
         completion: @escaping (RestBird.Result<Data>) -> Void
@@ -90,22 +89,14 @@ extension AlamofireSessionManager {
 
         switch source {
         case .url(let url):
-            uploadRequest = sessionManager.upload(url, to: request)
+            uploadRequest = sessionManager.upload(url, with: request)
         case .data(let data):
-            uploadRequest = sessionManager.upload(data, to: request)
+            uploadRequest = sessionManager.upload(data, with: request)
         case .stream(let stream):
-            uploadRequest = sessionManager.upload(stream, to: request)
-        case .multipart(let name, let fileName, let mimeType):
+            uploadRequest = sessionManager.upload(stream, with: request)
+        case .multipart(let data, let name, let fileName, let mimeType):
             let multipartFormData: (Alamofire.MultipartFormData) -> Void = { multipartFormData in
-                for (key, value) in request.parameters ?? [:] {
-                    if let value = value as? String, let valueData = value.data(using: .utf8) {
-                        multipartFormData.append(valueData, withName: key)
-                    }
-
-                    if let data = value as? Data {
-                        multipartFormData.append(data, withName: name, fileName: fileName, mimeType: mimeType)
-                    }
-                }
+                multipartFormData.append(data, withName: name, fileName: fileName, mimeType: mimeType)
             }
 
             let encodingCompletion: ((Alamofire.SessionManager.MultipartFormDataEncodingResult) -> Void) = { result in
@@ -117,7 +108,7 @@ extension AlamofireSessionManager {
                 }
             }
 
-            sessionManager.upload(multipartFormData: multipartFormData, to: request)
+            sessionManager.upload(multipartFormData: multipartFormData, with: request, encodingCompletion: encodingCompletion)
         }
     }
 }
