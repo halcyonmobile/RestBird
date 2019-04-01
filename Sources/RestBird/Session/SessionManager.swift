@@ -45,11 +45,20 @@ public protocol SessionManager: class {
     ///   - completion: Request completion handler.
     func performDataTask<Request: DataRequest>(request: Request, baseUrl: String, completion: @escaping (Result<Data>) -> Void)
 
-    /// Perform upload task
+    /// Perform upload task.
     ///
     /// - Parameters:
     ///   - request: UploadRequest instance.
     ///   - baseUrl: The base URL for the upload task.
     ///   - completion: Request completion handler.
     func performUploadTask<Request: UploadRequest>(request: Request, baseUrl: String, completion: @escaping (Result<Data>) -> Void)
+    
+    /// Perform upload task.
+    ///
+    /// - Parameters:
+    ///   - request: UploadRequest instance.
+    ///   - baseUrl: The base URL for the upload task.
+    ///   - uploadProgress: The closure used to monitor the progress of the upload request.
+    ///   - completion: Request completion handler.
+    func performUploadTask<Request: UploadRequest>(request: Request, baseUrl: String, uploadProgress: UploadRequest.ProgressHandler?, completion: @escaping (Result<Data>) -> Void)
 }
