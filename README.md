@@ -14,7 +14,7 @@
     - [Carthage](#carthage)
 - [Setup](#setup)
 - [Usage](#usage)
-
+- [Meta Support](#meta-support)
 - [Convenience](#convenience)
 - [License](#license)
 
@@ -186,12 +186,37 @@ networkClient.register(LoggerMiddleware())
 networkClient.register(ErrorMiddleware())
 ```
 
+## Meta support
+
+To avoid writing boilerplate code for network classes, we wrote a couple of templates to generate code using [Sourcery](https://github.com/krzysztofzablocki/Sourcery). Head over to the [template repository](https://github.com/halcyonmobile/RestBird-Sourcery).
+
+Here's how two requests would look like using the templates:
+
+```Swift
+/// sourcery: Service
+protocol PostService {
+
+    /// sourcery: path = /posts/\(id)
+    /// sourcery: pathParam = id
+    func get(id: String, completion: (result: Result<Post>) -> Void)
+
+    /// sourcery: method = post, path = /posts
+    /// sourcery: parameter = post
+    /// sourcery: parameter = json
+    func save(post: Post, completion: (result: Result<Post>) -> Void)
+}
+```
+
 ## Convenience
 
-You can find convenience wrappers for RestBird which are not distributed through the package. This includes a PromiseKit wrapper.
+You can find convenience wrappers for RestBird which are not distributed through the package. This includes a PromiseKit and an RxSwift wrapper.
 
 Check out [here](https://github.com/halcyonmobile/RestBird/tree/master/Convenience).
 
 ## License
 
 RestBird is released under the MIT license. [See LICENSE](https://github.com/halcyonmobile/RestBird/blob/master/LICENSE) for details.
+
+If you use the open-source library in your project, please make sure to credit and backlink to http://halcyonmobile.com
+
+

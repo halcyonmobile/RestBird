@@ -48,4 +48,16 @@ extension Reactive where Base: NetworkClient {
             }
         }
     }
+
+    public func execute<Request: UploadRequest>(request: Request, uploadProgress: UploadRequest.ProgressHandler? = nil) -> Observable<RestBird.Result<Request.ResponseType>> {
+        return Observable<RestBird.Result<Request.ResponseType>>.deferred { [weak base] in
+            return Observable.create { observer -> Disposable in
+                base?.execute(request: request, uploadProgress: uploadProgress) { (result: RestBird.Result<Request.ResponseType>) in
+                    observer.onNext(result)
+                    observer.onCompleted()
+                }
+                return Disposables.create()
+            }
+        }
+    }
 }

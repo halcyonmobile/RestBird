@@ -57,6 +57,15 @@ public final class URLSessionManager: SessionManager {
         source: UploadSource,
         completion: @escaping (RestBird.Result<Data>) -> Void
     ) {
+        performUploadTask(request: request, source: source, uploadProgress: nil, completion: completion)
+    }
+
+    public func performUploadTask(
+        request: URLRequest,
+        source: UploadSource,
+        uploadProgress: ((Progress) -> Void)?,
+        completion: @escaping (RestBird.Result<Data>) -> Void
+    ) {
         do {
             try delegate?.sessionManager(self, willPerform: request)
         } catch {
