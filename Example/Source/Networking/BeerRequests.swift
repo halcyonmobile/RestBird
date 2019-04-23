@@ -13,9 +13,9 @@ extension Request.Beer {
 
     struct GetAll: DataRequest  {
         typealias ResponseType = [Beer]
+        typealias RequestType = EmptyRequest
 
         var suffix: String? = "/beers"
-
-        var isDebugModeEnabled: Bool = true
+        var parameters: EmptyRequest?
     }
 }

@@ -29,7 +29,7 @@ final class DataRequestTests: XCTestCase {
             var parameters: EmptyRequest?
 
             typealias ResponseType = EmptyResponse
-            typealias RequestParameterType = EmptyRequest
+            typealias RequestType = EmptyRequest
 
             var suffix: String? = "bar"
         }
@@ -46,7 +46,7 @@ final class DataRequestTests: XCTestCase {
             var parameters: EmptyRequest?
 
             typealias ResponseType = EmptyResponse
-            typealias RequestParameterType = EmptyRequest
+            typealias RequestType = EmptyRequest
 
             var suffix: String? = "bar"
             var headers: RequestHeaders? = [
