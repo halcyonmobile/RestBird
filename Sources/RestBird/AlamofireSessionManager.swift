@@ -7,18 +7,15 @@
 //
 
 import Foundation
-#if !COCOAPODS
-import RestBird
-#endif
 import Alamofire
 
 public final class AlamofireSessionManager: RestBird.SessionManager {
 
     public weak var delegate: SessionManagerDelegate?
 
-    private(set) var sessionManager: Alamofire.SessionManager
+    private(set) var sessionManager: Alamofire.Session
 
-    public init(sessionManager: Alamofire.SessionManager = .default) {
+    public init(sessionManager: Alamofire.Session = .default) {
         self.sessionManager = sessionManager
     }
 
@@ -107,20 +104,10 @@ extension AlamofireSessionManager {
         case .stream(let stream):
             uploadRequest = sessionManager.upload(stream, with: request)
         case .multipart(let data, let name, let fileName, let mimeType):
-            let multipartFormData: (Alamofire.MultipartFormData) -> Void = { multipartFormData in
-                multipartFormData.append(data, withName: name, fileName: fileName, mimeType: mimeType)
-            }
-
-            let encodingCompletion: ((Alamofire.SessionManager.MultipartFormDataEncodingResult) -> Void) = { result in
-                switch result {
-                case .success(let request, _, _):
-                    uploadRequest = request
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
-
-            sessionManager.upload(multipartFormData: multipartFormData, with: request, encodingCompletion: encodingCompletion)
+            let multipartFormData = MultipartFormData()
+            multipartFormData.append(data, withName: name, fileName: fileName, mimeType: mimeType)
+            
+            sessionManager.upload(multipartFormData: multipartFormData, with: request, interceptor: nil)
         }
     }
 }
