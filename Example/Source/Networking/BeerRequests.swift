@@ -11,11 +11,20 @@ import RestBird
 
 extension Request.Beer {
 
-    struct GetAll: DataRequest  {
+    struct GetAll: DataRequest {
         typealias ResponseType = [Beer]
+        typealias RequestType = FilterBeerDTO
 
         var suffix: String? = "/beers"
+        var parameters: FilterBeerDTO?
+    }
 
-        var isDebugModeEnabled: Bool = true
+    struct Create: DataRequest {
+        typealias ResponseType = EmptyResponse
+        typealias RequestType = CreateBeerDTO
+
+        var suffix: String? = "/beers"
+        var method: HTTPMethod = .post
+        var parameters: CreateBeerDTO?
     }
 }

@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import RestBird
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    static let apiClient = NetworkClient(configuration: MainAPIConfiguration())
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        type(of: self).apiClient.register(RequestLoggerMiddleware())
         return true
     }
 

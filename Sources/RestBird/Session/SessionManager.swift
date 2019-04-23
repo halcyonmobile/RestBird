@@ -27,7 +27,6 @@ public protocol SessionManagerDelegate: class {
     ///   - data: response data.
     /// - Throws: The delegate can throw if postconditions are not met.
     func sessionManager(_ sessionManager: SessionManager, didPerform request: URLRequest, response: URLResponse, data: Data?) throws
-
 }
 
 /// URL session interface
@@ -43,22 +42,22 @@ public protocol SessionManager: class {
     ///   - request: DataRequest instance.
     ///   - baseUrl: The base URL for the upload task.
     ///   - completion: Request completion handler.
-    func performDataTask<Request: DataRequest>(request: Request, baseUrl: String, completion: @escaping (Result<Data>) -> Void)
+    func performDataTask(request: URLRequest, completion: @escaping (Result<Data>) -> Void)
 
     /// Perform upload task.
     ///
     /// - Parameters:
-    ///   - request: UploadRequest instance.
-    ///   - baseUrl: The base URL for the upload task.
+    ///   - request: URLRequest instance.
+    ///   - source: Upload source type.
     ///   - completion: Request completion handler.
-    func performUploadTask<Request: UploadRequest>(request: Request, baseUrl: String, completion: @escaping (Result<Data>) -> Void)
+    func performUploadTask(request: URLRequest, source: UploadSource, completion: @escaping (Result<Data>) -> Void)
     
     /// Perform upload task.
     ///
     /// - Parameters:
-    ///   - request: UploadRequest instance.
-    ///   - baseUrl: The base URL for the upload task.
+    ///   - request: URLRequest instance.
+    ///   - source: Upload source type.
     ///   - uploadProgress: The closure used to monitor the progress of the upload request.
     ///   - completion: Request completion handler.
-    func performUploadTask<Request: UploadRequest>(request: Request, baseUrl: String, uploadProgress: UploadRequest.ProgressHandler?, completion: @escaping (Result<Data>) -> Void)
+    func performUploadTask(request: URLRequest, source: UploadSource, uploadProgress: UploadRequest.ProgressHandler?, completion: @escaping (Result<Data>) -> Void)
 }

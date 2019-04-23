@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-iOS Example/Pods-iOS Example-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/RestBird/RestBird.framework

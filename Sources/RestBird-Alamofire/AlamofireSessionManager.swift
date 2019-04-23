@@ -24,12 +24,11 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
 
     // MARK: - Data Task
 
-    public func performDataTask<Request: RestBird.DataRequest>(request: Request, baseUrl: String, completion: @escaping (RestBird.Result<Data>) -> Void) {
-        let dataRequest = sessionManager.request(urlWithBaseUrl(baseUrl, request: request),
-                                                 method: request.method.alamofireMethod,
-                                                 parameters: request.parameters,
-                                                 encoding: request.parameterEncoding.alamofireParameterEncoding,
-                                                 headers: request.headers?.mapValues { String(describing: $0) })
+    public func performDataTask(
+        request: URLRequest,
+        completion: @escaping (RestBird.Result<Data>) -> Void
+    ) {
+        let dataRequest = sessionManager.request(request)
 
         if let request = dataRequest.request {
             do {
@@ -52,33 +51,26 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
             completion(response.toResult())
         }
     }
-
-    // MARK: - Private
-
-    // TODO: Improve the way URL strings are built.
-    // Take a look at https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/Extensions/Foundation/URLExtensions.swift
-    private func urlWithBaseUrl<Request: RestBird.Request>(_ baseUrl: String, request: Request) -> String {
-        if let suffix = request.suffix {
-            return baseUrl + suffix
-        }
-        return baseUrl
-    }
 }
 
 // MARK: - Upload task
 
 extension AlamofireSessionManager {
 
-    public func performUploadTask<Request: RestBird.UploadRequest>(request: Request,
-                                                                   baseUrl: String,
-                                                                   completion: @escaping (RestBird.Result<Data>) -> Void) {
-        performUploadTask(request: request, baseUrl: baseUrl, uploadProgress: nil, completion: completion)
+    public func performUploadTask(
+        request: URLRequest,
+        source: UploadSource,
+        completion: @escaping (RestBird.Result<Data>) -> Void
+    ) {
+        performUploadTask(request: request, source: source, uploadProgress: nil, completion: completion)
     }
 
-    public func performUploadTask<Request: RestBird.UploadRequest>(request: Request,
-                                                                   baseUrl: String,
-                                                                   uploadProgress: Alamofire.UploadRequest.ProgressHandler?,
-                                                                   completion: @escaping (RestBird.Result<Data>) -> Void) {
+    public func performUploadTask(
+        request: URLRequest,
+        source: UploadSource,
+        uploadProgress: Alamofire.UploadRequest.ProgressHandler?,
+        completion: @escaping (RestBird.Result<Data>) -> Void
+    ) {
         // We need to observe when `uploadRequest` gets set as in case of `.multipart` this will be set later, in `encodingCompletion` and we can't call these methods right after `sessionManager.upload` as `uploadRequest` will be nil at that point.
         var uploadRequest: Alamofire.UploadRequest? {
             didSet {
@@ -107,33 +99,16 @@ extension AlamofireSessionManager {
             }
         }
 
-        switch request.source {
+        switch source {
         case .url(let url):
-            uploadRequest = sessionManager.upload(url,
-                                                  to: urlWithBaseUrl(baseUrl, request: request),
-                                                  method: request.method.alamofireMethod,
-                                                  headers: request.headers?.mapValues { String(describing: $0) })
+            uploadRequest = sessionManager.upload(url, with: request)
         case .data(let data):
-            uploadRequest = sessionManager.upload(data,
-                                                  to: urlWithBaseUrl(baseUrl, request: request),
-                                                  method: request.method.alamofireMethod,
-                                                  headers: request.headers?.mapValues { String(describing: $0) })
+            uploadRequest = sessionManager.upload(data, with: request)
         case .stream(let stream):
-            uploadRequest = sessionManager.upload(stream,
-                                                  to: urlWithBaseUrl(baseUrl, request: request),
-                                                  method: request.method.alamofireMethod,
-                                                  headers: request.headers?.mapValues { String(describing: $0) })
-        case .multipart(let name, let fileName, let mimeType):
+            uploadRequest = sessionManager.upload(stream, with: request)
+        case .multipart(let data, let name, let fileName, let mimeType):
             let multipartFormData: (Alamofire.MultipartFormData) -> Void = { multipartFormData in
-                for (key, value) in request.parameters ?? [:] {
-                    if let value = value as? String, let valueData = value.data(using: .utf8) {
-                        multipartFormData.append(valueData, withName: key)
-                    }
-
-                    if let data = value as? Data {
-                        multipartFormData.append(data, withName: name, fileName: fileName, mimeType: mimeType.rawValue)
-                    }
-                }
+                multipartFormData.append(data, withName: name, fileName: fileName, mimeType: mimeType)
             }
 
             let encodingCompletion: ((Alamofire.SessionManager.MultipartFormDataEncodingResult) -> Void) = { result in
@@ -145,11 +120,7 @@ extension AlamofireSessionManager {
                 }
             }
 
-            sessionManager.upload(multipartFormData: multipartFormData,
-                                  to: urlWithBaseUrl(baseUrl, request: request),
-                                  method: request.method.alamofireMethod,
-                                  headers: request.headers?.mapValues { String(describing: $0) },
-                                  encodingCompletion: encodingCompletion)
+            sessionManager.upload(multipartFormData: multipartFormData, with: request, encodingCompletion: encodingCompletion)
         }
     }
 }
@@ -164,22 +135,6 @@ extension Alamofire.DataResponse {
             return .success(value)
         case .failure(let error):
             return .failure(error)
-        }
-    }
-}
-
-// MARK: - RestBird.HTTPMethod -> Alamofire.HTTPMethod
-
-fileprivate extension RestBird.HTTPMethod {
-
-    var alamofireMethod: Alamofire.HTTPMethod {
-        switch self {
-        case .get: return .get
-        case .head: return .head
-        case .post: return .post
-        case .put: return .put
-        case .delete: return .delete
-        case .patch: return .patch
         }
     }
 }

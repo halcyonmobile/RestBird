@@ -1,11 +1,14 @@
 PODS:
   - Alamofire (4.7.3)
-  - RestBird/Alamofire (0.3.0):
+  - RestBird (0.4.1):
+    - RestBird/Core (= 0.4.1)
+  - RestBird/Alamofire (0.4.1):
     - Alamofire
     - RestBird/Core
-  - RestBird/Core (0.3.0)
+  - RestBird/Core (0.4.1)
 
 DEPENDENCIES:
+  - RestBird (from `../`)
   - RestBird/Alamofire (from `../`)
 
 SPEC REPOS:
@@ -18,8 +21,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  RestBird: 626645be2398bb6e93e3b5a8fce0790d3e1ee476
+  RestBird: eff04920050f4ccbee59d86ea501ea1aa0f6df16
 
-PODFILE CHECKSUM: f1d95cd3b88e9fe97af935c7ff1577ca4a72c959
+PODFILE CHECKSUM: 1acd9498ee7baccab9841ae0a794b0cf7865a3fd
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.7.0.beta.2

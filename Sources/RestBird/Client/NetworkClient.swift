@@ -25,7 +25,7 @@ public final class NetworkClient {
 
     // MARK: - Properties
 
-    fileprivate let config: NetworkClientConfiguration
+    let config: NetworkClientConfiguration
     fileprivate var parseQueue: DispatchQueue
 
     private(set) var preMiddlewares: [PreMiddleware] = []
@@ -98,25 +98,6 @@ extension NetworkClient {
         }
     }
 
-    /// Perform DataRequest when an array of object response is expected.
-    ///
-    /// - Parameters:
-    ///   - request: DataRequest instance
-    ///   - completion: An array of objects Result callback.
-    public func execute<Request: DataRequest>(
-        request: Request,
-        completion: @escaping (Result<[Request.ResponseType]>) -> Void
-    ) {
-        performDataTask(request: request) { [config] result in
-            self.parseQueue.async {
-                let response = result.map { [config] in try $0.decoded([Request.ResponseType].self, with: config.jsonDecoder) }
-                DispatchQueue.main.async {
-                    completion(response)
-                }
-            }
-        }
-    }
-
     // MARK: - Private
 
     /// Perform DataRequest and return the raw Data.
@@ -128,7 +109,12 @@ extension NetworkClient {
         request: Request,
         completion: @escaping (Result<Data>) -> Void
     ) {
-        config.sessionManager.performDataTask(request: request, baseUrl: config.baseUrl, completion: completion)
+        do {
+            let urlRequest = try request.toUrlRequest(using: config)
+            config.sessionManager.performDataTask(request: urlRequest, completion: completion)
+        } catch {
+            completion(.failure(error))
+        }
     }
 }
 
@@ -170,7 +156,12 @@ extension NetworkClient {
         uploadProgress: UploadRequest.ProgressHandler?,
         completion: @escaping (Result<Data>) -> Void
     ) {
-        config.sessionManager.performUploadTask(request: request, baseUrl: config.baseUrl, uploadProgress: uploadProgress, completion: completion)
+        do {
+            let urlRequest = try request.toUrlRequest(using: config)
+            config.sessionManager.performUploadTask(request: urlRequest, source: request.source, uploadProgress: uploadProgress, completion: completion)
+        } catch {
+            completion(.failure(error))
+        }
     }
 }
 
@@ -183,7 +174,6 @@ extension NetworkClient: SessionManagerDelegate {
             try $0.didPerform(request, response: response, data: data)
         }
     }
-
 
     public func sessionManager(_ sessionManager: SessionManager, willPerform request: URLRequest) throws {
         try preMiddlewares.forEach {

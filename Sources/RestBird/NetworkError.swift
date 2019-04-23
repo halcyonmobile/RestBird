@@ -11,4 +11,5 @@ import Foundation
 enum NetworkError: Error {
     case malformedURL
     case internalError
+    case parameterEncodingFailed
 }

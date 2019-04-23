@@ -29,14 +29,15 @@ public enum HTTPMethod: String {
 
 /// Default ParameterEncoding for the given method
 extension HTTPMethod {
+    
     var defaultParameterEncoding: ParameterEncoding {
         switch self {
         case .get,
-             .head:
+             .head,
+             .delete:
             return .url
         case .post,
              .put,
-             .delete,
              .patch:
             return .json
         }

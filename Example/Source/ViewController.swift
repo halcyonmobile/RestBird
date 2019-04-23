@@ -13,19 +13,22 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    let apiClient = NetworkClient(configuration: MainAPIConfiguration())
+    let apiClient = AppDelegate.apiClient
 
     var beers: [Beer] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        apiClient.register(RequestLoggerMiddleware())
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         loadBeers()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
 
     private func loadBeers() {
-        let request = Request.Beer.GetAll()
+        var request = Request.Beer.GetAll()
+        request.parameters = FilterBeerDTO(brewedBefore: Date())
         apiClient.execute(request: request) { result in
             switch result {
             case .success(let data):
@@ -35,6 +38,11 @@ class ViewController: UIViewController {
                 print(error)
             }
         }
+    }
+
+    @objc private func refresh() {
+        tableView.refreshControl?.endRefreshing()
+        loadBeers()
     }
 }
 

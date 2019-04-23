@@ -8,3 +8,4 @@
 import Foundation
 
 public struct EmptyResponse: Decodable { }
+public struct EmptyRequest: Encodable { }

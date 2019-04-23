@@ -3,5 +3,6 @@ platform :ios, '10.0'
 target 'iOS Example' do
   use_frameworks!
 
+  pod 'RestBird', path: '../'
   pod 'RestBird/Alamofire', path: '../'
 end
