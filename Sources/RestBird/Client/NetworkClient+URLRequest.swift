@@ -14,6 +14,7 @@ extension Request {
         let urlString = try self.urlString(using: config)
         guard let url = URL(string: urlString) else { throw NetworkError.malformedURL }
         var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = method.rawValue
 
         headers?.forEach { (key, value) in
             urlRequest.setValue(String(describing: value), forHTTPHeaderField: key)

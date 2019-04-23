@@ -98,25 +98,6 @@ extension NetworkClient {
         }
     }
 
-    /// Perform DataRequest when an array of object response is expected.
-    ///
-    /// - Parameters:
-    ///   - request: DataRequest instance
-    ///   - completion: An array of objects Result callback.
-    public func execute<Request: DataRequest>(
-        request: Request,
-        completion: @escaping (Result<[Request.ResponseType]>) -> Void
-    ) {
-        performDataTask(request: request) { [config] result in
-            self.parseQueue.async {
-                let response = result.map { [config] in try $0.decoded([Request.ResponseType].self, with: config.jsonDecoder) }
-                DispatchQueue.main.async {
-                    completion(response)
-                }
-            }
-        }
-    }
-
     // MARK: - Private
 
     /// Perform DataRequest and return the raw Data.

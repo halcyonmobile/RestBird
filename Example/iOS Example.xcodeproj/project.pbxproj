@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,9 @@
 		F92D21B42175D288007E3097 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92D21B32175D288007E3097 /* Request.swift */; };
 		F92D21B62175D29C007E3097 /* BeerRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92D21B52175D29C007E3097 /* BeerRequests.swift */; };
 		F92D21B92175D35A007E3097 /* MainAPIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92D21B82175D359007E3097 /* MainAPIConfiguration.swift */; };
+		F95A66A1226F4F350048A0C9 /* FilterBeerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95A66A0226F4F350048A0C9 /* FilterBeerDTO.swift */; };
+		F95A66A3226F571D0048A0C9 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95A66A2226F571D0048A0C9 /* AddViewController.swift */; };
+		F95A66A5226F575F0048A0C9 /* CreateBeerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95A66A4226F575F0048A0C9 /* CreateBeerDTO.swift */; };
 		F95CC3D722098DC30003B10F /* RequestLoggerMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95CC3D622098DC30003B10F /* RequestLoggerMiddleware.swift */; };
 		F95CC3D92209B0B80003B10F /* ErrorMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95CC3D82209B0B80003B10F /* ErrorMiddleware.swift */; };
 		F9A7734B216D0AB20050EC96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A77343216D0AB20050EC96 /* ViewController.swift */; };
@@ -29,6 +32,9 @@
 		F92D21B32175D288007E3097 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		F92D21B52175D29C007E3097 /* BeerRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerRequests.swift; sourceTree = "<group>"; };
 		F92D21B82175D359007E3097 /* MainAPIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAPIConfiguration.swift; sourceTree = "<group>"; };
+		F95A66A0226F4F350048A0C9 /* FilterBeerDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBeerDTO.swift; sourceTree = "<group>"; };
+		F95A66A2226F571D0048A0C9 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		F95A66A4226F575F0048A0C9 /* CreateBeerDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBeerDTO.swift; sourceTree = "<group>"; };
 		F95CC3D622098DC30003B10F /* RequestLoggerMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLoggerMiddleware.swift; sourceTree = "<group>"; };
 		F95CC3D82209B0B80003B10F /* ErrorMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMiddleware.swift; sourceTree = "<group>"; };
 		F9A7732D216D0A980050EC96 /* iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +86,7 @@
 		F92D21B22175D25E007E3097 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				F95A669F226F4F2D0048A0C9 /* DTO */,
 				F95CC3D522098DB80003B10F /* Middlewares */,
 				F92D21B72175D350007E3097 /* Configuration */,
 				F92D21B32175D288007E3097 /* Request.swift */,
@@ -94,6 +101,15 @@
 				F92D21B82175D359007E3097 /* MainAPIConfiguration.swift */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		F95A669F226F4F2D0048A0C9 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				F95A66A0226F4F350048A0C9 /* FilterBeerDTO.swift */,
+				F95A66A4226F575F0048A0C9 /* CreateBeerDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		F95CC3D522098DB80003B10F /* Middlewares */ = {
@@ -129,6 +145,7 @@
 				F92D21B22175D25E007E3097 /* Networking */,
 				F92D21AF2175D11F007E3097 /* Entities */,
 				F9A77343216D0AB20050EC96 /* ViewController.swift */,
+				F95A66A2226F571D0048A0C9 /* AddViewController.swift */,
 				F9A77344216D0AB20050EC96 /* Assets.xcassets */,
 				F9A77345216D0AB20050EC96 /* LaunchScreen.storyboard */,
 				F9A77347216D0AB20050EC96 /* Main.storyboard */,
@@ -249,6 +266,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F95A66A3226F571D0048A0C9 /* AddViewController.swift in Sources */,
+				F95A66A5226F575F0048A0C9 /* CreateBeerDTO.swift in Sources */,
 				F95CC3D92209B0B80003B10F /* ErrorMiddleware.swift in Sources */,
 				F92D21B92175D35A007E3097 /* MainAPIConfiguration.swift in Sources */,
 				F9A7734F216D0AB20050EC96 /* AppDelegate.swift in Sources */,
@@ -256,6 +275,7 @@
 				F95CC3D722098DC30003B10F /* RequestLoggerMiddleware.swift in Sources */,
 				F9A7734B216D0AB20050EC96 /* ViewController.swift in Sources */,
 				F92D21B62175D29C007E3097 /* BeerRequests.swift in Sources */,
+				F95A66A1226F4F350048A0C9 /* FilterBeerDTO.swift in Sources */,
 				F92D21B12175D1BE007E3097 /* Beer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
