@@ -26,7 +26,7 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
 
     public func performDataTask<Request>(
         request: Request,
-        completion: @escaping (Result<Data>) -> Void
+        completion: @escaping (Swift.Result<Data, Error>) -> Void
     ) where Request : DataRequest {
         let url = config.baseUrl + (request.suffix ?? "")
 
@@ -74,7 +74,7 @@ extension AlamofireSessionManager {
     public func performUploadTask<Request>(
         request: Request,
         source: UploadSource,
-        completion: @escaping (Result<Data>) -> Void
+        completion: @escaping (Swift.Result<Data, Error>) -> Void
     ) where Request : UploadRequest {
         performUploadTask(request: request, source: source, uploadProgress: nil, completion: completion)
     }
@@ -83,7 +83,7 @@ extension AlamofireSessionManager {
         request: Request,
         source: UploadSource,
         uploadProgress: ((Progress) -> Void)?,
-        completion: @escaping (Result<Data>) -> Void
+        completion: @escaping (Swift.Result<Data, Error>) -> Void
     ) where Request : UploadRequest {
         // We need to observe when `uploadRequest` gets set as in case of `.multipart` this will be set later, in `encodingCompletion` and we can't call these methods right after `sessionManager.upload` as `uploadRequest` will be nil at that point.
         var uploadRequest: Alamofire.UploadRequest? {
@@ -144,7 +144,7 @@ extension AlamofireSessionManager {
 
 extension Alamofire.DataResponse {
 
-    func toResult() -> RestBird.Result<Value> {
+    func toResult() -> Swift.Result<Value, Error> {
         switch self.result {
         case .success(let value):
             return .success(value)

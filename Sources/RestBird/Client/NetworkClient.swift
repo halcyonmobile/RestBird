@@ -68,7 +68,7 @@ extension NetworkClient {
     ///   - completion: Void Result callback.
     public func execute<Request: DataRequest>(
         request: Request,
-        completion: @escaping (Result<Void>) -> Void
+        completion: @escaping (Result<Void, Error>) -> Void
     ) where Request.ResponseType == EmptyResponse {
         performDataTask(request: request) { result in
             self.parseQueue.async {
@@ -87,11 +87,11 @@ extension NetworkClient {
     ///   - completion: Single object Result callback.
     public func execute<Request: DataRequest>(
         request: Request,
-        completion: @escaping (Result<Request.ResponseType>) -> Void
+        completion: @escaping (Result<Request.ResponseType, Error>) -> Void
     ) {
         performDataTask(request: request) { [session] result in
             self.parseQueue.async {
-                let response = result.map { [session] in try $0.decoded(Request.ResponseType.self, with: session.config.jsonDecoder) }
+                let response = Result { try result.get().decoded(Request.ResponseType.self, with: session.config.jsonDecoder) }
                 DispatchQueue.main.async {
                     completion(response)
                 }
@@ -108,7 +108,7 @@ extension NetworkClient {
     ///   - completion: Data Result callback.
     private func performDataTask<Request: DataRequest>(
         request: Request,
-        completion: @escaping (Result<Data>) -> Void
+        completion: @escaping (Result<Data, Error>) -> Void
     ) {
         session.performDataTask(request: request, completion: completion)
     }
@@ -127,11 +127,11 @@ extension NetworkClient {
     public func execute<Request: UploadRequest>(
         request: Request,
         uploadProgress: UploadRequest.ProgressHandler? = nil,
-        completion: @escaping (Result<Request.ResponseType>) -> Void
+        completion: @escaping (Result<Request.ResponseType, Error>) -> Void
     ) {
         performUploadTask(request: request, uploadProgress: uploadProgress) { [session] result in
             self.parseQueue.async {
-                let response = result.map { try $0.decoded(Request.ResponseType.self, with: session.config.jsonDecoder) }
+                let response = Result { try result.get().decoded(Request.ResponseType.self, with: session.config.jsonDecoder) }
                 DispatchQueue.main.async {
                     completion(response)
                 }
@@ -150,7 +150,7 @@ extension NetworkClient {
     private func performUploadTask<Request: UploadRequest>(
         request: Request,
         uploadProgress: UploadRequest.ProgressHandler?,
-        completion: @escaping (Result<Data>) -> Void
+        completion: @escaping (Result<Data, Error>) -> Void
     ) {
         session.performUploadTask(request: request,
                                   source: request.source,
