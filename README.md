@@ -7,7 +7,6 @@
 - [About](#about)
 - [Requirements](#requirements)
 - [Features](#features)
-- [Driver Coverage](#driver-coverage)
 - [Installation Instructions](#installation-instructions)
     - [Swift Package Manager](#swift-package-manager)
     - [CocoaPods](#cocoapods)
@@ -20,7 +19,7 @@
 
 ## About
 
-Lightweight, stateless REST network manager over the Codable protocol.
+Lightweight, stateless REST network manager over the Codable protocol built upon Alamofire.
 
 To learn more aboit this library, check out the [documentation](https://halcyonmobile.github.io/RestBird/).
 
@@ -33,19 +32,9 @@ To learn more aboit this library, check out the [documentation](https://halcyonm
 ## Features
 
 - [x] Codable support.
-- [x] Built-in Alamofire driver.
-- [x] Built-in URLSession driver.
 - [x] PromiseKit wrapper.
-- [ ] Automatic request parameter serialization (Codable?)
-
-## Driver coverage
-
-The following table describes how much the specific drivers cover `SessionManager` defined in the Core of RestBird.
-
-|                         | Coverage |
-|-------------------------|----------|
-| AlamofireSessionManager | 100%     |
-| URLSessionManager       | 70%      |
+- [x] RxSwift wrapper. 
+- [x] Automatic request parameter serialization (Codable?)
 
 ## Installation Instructions
 
@@ -57,40 +46,18 @@ Add RestBird as a dependency to your project.
 .Package(url: "https://github.com/halcyonmobile/RestBird.git", majorVersion: 0, minorVersion: 4)
 ```
 
-You can use RestBird and implement your own session handling or use one of the built-in drivers implemented by RestBird (Alamofire and URLSession).
+Then, simply integrate RestBird with your target.
 
 ```swift
-// Use RestBird without any driver
 targets: [
     Target(name: "YourTarget", dependencies: ["RestBird"])
-]
-
-// Use the URLSession Driver
-targets: [
-    Target(name: "YourTarget", dependencies: [
-        .product(name: "RestBird-URLSession", package: "RestBird")
-    ])
-]
-
-// Use the Alamofire Driver
-targets: [
-    Target(name: "YourTarget", dependencies: [
-        .product(name: "RestBird-Alamofire", package: "RestBird")
-    ])
 ]
 ```
 
 ### CocoaPods
 
 ```ruby
-# use RestBird without any driver
 pod 'RestBird'
-
-# use RestBird with Alamofire driver
-pod 'RestBird/Alamofire'
-
-# use RestBird with URLSession driver
-pod 'RestBird/URLSession'
 ```
 
 You can also try it out by running
@@ -122,6 +89,8 @@ First you need to create your `NetworkClientConfiguration` configuration with yo
 struct MainAPIConfiguration: NetworkClientConfiguration {
     let baseUrl = "https://api.example.com"
     let sessionManager = AlamofireSessionManager()
+    let jsonEncoder = JSONEncoder()
+    let jsonDecoder = JSONDecoder()
 }
 ```
 
@@ -218,5 +187,4 @@ Check out [here](https://github.com/halcyonmobile/RestBird/tree/master/Convenien
 RestBird is released under the MIT license. [See LICENSE](https://github.com/halcyonmobile/RestBird/blob/master/LICENSE) for details.
 
 If you use the open-source library in your project, please make sure to credit and backlink to http://halcyonmobile.com
-
 

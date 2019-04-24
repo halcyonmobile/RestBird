@@ -25,7 +25,8 @@ public final class NetworkClient {
 
     // MARK: - Properties
 
-    let config: NetworkClientConfiguration
+    let session: SessionManager
+//    let config: NetworkClientConfiguration
     fileprivate var parseQueue: DispatchQueue
 
     private(set) var preMiddlewares: [PreMiddleware] = []
@@ -33,10 +34,10 @@ public final class NetworkClient {
 
     // MARK: - Lifecycle
 
-    public init(configuration: NetworkClientConfiguration) {
-        self.config = configuration
+    public init(session: SessionManager) {
+        self.session = session
         parseQueue = DispatchQueue(label: "response-parse")
-        config.sessionManager.delegate = self
+        session.delegate = self
     }
 
     // MARK: - Middleware
@@ -88,9 +89,9 @@ extension NetworkClient {
         request: Request,
         completion: @escaping (Result<Request.ResponseType>) -> Void
     ) {
-        performDataTask(request: request) { [config] result in
+        performDataTask(request: request) { [session] result in
             self.parseQueue.async {
-                let response = result.map { [config] in try $0.decoded(Request.ResponseType.self, with: config.jsonDecoder) }
+                let response = result.map { [session] in try $0.decoded(Request.ResponseType.self, with: session.config.jsonDecoder) }
                 DispatchQueue.main.async {
                     completion(response)
                 }
@@ -109,12 +110,7 @@ extension NetworkClient {
         request: Request,
         completion: @escaping (Result<Data>) -> Void
     ) {
-        do {
-            let urlRequest = try request.toUrlRequest(using: config)
-            config.sessionManager.performDataTask(request: urlRequest, completion: completion)
-        } catch {
-            completion(.failure(error))
-        }
+        session.performDataTask(request: request, completion: completion)
     }
 }
 
@@ -133,9 +129,9 @@ extension NetworkClient {
         uploadProgress: UploadRequest.ProgressHandler? = nil,
         completion: @escaping (Result<Request.ResponseType>) -> Void
     ) {
-        performUploadTask(request: request, uploadProgress: uploadProgress) { [config] result in
+        performUploadTask(request: request, uploadProgress: uploadProgress) { [session] result in
             self.parseQueue.async {
-                let response = result.map { try $0.decoded(Request.ResponseType.self, with: config.jsonDecoder) }
+                let response = result.map { try $0.decoded(Request.ResponseType.self, with: session.config.jsonDecoder) }
                 DispatchQueue.main.async {
                     completion(response)
                 }
@@ -156,12 +152,10 @@ extension NetworkClient {
         uploadProgress: UploadRequest.ProgressHandler?,
         completion: @escaping (Result<Data>) -> Void
     ) {
-        do {
-            let urlRequest = try request.toUrlRequest(using: config)
-            config.sessionManager.performUploadTask(request: urlRequest, source: request.source, uploadProgress: uploadProgress, completion: completion)
-        } catch {
-            completion(.failure(error))
-        }
+        session.performUploadTask(request: request,
+                                  source: request.source,
+                                  uploadProgress: uploadProgress,
+                                  completion: completion)
     }
 }
 
