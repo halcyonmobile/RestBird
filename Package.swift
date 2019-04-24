@@ -15,7 +15,7 @@ let package = Package(
         .package(url: "https://github.com/Alamofire/Alamofire.git", from: "4.0.0")
     ],
     targets: [
-        .target(name: "RestBird", dependencies: []),
+        .target(name: "RestBird", dependencies: ["Alamofire"]),
         .testTarget(name: "RestBirdTests", dependencies: ["RestBird"])
     ]
 )

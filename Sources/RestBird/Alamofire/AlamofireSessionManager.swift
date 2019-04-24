@@ -11,21 +11,38 @@ import Alamofire
 
 public final class AlamofireSessionManager: RestBird.SessionManager {
 
+    public var config: NetworkClientConfiguration
+
     public weak var delegate: SessionManagerDelegate?
 
-    private(set) var sessionManager: Alamofire.Session
+    private(set) var session: Alamofire.SessionManager
 
-    public init(sessionManager: Alamofire.Session = .default) {
-        self.sessionManager = sessionManager
+    public init(config: NetworkClientConfiguration, session: Alamofire.SessionManager = .default) {
+        self.config = config
+        self.session = session
     }
 
     // MARK: - Data Task
 
-    public func performDataTask(
-        request: URLRequest,
-        completion: @escaping (RestBird.Result<Data>) -> Void
-    ) {
-        let dataRequest = sessionManager.request(request)
+    public func performDataTask<Request>(
+        request: Request,
+        completion: @escaping (Result<Data>) -> Void
+    ) where Request : DataRequest {
+        let url = config.baseUrl + (request.suffix ?? "")
+
+        let parameters: Alamofire.Parameters?
+        do {
+            parameters = try request.afParameters(using: config.jsonEncoder)
+        } catch {
+            completion(.failure(error))
+            return
+        }
+
+        let dataRequest = session.request(url,
+                                          method: request.afMethod,
+                                          parameters: parameters,
+                                          encoding: request.afEncoding,
+                                          headers: request.afHeaders)
 
         if let request = dataRequest.request {
             do {
@@ -54,20 +71,20 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
 
 extension AlamofireSessionManager {
 
-    public func performUploadTask(
-        request: URLRequest,
+    public func performUploadTask<Request>(
+        request: Request,
         source: UploadSource,
-        completion: @escaping (RestBird.Result<Data>) -> Void
-    ) {
+        completion: @escaping (Result<Data>) -> Void
+    ) where Request : UploadRequest {
         performUploadTask(request: request, source: source, uploadProgress: nil, completion: completion)
     }
 
-    public func performUploadTask(
-        request: URLRequest,
+    public func performUploadTask<Request>(
+        request: Request,
         source: UploadSource,
-        uploadProgress: Alamofire.UploadRequest.ProgressHandler?,
-        completion: @escaping (RestBird.Result<Data>) -> Void
-    ) {
+        uploadProgress: ((Progress) -> Void)?,
+        completion: @escaping (Result<Data>) -> Void
+    ) where Request : UploadRequest {
         // We need to observe when `uploadRequest` gets set as in case of `.multipart` this will be set later, in `encodingCompletion` and we can't call these methods right after `sessionManager.upload` as `uploadRequest` will be nil at that point.
         var uploadRequest: Alamofire.UploadRequest? {
             didSet {
@@ -96,18 +113,29 @@ extension AlamofireSessionManager {
             }
         }
 
+        let apiURL = config.baseUrl + (request.suffix ?? "")
         switch source {
         case .url(let url):
-            uploadRequest = sessionManager.upload(url, with: request)
+            uploadRequest = session.upload(url, to: apiURL)
         case .data(let data):
-            uploadRequest = sessionManager.upload(data, with: request)
+            uploadRequest = session.upload(data, to: apiURL)
         case .stream(let stream):
-            uploadRequest = sessionManager.upload(stream, with: request)
+            uploadRequest = session.upload(stream, to: apiURL)
         case .multipart(let data, let name, let fileName, let mimeType):
-            let multipartFormData = MultipartFormData()
-            multipartFormData.append(data, withName: name, fileName: fileName, mimeType: mimeType)
-            
-            sessionManager.upload(multipartFormData: multipartFormData, with: request, interceptor: nil)
+            let multipartFormData: (Alamofire.MultipartFormData) -> Void = { multipartFormData in
+                multipartFormData.append(data, withName: name, fileName: fileName, mimeType: mimeType)
+            }
+
+            let encodingCompletion: ((Alamofire.SessionManager.MultipartFormDataEncodingResult) -> Void) = { result in
+                switch result {
+                case .success(let request, _, _):
+                    uploadRequest = request
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+
+            session.upload(multipartFormData: multipartFormData, to: apiURL, encodingCompletion: encodingCompletion)
         }
     }
 }
@@ -122,19 +150,6 @@ extension Alamofire.DataResponse {
             return .success(value)
         case .failure(let error):
             return .failure(error)
-        }
-    }
-}
-
-// MARK: - RestBird.ParameterEncoding -> Alamofire.ParameterEncoding
-
-fileprivate extension RestBird.ParameterEncoding {
-    var alamofireParameterEncoding: Alamofire.ParameterEncoding {
-        switch self {
-        case .url:
-            return URLEncoding.default
-        case .json:
-            return JSONEncoding.default
         }
     }
 }

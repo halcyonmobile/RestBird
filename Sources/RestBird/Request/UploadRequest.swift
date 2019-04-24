@@ -8,7 +8,6 @@
 import Foundation
 
 public enum UploadSource {
-    
     case url(URL)
     case data(Data)
     case stream(InputStream)
