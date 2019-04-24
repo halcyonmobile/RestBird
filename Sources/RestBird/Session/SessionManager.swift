@@ -44,7 +44,7 @@ public protocol SessionManager: class {
     ///   - request: DataRequest instance.
     ///   - baseUrl: The base URL for the upload task.
     ///   - completion: Request completion handler.
-    func performDataTask<Request: DataRequest>(request: Request, completion: @escaping (Result<Data>) -> Void)
+    func performDataTask<Request: DataRequest>(request: Request, completion: @escaping (Result<Data, Error>) -> Void)
 
     /// Perform upload task.
     ///
@@ -52,7 +52,7 @@ public protocol SessionManager: class {
     ///   - request: URLRequest instance.
     ///   - source: Upload source type.
     ///   - completion: Request completion handler.
-    func performUploadTask<Request: UploadRequest>(request: Request, source: UploadSource, completion: @escaping (Result<Data>) -> Void)
+    func performUploadTask<Request: UploadRequest>(request: Request, source: UploadSource, completion: @escaping (Result<Data, Error>) -> Void)
     
     /// Perform upload task.
     ///
@@ -61,5 +61,5 @@ public protocol SessionManager: class {
     ///   - source: Upload source type.
     ///   - uploadProgress: The closure used to monitor the progress of the upload request.
     ///   - completion: Request completion handler.
-    func performUploadTask<Request: UploadRequest>(request: Request, source: UploadSource, uploadProgress: UploadRequest.ProgressHandler?, completion: @escaping (Result<Data>) -> Void)
+    func performUploadTask<Request: UploadRequest>(request: Request, source: UploadSource, uploadProgress: UploadRequest.ProgressHandler?, completion: @escaping (Result<Data, Error>) -> Void)
 }
