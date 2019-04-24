@@ -12,21 +12,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target   = '10.10'
   
   s.source                  = { :git => "https://github.com/halcyonmobile/RestBird.git", :tag => "v#{s.version}" }
-
-  s.default_subspec         = 'Core'
   
-  s.subspec 'Core' do |s|
-    s.source_files          = "Sources/RestBird/**/*.swift"
-  end
-
-  s.subspec 'Alamofire' do |s|
-    s.source_files          = "Sources/RestBird-Alamofire/*.swift"
-    s.dependency            "RestBird/Core"
-    s.dependency            "Alamofire"
-  end
-  
-  s.subspec 'URLSession' do |s|
-    s.source_files          = "Sources/RestBird-URLSession/*.swift"
-    s.dependency            "RestBird/Core"
-  end
+  s.source_files          = "Sources/RestBird/**/*.swift"
+  s.dependency            "Alamofire"
 end
