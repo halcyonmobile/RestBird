@@ -12,8 +12,6 @@ import Foundation
 public protocol NetworkClientConfiguration {
     /// The base URL of the backend service
     var baseUrl: String { get }
-    /// Define session manager interface. Can be Alamofire, URLSession
-    var sessionManager: SessionManager { get }
     /// JSON encoder
     var jsonEncoder: JSONEncoder { get }
     /// JSON decoder
