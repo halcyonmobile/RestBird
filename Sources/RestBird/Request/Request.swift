@@ -39,7 +39,7 @@ extension Request {
 
     public var headers: RequestHeaders? { return nil }
 
-    public var parameters: Encodable? { return nil }
+    public var parameters: RequestType? { return nil }
 
     public var parameterEncoding: ParameterEncoding { return method.defaultParameterEncoding }
 }
