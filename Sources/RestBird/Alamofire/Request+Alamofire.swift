@@ -16,6 +16,12 @@ extension Request {
             return URLEncoding.default
         case .json:
             return JSONEncoding.default
+        case .custom(let encoding):
+            guard let encoding = encoding as? Alamofire.ParameterEncoding else {
+                return URLEncoding.default
+            }
+            
+            return encoding
         }
     }
 
