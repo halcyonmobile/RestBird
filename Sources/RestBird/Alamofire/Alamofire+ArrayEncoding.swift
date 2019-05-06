@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-public struct ArrayEncoding<T: Encodable>: ParameterEncoding {
+public struct ArrayEncoding<T: Encodable>: Alamofire.ParameterEncoding {
     
     private let array: T
     
