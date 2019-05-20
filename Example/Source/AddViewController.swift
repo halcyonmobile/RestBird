@@ -18,9 +18,10 @@ class AddViewController: UIViewController {
     }
 
     @IBAction func addTouched(_ sender: UIButton) {
-        var request = Request.Beer.Create()
-        request.parameters = CreateBeerDTO(name: "Test", brewedBefore: Date())
-        apiClient.execute(request: request) { (result: Result<Void>) in
+        let data = CreateBeerDTO(name: "Test", brewedBefore: Date())
+        let imageData = Data(repeating: 1, count: 1024)
+        var request = Request.Beer.Create(parameters: data, source: .multipart(data: imageData, name: "image", fileName: "image.jpg", mimeType: "image/jpeg"))
+        apiClient.qexecute(request: request) { (result: Result<EmptyResponse, Error>) in
             print(result)
         }
     }

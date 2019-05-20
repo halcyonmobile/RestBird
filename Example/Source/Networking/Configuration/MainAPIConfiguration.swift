@@ -11,7 +11,6 @@ import RestBird
 
 struct MainAPIConfiguration: NetworkClientConfiguration {
     let baseUrl = "https://api.punkapi.com/v2"
-    let sessionManager: SessionManager = AlamofireSessionManager()
     let jsonEncoder: JSONEncoder
     let jsonDecoder: JSONDecoder
 

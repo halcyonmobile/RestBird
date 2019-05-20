@@ -17,32 +17,10 @@
     "git": "https://github.com/halcyonmobile/RestBird.git",
     "tag": "v0.4.1"
   },
-  "default_subspecs": "Core",
-  "subspecs": [
-    {
-      "name": "Core",
-      "source_files": "Sources/RestBird/**/*.swift"
-    },
-    {
-      "name": "Alamofire",
-      "source_files": "Sources/RestBird-Alamofire/*.swift",
-      "dependencies": {
-        "RestBird/Core": [
+  "source_files": "Sources/RestBird/**/*.swift",
+  "dependencies": {
+    "Alamofire": [
 
-        ],
-        "Alamofire": [
-
-        ]
-      }
-    },
-    {
-      "name": "URLSession",
-      "source_files": "Sources/RestBird-URLSession/*.swift",
-      "dependencies": {
-        "RestBird/Core": [
-
-        ]
-      }
-    }
-  ]
+    ]
+  }
 }

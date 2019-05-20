@@ -24,7 +24,6 @@ public final class NetworkClient {
     // MARK: - Properties
 
     let session: SessionManager
-//    let config: NetworkClientConfiguration
     fileprivate var parseQueue: DispatchQueue
 
     private(set) var preMiddlewares: [PreMiddleware] = []
@@ -122,7 +121,7 @@ extension NetworkClient {
     ///   - request: UploadRequest instance.
     ///   - uploadProgress: The closure used to monitor the progress of the upload request.
     ///   - completion: Single object Result callback.
-    public func execute<Request: UploadRequest>(
+    public func qexecute<Request: UploadRequest>(
         request: Request,
         uploadProgress: UploadRequest.ProgressHandler? = nil,
         completion: @escaping (Result<Request.ResponseType, Error>) -> Void
