@@ -14,7 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    static let apiClient = NetworkClient(configuration: MainAPIConfiguration())
+    static let apiClient = NetworkClient(session: {
+        return AlamofireSessionManager(config: MainAPIConfiguration())
+    }())
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         type(of: self).apiClient.register(RequestLoggerMiddleware())

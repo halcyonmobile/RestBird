@@ -124,6 +124,10 @@ extension AlamofireSessionManager {
         case .multipart(let data, let name, let fileName, let mimeType):
             let multipartFormData: (Alamofire.MultipartFormData) -> Void = { multipartFormData in
                 multipartFormData.append(data, withName: name, fileName: fileName, mimeType: mimeType)
+                try? request.afParameters(using: self.config.jsonEncoder)?.forEach { (param) in
+                    guard let value = String(describing: param.value).data(using: .utf8) else { return }
+                    multipartFormData.append(value, withName: param.key)
+                }
             }
 
             let encodingCompletion: ((Alamofire.SessionManager.MultipartFormDataEncodingResult) -> Void) = { result in

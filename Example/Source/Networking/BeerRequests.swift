@@ -19,12 +19,16 @@ extension Request.Beer {
         var parameters: FilterBeerDTO?
     }
 
-    struct Create: DataRequest {
+    // THIS IS JUST AN EXAMPLE REQUEST
+    // BEER API DOES NOT SUPPORT POSTING NEW ITEMS
+    // 
+    struct Create: UploadRequest {
         typealias ResponseType = EmptyResponse
         typealias RequestType = CreateBeerDTO
 
-        var suffix: String? = "/beers"
-        var method: HTTPMethod = .post
-        var parameters: CreateBeerDTO?
+        let suffix: String? = "/beers"
+        let method: HTTPMethod = .post
+        let parameters: CreateBeerDTO?
+        let source: UploadSource
     }
 }
