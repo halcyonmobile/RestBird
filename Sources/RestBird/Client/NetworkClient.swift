@@ -115,13 +115,34 @@ extension NetworkClient {
 
 extension NetworkClient {
 
+    /// Perform UploadRequest a Void response is expected.
+    ///
+    /// - Parameters:
+    ///   - request: UploadRequest instance.
+    ///   - uploadProgress: The closure used to monitor the progress of the upload request.
+    ///   - completion: Void Result callback.
+    public func upload<Request: UploadRequest>(
+        request: Request,
+        uploadProgress: UploadRequest.ProgressHandler? = nil,
+        completion: @escaping (Result<Void, Error>) -> Void
+    ) {
+        performUploadTask(request: request, uploadProgress: uploadProgress) { [session] result in
+            self.parseQueue.async {
+                let response = result.map { _ in () }
+                DispatchQueue.main.async {
+                    completion(response)
+                }
+            }
+        }
+    }
+
     /// Perform UploadRequest a single object response is expected.
     ///
     /// - Parameters:
     ///   - request: UploadRequest instance.
     ///   - uploadProgress: The closure used to monitor the progress of the upload request.
     ///   - completion: Single object Result callback.
-    public func qexecute<Request: UploadRequest>(
+    public func upload<Request: UploadRequest>(
         request: Request,
         uploadProgress: UploadRequest.ProgressHandler? = nil,
         completion: @escaping (Result<Request.ResponseType, Error>) -> Void
