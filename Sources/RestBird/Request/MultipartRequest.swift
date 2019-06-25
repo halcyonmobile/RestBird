@@ -26,4 +26,6 @@ public protocol MultipartRequest: Request {
 extension MultipartRequest {
 
     public var method: HTTPMethod { return .post }
+
+    public var part: Multipart? { return nil }
 }

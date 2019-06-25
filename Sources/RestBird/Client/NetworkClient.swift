@@ -115,19 +115,11 @@ extension NetworkClient {
 
 extension NetworkClient {
 
-    func performUploadTask<Request: MultipartRequest>(
-        request: Request,
-        uploadProgress: MultipartRequest.ProgressHandler?,
-        completion: @escaping (Result<Data, Error>) -> Void
-    ) {
-        session.performUploadTask(request: request, uploadProgress: uploadProgress, completion: completion)
-    }
-
-    func performUploadTask<Request: MultipartRequest>(
+    func execute<Request: MultipartRequest>(
         request: Request,
         uploadProgress: MultipartRequest.ProgressHandler?,
         completion: @escaping (Result<Void, Error>) -> Void
-    ) {
+    ) where Request.ResponseType == EmptyResponse {
         session.performUploadTask(request: request, uploadProgress: uploadProgress, completion: { result in
             self.parseQueue.async {
                 let response = result.map { _ in () }
@@ -136,6 +128,29 @@ extension NetworkClient {
                 }
             }
         })
+    }
+
+    func execute<Request: MultipartRequest>(
+        request: Request,
+        uploadProgress: MultipartRequest.ProgressHandler?,
+        completion: @escaping (Result<Request.ResponseType, Error>) -> Void
+    ) {
+        session.performUploadTask(request: request, uploadProgress: uploadProgress, completion: { [session] result in
+            self.parseQueue.async {
+                let response = Result { try result.get().decoded(Request.ResponseType.self, with: session.config.jsonDecoder) }
+                DispatchQueue.main.async {
+                    completion(response)
+                }
+            }
+        })
+    }
+
+    func execute<Request: MultipartRequest>(
+        request: Request,
+        uploadProgress: MultipartRequest.ProgressHandler?,
+        completion: @escaping (Result<Data, Error>) -> Void
+    ) {
+        session.performUploadTask(request: request, uploadProgress: uploadProgress, completion: completion)
     }
 }
 
