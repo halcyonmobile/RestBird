@@ -7,45 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04841E13EF44ADF6CBB6FDDF104E13D8 /* Alamofire+ArrayEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A2D6FCB39B47A63AB2D3A7A0BCAF7B /* Alamofire+ArrayEncoding.swift */; };
+		09809983823307FA7516E2B7F8673A70 /* AlamofireSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BDDCFDA06BEF32A4289E082592BBFF /* AlamofireSessionManager.swift */; };
+		0AA84345C8A3995C647675B28493809D /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929DB1439C8943DC4045D8EAA309AD8E /* ParameterEncoding.swift */; };
 		14ECF6E40B0356170FEDE170B2EB6F2F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D59E1AD3CC394A93392FF3DC8CF2961 /* Request.swift */; };
-		187EC758311AB5002BD50F38FC2D2494 /* RestBird-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9CDBEEFDF11CA0D132D4A91649EA6 /* RestBird-dummy.m */; };
-		3681AF18C737BD62E726B9B7324EFAE2 /* Alamofire+ArrayEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677E8165162C48044B164C00CE5E90E /* Alamofire+ArrayEncoding.swift */; };
-		3DA887E9610634EF7863C212B1B086B2 /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080B13715C1284CE2CA03C933E9B87DD /* EmptyResponse.swift */; };
+		15101D34B030B2E37022B0F4B3F2DF27 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B90862581C4DE0F351772B2EE3CB212 /* NetworkClient.swift */; };
+		32F651BAE7AAE621E15551E2A603DAD0 /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8D036723E2E649B4F434A0263DDADB /* EmptyResponse.swift */; };
+		3924C39F734413700081935AD8CEB024 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8CC332F2B3457E7C34697B2FF762B2 /* Middleware.swift */; };
+		39665F5E66EEA54C86031F21E4000223 /* RestBird-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 71AD8A95E7F6CBC842517FE409642A66 /* RestBird-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4920AD2B3D668DB550BEDED6747F925B /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4453BE339B79900FDC53E34FE5589CB /* ServerTrustPolicy.swift */; };
-		4A7CA6F073EF1C584946E4DF54E5E3A3 /* UploadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292288273C072CB848E18818D29D9695 /* UploadRequest.swift */; };
-		4E267CA4462D0B3309C90A7290719A5E /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAE32B0D475BF44D7F558E0AD5C5ED6 /* DataRequest.swift */; };
+		4F6B69859618886FBB9E1629149774B6 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2040B92D11CA894F304A051603B1B /* Request.swift */; };
 		505B75241DCEA8C1FBF9F479C2DDEF31 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB5272AD01ECD0B09A86818A7754C4 /* Timeline.swift */; };
 		559368DD6966DB1193B3FD6E7CBF5FED /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 341BDAD0026CDA8E7BCE35AC122E1C8C /* Alamofire-dummy.m */; };
+		5802C4C7D1EBBA83DE05174FC117F343 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A17828533F735E2C0F39782A8495B3 /* SessionManager.swift */; };
+		5896FEB6C0C38F931A23EA7A80C83117 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1BAA5A724D1E2AC92052E03AE82FDE /* HTTPMethod.swift */; };
 		594494BAB3E029862D7009DE60FCC904 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C759635F88377BD7E2DEDE04C23C62 /* TaskDelegate.swift */; };
-		5A5E19BE27CAB7FDFCE927051B0457A1 /* AlamofireSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915656A0DCD81C17A3EB7E6A294AD175 /* AlamofireSessionManager.swift */; };
 		5B1086B0A866704A6CAF72B5A47582C6 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15C076B531E2E7744C358418A0C0B5 /* Alamofire.swift */; };
 		5C2F9E5485166B59DD032D7DF4C29CF0 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC6858C85690F7AFEA7F6542EE9A69A /* Response.swift */; };
 		5D9B36B23BA51804AB8F1A5FEDFEFD7E /* Pods-iOS Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7780B356081F967441EF8270D372A005 /* Pods-iOS Example-dummy.m */; };
 		6347B1BA6D146FE1BF6D4C140D5CDA04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DAB41DE6AF59D8362CBC670CDF0EEC /* Foundation.framework */; };
-		66F8F08642F1434AC0E841E4BF28EEF9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288BE77359BE116615AD84FC594BA4B8 /* Request.swift */; };
 		72C2F0877FAB758F102C1D5FB6641559 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5460AD0F6241621B45A17AB23A8E5B7 /* NetworkReachabilityManager.swift */; };
-		76B5B70D139814A0FF935C585DDD9055 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EBEDCEA898C72D7D57DD1ACEA6BFD4 /* Middleware.swift */; };
-		7F9B3B411930798084E95F921457BC1D /* RestBird-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AF21CEF8A22DFE5F7EA4D22C1545857E /* RestBird-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		87156229C78D5E552659939C07A729CB /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CFF8C4447CF3D85D5F2AACD5659286 /* HTTPMethod.swift */; };
-		8744B3BF3FE3F80F0DE180EB9272C493 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DAB41DE6AF59D8362CBC670CDF0EEC /* Foundation.framework */; };
-		8A4C1615853D7766201BE3B5330AAB15 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0223F9FC9F57335FDF93306A3DA72337 /* NetworkClient.swift */; };
-		8B19D8CDB9EB7AAA272560DB4AB4D684 /* Request+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90E648DEB383C2A1A828EE77B1D6426 /* Request+Alamofire.swift */; };
-		8BACBC5FEE843FB1D8D8024C46609079 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B03B07DFA7C8BB60693AE1DE30731E2 /* Alamofire.framework */; };
+		77BF4C939D7BF670B3E9F401EA42798B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DAB41DE6AF59D8362CBC670CDF0EEC /* Foundation.framework */; };
+		8E9811E8513BC2909AEE20F3FFA9C449 /* RestBird-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5945CC3165F46359112EFD55ED6D0030 /* RestBird-dummy.m */; };
+		9B7C8FE9528C354F5CE230D16FA8A15A /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169D12C07A00921D641D9F1D65A03C7F /* DataRequest.swift */; };
 		A1F64B024218B3966ECE188E5BB39EE9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DAB41DE6AF59D8362CBC670CDF0EEC /* Foundation.framework */; };
 		A5ADEF55257E4C1A482BF072C205F388 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D01BA8472F25D39F718F71557EDC8DD /* ParameterEncoding.swift */; };
 		ABAEB9DEE3CE05729A9442CFA1988407 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7E25E371731FAE44F46A9F392CB5D5 /* SessionManager.swift */; };
 		ADB18D94C4F71AE2FCE388100D556B0F /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B03859BDC36782899379E222720A297 /* ResponseSerialization.swift */; };
 		B082FA7223428C8DE32F7DE7F5AF441C /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A0E300C04A6DF88D620788FE38780 /* AFError.swift */; };
 		B2E54789768E4F4EE35F11E0034C7383 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06639F7A76DB8A9D0D0E41CDD7A6684 /* Notifications.swift */; };
+		B3B9E18C730A60C996628E6DD09AE660 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B03B07DFA7C8BB60693AE1DE30731E2 /* Alamofire.framework */; };
 		B6F6E4CC26451E91B59FAE0F6841DC1F /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D54AEF5647A987180EDAD7E1CEF7387B /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B74FE30A4640758728582F612AEB576B /* Pods-iOS Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF20CED5314A166507DB77D931DB488 /* Pods-iOS Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BFFD47F84F36C8B29B09DA38B6003B4A /* Data+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1025F967D21D7E7F8F9B0F9DCEC94AE8 /* Data+Codable.swift */; };
+		C15C039200A702E5B717B51E6CC905F1 /* Data+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79B36ABBA9AA7997CA0BACA10CFDFDF /* Data+Codable.swift */; };
 		D2B384893454A891D32CB20A53E4EDAF /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF7F7716086D54E6308EE52C8227B87 /* DispatchQueue+Alamofire.swift */; };
 		D583829CA1D3C6B9B8F5C085B1D597EF /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33115EC2A5164913C68F8BD170389EEE /* Validation.swift */; };
-		D87DC002684E9DD14A6A0E3199AC9C97 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9B0A0C23A3EAD31F78FD12B7E4B336 /* SessionManager.swift */; };
+		E1D81143553574BF407F0ADC032357F3 /* Request+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E61C0B1072474506289C4970C61D991 /* Request+Alamofire.swift */; };
 		E7BA58DE1AA8F11BAA7E8817D8AB509C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD807F155301ECA538A2C1C296E1186D /* Result.swift */; };
 		F4D82D78C14BF258042CDA3C1B15B7E1 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE3D7EDCA41F256D471B40BBFD3FCE /* MultipartFormData.swift */; };
-		F699E59E10CA87D037B31D5AFFE2F112 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF172FEAA7B65B363D6B5A1B448BCE /* ParameterEncoding.swift */; };
+		FE2F7D23E059379143381DB0E5A2D119 /* MultipartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D05A8C0721C02334E9259915868E1A /* MultipartRequest.swift */; };
 		FFB9BA683C701138C08A211F3E192F56 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640F61D5BEE8132009BAEAA65B587A4 /* SessionDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +64,7 @@
 			remoteGlobalIDString = 9B58A8004894B0E813738F6FDF923D8C;
 			remoteInfo = RestBird;
 		};
-		DA834EC74232343B4B4C15D1B8D13492 /* PBXContainerItemProxy */ = {
+		6BF32D316DE9EBADD0DE26582D5AD42B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -74,134 +74,135 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0223F9FC9F57335FDF93306A3DA72337 /* NetworkClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
-		0602B227EDB69496ED20A68D383B9F48 /* carat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = carat.png; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/img/carat.png; sourceTree = "<group>"; };
-		0690576B89C0FF5CE1F647D51411E852 /* UploadSource.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UploadSource.html; path = docs/Enums/UploadSource.html; sourceTree = "<group>"; };
-		080B13715C1284CE2CA03C933E9B87DD /* EmptyResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
+		015703CF35D5D29380A494234F7E4B6F /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/index.html; sourceTree = "<group>"; };
+		01F5573A7F5831953E5D254F2F1374CF /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; name = highlight.css; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/css/highlight.css; sourceTree = "<group>"; };
+		05D70857AEED8788E65E23DD6DFFAE50 /* HTTPMethod.html */ = {isa = PBXFileReference; includeInIndex = 1; name = HTTPMethod.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Enums/HTTPMethod.html; sourceTree = "<group>"; };
+		0603F796F51CA7B71F598495D542EE6A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = docs/docsets/RestBird.docset/Contents/Info.plist; sourceTree = "<group>"; };
+		08A17828533F735E2C0F39782A8495B3 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		0D01BA8472F25D39F718F71557EDC8DD /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
-		0D333CA492636CFF02F0B7BD12BECDEA /* ParameterEncoding.html */ = {isa = PBXFileReference; includeInIndex = 1; name = ParameterEncoding.html; path = docs/Enums/ParameterEncoding.html; sourceTree = "<group>"; };
 		0DF20CED5314A166507DB77D931DB488 /* Pods-iOS Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iOS Example-umbrella.h"; sourceTree = "<group>"; };
-		0E6FEED22984BCBE8FDDD0DCC34FDFCB /* HTTPMethod.html */ = {isa = PBXFileReference; includeInIndex = 1; name = HTTPMethod.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Enums/HTTPMethod.html; sourceTree = "<group>"; };
-		1025F967D21D7E7F8F9B0F9DCEC94AE8 /* Data+Codable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Data+Codable.swift"; sourceTree = "<group>"; };
 		108E091FB1F47D2D16BA4036CD7E4ABB /* Pods-iOS Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOS Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		111EF5A841FB86F1902ACE6840217D38 /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; name = search.json; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/search.json; sourceTree = "<group>"; };
 		137298D24BA24A232DC14CB0DEA3C50B /* Pods-iOS Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOS Example-Info.plist"; sourceTree = "<group>"; };
-		139F90B9893149E5919BF4C4CDBD96DF /* PreMiddleware.html */ = {isa = PBXFileReference; includeInIndex = 1; name = PreMiddleware.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols/PreMiddleware.html; sourceTree = "<group>"; };
-		13E97B239DE391DE4AFF165743D1FD02 /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; name = search.json; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/search.json; sourceTree = "<group>"; };
-		1604A0C2EFA926A8DDC3FE0368CF739A /* docSet.dsidx */ = {isa = PBXFileReference; includeInIndex = 1; name = docSet.dsidx; path = docs/docsets/RestBird.docset/Contents/Resources/docSet.dsidx; sourceTree = "<group>"; };
-		18C535EECD0D2B0401A6D1453C31CFDD /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jquery.min.js; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/js/jquery.min.js; sourceTree = "<group>"; };
-		19EA8EF81665AC938331BBF8B25859F0 /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Classes.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Classes.html; sourceTree = "<group>"; };
+		14F802E268738316254A87EE1C999692 /* Result.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Result.html; path = docs/Enums/Result.html; sourceTree = "<group>"; };
+		15075AABAD4B818A9A8CBA6206EEF6B4 /* gh.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = gh.png; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/img/gh.png; sourceTree = "<group>"; };
+		169D12C07A00921D641D9F1D65A03C7F /* DataRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
+		1AD129E9AE16D79DCFBDA3E52E91B37C /* badge.svg */ = {isa = PBXFileReference; includeInIndex = 1; name = badge.svg; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/badge.svg; sourceTree = "<group>"; };
 		1C15C076B531E2E7744C358418A0C0B5 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
-		1C95EA7D65C93C09206C86E048CB6F8F /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.js; path = docs/js/jazzy.js; sourceTree = "<group>"; };
-		25EF172FEAA7B65B363D6B5A1B448BCE /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
-		26A4237891B03539749C229524EC64AB /* undocumented.json */ = {isa = PBXFileReference; includeInIndex = 1; name = undocumented.json; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/undocumented.json; sourceTree = "<group>"; };
-		276402B94FBBA80C7D122BF0C91E85D4 /* Request.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Request.html; path = docs/Protocols/Request.html; sourceTree = "<group>"; };
-		288BE77359BE116615AD84FC594BA4B8 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		292288273C072CB848E18818D29D9695 /* UploadRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UploadRequest.swift; sourceTree = "<group>"; };
-		2AB4BC0EC86705F1F92EA84C2166EDE3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = docs/docsets/RestBird.docset/Contents/Info.plist; sourceTree = "<group>"; };
+		1D912FACE8C1D4C6363FE084DFDD582E /* gh.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = gh.png; path = docs/img/gh.png; sourceTree = "<group>"; };
+		206EBA37650FAA4684F69D27BFF483B0 /* NetworkClient.html */ = {isa = PBXFileReference; includeInIndex = 1; name = NetworkClient.html; path = docs/Classes/NetworkClient.html; sourceTree = "<group>"; };
+		2800AA42E1CE57EAAAE2384145865082 /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Classes.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Classes.html; sourceTree = "<group>"; };
+		2AF7BF288A6272113536916025258BE9 /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Enums.html; path = docs/Enums.html; sourceTree = "<group>"; };
+		2B165E9629EAAB423F3CE1896308F9CF /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.css; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/css/jazzy.css; sourceTree = "<group>"; };
+		2B90862581C4DE0F351772B2EE3CB212 /* NetworkClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		2C4B5856C0A3F14F6A44C0098A2170BC /* Pods-iOS Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-iOS Example.modulemap"; sourceTree = "<group>"; };
-		2E354DE30BEBD44BBBCFD565CF72CF16 /* RestBird.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = RestBird.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		2F8AC231F082FCA921F41EF0B93E4945 /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.css; path = docs/css/jazzy.css; sourceTree = "<group>"; };
+		3032AF8ECED20056FCB38EF529285090 /* UploadSource.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UploadSource.html; path = docs/Enums/UploadSource.html; sourceTree = "<group>"; };
+		3198B3C34688202E5DC378B21AD8E8E6 /* NetworkClient.html */ = {isa = PBXFileReference; includeInIndex = 1; name = NetworkClient.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Classes/NetworkClient.html; sourceTree = "<group>"; };
 		32DB5272AD01ECD0B09A86818A7754C4 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
 		33115EC2A5164913C68F8BD170389EEE /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		3355517A0A775B9AEA5B1D82BC1FC9D1 /* undocumented.json */ = {isa = PBXFileReference; includeInIndex = 1; name = undocumented.json; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/undocumented.json; sourceTree = "<group>"; };
 		341BDAD0026CDA8E7BCE35AC122E1C8C /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
-		37781CCB105B138FFDDBFBBA7249ECEC /* PreMiddleware.html */ = {isa = PBXFileReference; includeInIndex = 1; name = PreMiddleware.html; path = docs/Protocols/PreMiddleware.html; sourceTree = "<group>"; };
-		3A65CD8404A08151C25C46E13BCC4583 /* undocumented.json */ = {isa = PBXFileReference; includeInIndex = 1; name = undocumented.json; path = docs/undocumented.json; sourceTree = "<group>"; };
-		3C6AA7978570EECD9E89A48C53A9FC49 /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; name = search.json; path = docs/search.json; sourceTree = "<group>"; };
-		3CAE32B0D475BF44D7F558E0AD5C5ED6 /* DataRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		3D7E25E371731FAE44F46A9F392CB5D5 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
-		3EA1D2F39B40FB7B1B2A537ABD944C9D /* RestBird-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RestBird-Info.plist"; sourceTree = "<group>"; };
-		3F0ECB0265F40AFE1518F61BF6561447 /* gh.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = gh.png; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/img/gh.png; sourceTree = "<group>"; };
+		428A3F3DB55DBD4256E3D6746FFCDE66 /* RestBird.tgz */ = {isa = PBXFileReference; includeInIndex = 1; name = RestBird.tgz; path = docs/docsets/RestBird.tgz; sourceTree = "<group>"; };
+		44C2C6DE0D99A9AAE0EA2833C173A84D /* SessionManager.html */ = {isa = PBXFileReference; includeInIndex = 1; name = SessionManager.html; path = docs/Protocols/SessionManager.html; sourceTree = "<group>"; };
+		48AC9C698C2CD9BCC4DDE972E8619903 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		4B03B07DFA7C8BB60693AE1DE30731E2 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D1B833AD1135B644B6ED8792E2A1235 /* gh.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = gh.png; path = docs/img/gh.png; sourceTree = "<group>"; };
-		4DD719766C013D6CCE90A5FCE239866F /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Enums.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Enums.html; sourceTree = "<group>"; };
-		51350BCAF10CCBFEE1CE5E8FE330363B /* Protocols.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Protocols.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols.html; sourceTree = "<group>"; };
-		534958F74E4FE67192A7A4E659F0EBB2 /* NetworkClient.html */ = {isa = PBXFileReference; includeInIndex = 1; name = NetworkClient.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Classes/NetworkClient.html; sourceTree = "<group>"; };
-		53DE285F3C6B8E4F98F20CA1A3CC3ED5 /* UploadRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UploadRequest.html; path = docs/Protocols/UploadRequest.html; sourceTree = "<group>"; };
-		611BBF66FE177EC4FEBB146524B4751F /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; name = highlight.css; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/css/highlight.css; sourceTree = "<group>"; };
-		64F2C23C3A5817ECBE3A0EDB428F6346 /* Typealiases.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Typealiases.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Typealiases.html; sourceTree = "<group>"; };
-		666F7ECB28569C2E83CCFEB5C4CC5637 /* badge.svg */ = {isa = PBXFileReference; includeInIndex = 1; name = badge.svg; path = docs/badge.svg; sourceTree = "<group>"; };
-		68EBEDCEA898C72D7D57DD1ACEA6BFD4 /* Middleware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = Sources/RestBird/Middleware.swift; sourceTree = "<group>"; };
+		4BB976D8916D339CE2FACDC1837DD046 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		4BC55472B2CA5F095F58A11B090C8415 /* undocumented.json */ = {isa = PBXFileReference; includeInIndex = 1; name = undocumented.json; path = docs/undocumented.json; sourceTree = "<group>"; };
+		5270EE302963B5441E6FB9E883C3A774 /* RestBird-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RestBird-Info.plist"; sourceTree = "<group>"; };
+		543BC55B73C0176F2233CE35B9241F11 /* ParameterEncoding.html */ = {isa = PBXFileReference; includeInIndex = 1; name = ParameterEncoding.html; path = docs/Enums/ParameterEncoding.html; sourceTree = "<group>"; };
+		56EA04105DF177A615ED0FCC2BB51FBF /* Protocols.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Protocols.html; path = docs/Protocols.html; sourceTree = "<group>"; };
+		5760383DFA8BD3CAD3513347CE4AB112 /* Structs.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Structs.html; path = docs/Structs.html; sourceTree = "<group>"; };
+		5945CC3165F46359112EFD55ED6D0030 /* RestBird-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RestBird-dummy.m"; sourceTree = "<group>"; };
+		5D0D200408334C6FC2C700F549EBC796 /* PreMiddleware.html */ = {isa = PBXFileReference; includeInIndex = 1; name = PreMiddleware.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols/PreMiddleware.html; sourceTree = "<group>"; };
+		5FD4700204CB5D9356883496747ED682 /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Classes.html; path = docs/Classes.html; sourceTree = "<group>"; };
+		62229AF0BAFA78B862BE42A60E28EA12 /* RestBird.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = RestBird.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		66F2040B92D11CA894F304A051603B1B /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		676781B35171D8DB3A9214D8D74F1AC7 /* UploadRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UploadRequest.html; path = docs/Protocols/UploadRequest.html; sourceTree = "<group>"; };
 		69DAB41DE6AF59D8362CBC670CDF0EEC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6ABB8377DA95335A9606A2F77E249B06 /* NetworkClientConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = NetworkClientConfiguration.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols/NetworkClientConfiguration.html; sourceTree = "<group>"; };
 		6B9C1E546C5A928D1999A85F696FB500 /* RestBird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RestBird.framework; path = RestBird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BF29A055661BCB78A4AC4EBB0BE8C80 /* Request.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Request.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols/Request.html; sourceTree = "<group>"; };
-		6E9B0A0C23A3EAD31F78FD12B7E4B336 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		6C6984D4CA5D75CBF4695A0AB1EBB9F6 /* carat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = carat.png; path = docs/img/carat.png; sourceTree = "<group>"; };
+		6E61C0B1072474506289C4970C61D991 /* Request+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Request+Alamofire.swift"; sourceTree = "<group>"; };
+		6F16C0CDBDDD6C567CA40BC5635E3F95 /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Enums.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Enums.html; sourceTree = "<group>"; };
 		6F6E9280240A086ACE3B4C5D649FC23F /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		71A045DB08A995DDC6CCC34D3E9B3841 /* Result.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Result.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Enums/Result.html; sourceTree = "<group>"; };
+		70332F8F2F0EC933C3BF30098CED607D /* RestBird-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RestBird-prefix.pch"; sourceTree = "<group>"; };
+		71AD8A95E7F6CBC842517FE409642A66 /* RestBird-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RestBird-umbrella.h"; sourceTree = "<group>"; };
+		71E987B68008E1CE73899E41FBCF3DDF /* PreMiddleware.html */ = {isa = PBXFileReference; includeInIndex = 1; name = PreMiddleware.html; path = docs/Protocols/PreMiddleware.html; sourceTree = "<group>"; };
 		75C759635F88377BD7E2DEDE04C23C62 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		7780B356081F967441EF8270D372A005 /* Pods-iOS Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iOS Example-dummy.m"; sourceTree = "<group>"; };
-		7A71DFBC96C821253E8ED8C4D7407C41 /* ParameterEncoding.html */ = {isa = PBXFileReference; includeInIndex = 1; name = ParameterEncoding.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Enums/ParameterEncoding.html; sourceTree = "<group>"; };
+		7969F414E5A588107F98790E3168FEEF /* NetworkClientConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = NetworkClientConfiguration.html; path = docs/Protocols/NetworkClientConfiguration.html; sourceTree = "<group>"; };
 		7B03859BDC36782899379E222720A297 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
 		7BB97E4E18DB2EB1292AF59A08C7C347 /* Pods-iOS Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iOS Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7BE47E646BA4B36349815AE119C78EC8 /* Pods_iOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_iOS_Example.framework; path = "Pods-iOS Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CBE611E53DE433E83047866DADBB0D3 /* dash.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dash.png; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/img/dash.png; sourceTree = "<group>"; };
+		7CC94BE3CE83C5BF3DF851F44F9BE69A /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.css; path = docs/css/jazzy.css; sourceTree = "<group>"; };
+		7D225BE820A8630E2787FCDB5BBFA935 /* Request.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Request.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols/Request.html; sourceTree = "<group>"; };
 		7DAD8F9F8B11AF3A95F30A13D20719C1 /* Pods-iOS Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOS Example.debug.xcconfig"; sourceTree = "<group>"; };
-		7DC9CDBEEFDF11CA0D132D4A91649EA6 /* RestBird-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RestBird-dummy.m"; sourceTree = "<group>"; };
-		7E88776A1C070CD01B25F529D38E1CD9 /* Classes.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Classes.html; path = docs/Classes.html; sourceTree = "<group>"; };
-		7F567C6CEEE5A6D69BEBD4A9DFD4AF6F /* SessionManagerDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = SessionManagerDelegate.html; path = docs/Protocols/SessionManagerDelegate.html; sourceTree = "<group>"; };
-		7FAF1A4AE4EC6A0D132AC01D7FD41FA6 /* PostMiddleware.html */ = {isa = PBXFileReference; includeInIndex = 1; name = PostMiddleware.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols/PostMiddleware.html; sourceTree = "<group>"; };
+		84D05A8C0721C02334E9259915868E1A /* MultipartRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MultipartRequest.swift; sourceTree = "<group>"; };
+		888DCE00B877F7BF293E44400A8A8798 /* Request+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Request+Alamofire.swift"; sourceTree = "<group>"; };
+		89E189F3E1386F07FFFCF88E45DDD4F5 /* SessionManager.html */ = {isa = PBXFileReference; includeInIndex = 1; name = SessionManager.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols/SessionManager.html; sourceTree = "<group>"; };
+		8B894947AD483E35F447D62DCC11B76B /* ParameterEncoding.html */ = {isa = PBXFileReference; includeInIndex = 1; name = ParameterEncoding.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Enums/ParameterEncoding.html; sourceTree = "<group>"; };
+		8C8D036723E2E649B4F434A0263DDADB /* EmptyResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
 		8D5A0E300C04A6DF88D620788FE38780 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
-		915656A0DCD81C17A3EB7E6A294AD175 /* AlamofireSessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlamofireSessionManager.swift; sourceTree = "<group>"; };
-		9677E8165162C48044B164C00CE5E90E /* Alamofire+ArrayEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Alamofire+ArrayEncoding.swift"; sourceTree = "<group>"; };
+		929DB1439C8943DC4045D8EAA309AD8E /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		96A2D6FCB39B47A63AB2D3A7A0BCAF7B /* Alamofire+ArrayEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Alamofire+ArrayEncoding.swift"; sourceTree = "<group>"; };
 		985417470B9341C92A5160D4B2FF2B08 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
 		9AF6036FB4A11AF1C6470AFA842D2E63 /* Pods-iOS Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOS Example.release.xcconfig"; sourceTree = "<group>"; };
-		9B0875B8C52B3392E2DB7304300923D7 /* SessionManagerDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = SessionManagerDelegate.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols/SessionManagerDelegate.html; sourceTree = "<group>"; };
+		9B002C04F8C66FB453F46C134448A2E6 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = docs/index.html; sourceTree = "<group>"; };
 		9D59E1AD3CC394A93392FF3DC8CF2961 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A0A23AB6ED2FA3EE590345F423200CDA /* Structs.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Structs.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Structs.html; sourceTree = "<group>"; };
-		A98A50D96A7F8CCBEA33B38F8153415F /* HTTPMethod.html */ = {isa = PBXFileReference; includeInIndex = 1; name = HTTPMethod.html; path = docs/Enums/HTTPMethod.html; sourceTree = "<group>"; };
-		AA480A010B30B19DA53CE5E058C1C21C /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jquery.min.js; path = docs/js/jquery.min.js; sourceTree = "<group>"; };
+		9E2323431BB43846C6750D4FFD59B38C /* carat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = carat.png; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/img/carat.png; sourceTree = "<group>"; };
+		A79B36ABBA9AA7997CA0BACA10CFDFDF /* Data+Codable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Data+Codable.swift"; sourceTree = "<group>"; };
+		A81380AF0392058CE5AFCE01B552887D /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.js; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/js/jazzy.js; sourceTree = "<group>"; };
 		AD8710F26B62AABFF387E9CA4F6899A4 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
-		ADB5BD76732681D3AE557F1544355435 /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.js; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/js/jazzy.js; sourceTree = "<group>"; };
-		AF21CEF8A22DFE5F7EA4D22C1545857E /* RestBird-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RestBird-umbrella.h"; sourceTree = "<group>"; };
 		AFF7F7716086D54E6308EE52C8227B87 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
 		B06639F7A76DB8A9D0D0E41CDD7A6684 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
-		B251181DC87E99A474489B90AB1D962E /* dash.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dash.png; path = docs/img/dash.png; sourceTree = "<group>"; };
-		B7CA3E95BFC3EE6F56442B47F29B9747 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		B7FC8D8F1D9BD23B0BA3CD3290AEEEC4 /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; name = highlight.css; path = docs/css/highlight.css; sourceTree = "<group>"; };
+		B1B0AF317365418BE1070FA070C54DE2 /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jquery.min.js; path = docs/js/jquery.min.js; sourceTree = "<group>"; };
+		B3879700DD6312038B159BD27450D439 /* SessionManagerDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = SessionManagerDelegate.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols/SessionManagerDelegate.html; sourceTree = "<group>"; };
+		B4C6A2F4706863F0FBFFC49D0C801F09 /* search.json */ = {isa = PBXFileReference; includeInIndex = 1; name = search.json; path = docs/search.json; sourceTree = "<group>"; };
 		B9862B55F765F90CB66019F6C44ADBC0 /* Pods-iOS Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOS Example-frameworks.sh"; sourceTree = "<group>"; };
-		BD2B62A27D04D4A12A6B15A23AE99A12 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/index.html; sourceTree = "<group>"; };
-		BF3192238BB4F22B80A2CFCC9DFF9F62 /* UploadRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UploadRequest.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols/UploadRequest.html; sourceTree = "<group>"; };
+		BAD500802C516B16DA60CB5C96DE0E63 /* Typealiases.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Typealiases.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Typealiases.html; sourceTree = "<group>"; };
 		BFCE3D7EDCA41F256D471B40BBFD3FCE /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
-		C340145A2D0EAAF7BF92982AD80AE0A4 /* jazzy.css */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.css; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/css/jazzy.css; sourceTree = "<group>"; };
+		C0D1791F3E6A81034E38546780A4A257 /* Request.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Request.html; path = docs/Protocols/Request.html; sourceTree = "<group>"; };
 		C4453BE339B79900FDC53E34FE5589CB /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
-		C57F4AB2F84C96264F9C7B26B5C2011C /* RestBird.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RestBird.modulemap; sourceTree = "<group>"; };
-		C701F277739C59F1527281D243AB81D9 /* badge.svg */ = {isa = PBXFileReference; includeInIndex = 1; name = badge.svg; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/badge.svg; sourceTree = "<group>"; };
+		C4C239712D1A0A2C6C4781DE365C3C3F /* UploadRequest.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UploadRequest.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols/UploadRequest.html; sourceTree = "<group>"; };
+		C746FBA91DACB37FB243F0B38CEE9419 /* Protocols.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Protocols.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols.html; sourceTree = "<group>"; };
 		C9C3EF964FFA8A9F78851B59A8D4FFBC /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
-		CA51C3F7CA4D054C9EF455E73F4F08BA /* Protocols.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Protocols.html; path = docs/Protocols.html; sourceTree = "<group>"; };
-		CAF8837B6FEB9DEC8FF84D9FCD03FB1E /* SessionManager.html */ = {isa = PBXFileReference; includeInIndex = 1; name = SessionManager.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols/SessionManager.html; sourceTree = "<group>"; };
-		CBAA3B00772773C285C3D4C12FF29FF5 /* carat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = carat.png; path = docs/img/carat.png; sourceTree = "<group>"; };
 		CCC6858C85690F7AFEA7F6542EE9A69A /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
-		CD08D37ECD0E41C6ED56AA40087B8E72 /* Structs.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Structs.html; path = docs/Structs.html; sourceTree = "<group>"; };
-		CD2C8CFD674102E434017495CC52DFF0 /* UploadSource.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UploadSource.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Enums/UploadSource.html; sourceTree = "<group>"; };
-		CDAE61A38F4C82677E80B6BE2509F9FC /* NetworkClient.html */ = {isa = PBXFileReference; includeInIndex = 1; name = NetworkClient.html; path = docs/Classes/NetworkClient.html; sourceTree = "<group>"; };
-		CF59E6386AC7FCEA9A7858083DDE6004 /* RestBird.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RestBird.xcconfig; sourceTree = "<group>"; };
-		D2CFF8C4447CF3D85D5F2AACD5659286 /* HTTPMethod.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = Sources/RestBird/HTTPMethod.swift; sourceTree = "<group>"; };
-		D33B8823839C3A0077F803C1D48D7307 /* SessionManager.html */ = {isa = PBXFileReference; includeInIndex = 1; name = SessionManager.html; path = docs/Protocols/SessionManager.html; sourceTree = "<group>"; };
+		D00301B5275CFEA22F23675B51B7646A /* dash.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dash.png; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/img/dash.png; sourceTree = "<group>"; };
 		D54AEF5647A987180EDAD7E1CEF7387B /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		D99DDF8E0B523EF53E28D36957627F12 /* RestBird.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RestBird.modulemap; sourceTree = "<group>"; };
+		DC636EC39390C61C8B3E7B9288C88A33 /* NetworkClientConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = NetworkClientConfiguration.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols/NetworkClientConfiguration.html; sourceTree = "<group>"; };
+		DC8CC332F2B3457E7C34697B2FF762B2 /* Middleware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = Sources/RestBird/Middleware.swift; sourceTree = "<group>"; };
 		DD807F155301ECA538A2C1C296E1186D /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		DE36AED4DF687B2D37BD230D9D2F69B6 /* Alamofire-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Alamofire-Info.plist"; sourceTree = "<group>"; };
-		DEF5BCD762BC60A551A60BBED7E4A088 /* Typealiases.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Typealiases.html; path = docs/Typealiases.html; sourceTree = "<group>"; };
-		E08192C86F9ABFA83693669335A61839 /* PostMiddleware.html */ = {isa = PBXFileReference; includeInIndex = 1; name = PostMiddleware.html; path = docs/Protocols/PostMiddleware.html; sourceTree = "<group>"; };
-		E381FACFE1323B138D4BBCE3FE4B1C74 /* Result.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Result.html; path = docs/Enums/Result.html; sourceTree = "<group>"; };
-		E95EBED9D372E204E84894CBB6F528F5 /* index.html */ = {isa = PBXFileReference; includeInIndex = 1; name = index.html; path = docs/index.html; sourceTree = "<group>"; };
-		EEC2FB31EAA31CE99D1B46CD715034F8 /* RestBird.tgz */ = {isa = PBXFileReference; includeInIndex = 1; name = RestBird.tgz; path = docs/docsets/RestBird.tgz; sourceTree = "<group>"; };
-		EF78C0C2F07CD0C4E1E4D816CAF8AD18 /* RestBird-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RestBird-prefix.pch"; sourceTree = "<group>"; };
-		F4D8E9D13556B41226159ECAFFDF77C1 /* NetworkClientConfiguration.html */ = {isa = PBXFileReference; includeInIndex = 1; name = NetworkClientConfiguration.html; path = docs/Protocols/NetworkClientConfiguration.html; sourceTree = "<group>"; };
+		DE62AC513714005C532A45A710C2CDB0 /* Result.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Result.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Enums/Result.html; sourceTree = "<group>"; };
+		DF9B721415DC61D1D8E194166EB01E53 /* jazzy.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jazzy.js; path = docs/js/jazzy.js; sourceTree = "<group>"; };
+		E2AA00EA78ECFDB41E49CDC0DB427A7B /* badge.svg */ = {isa = PBXFileReference; includeInIndex = 1; name = badge.svg; path = docs/badge.svg; sourceTree = "<group>"; };
+		E7B47CCAD8CA3C8276DB49C3430C932D /* HTTPMethod.html */ = {isa = PBXFileReference; includeInIndex = 1; name = HTTPMethod.html; path = docs/Enums/HTTPMethod.html; sourceTree = "<group>"; };
+		E83667D65C282940FA7C9429C71C19C9 /* docSet.dsidx */ = {isa = PBXFileReference; includeInIndex = 1; name = docSet.dsidx; path = docs/docsets/RestBird.docset/Contents/Resources/docSet.dsidx; sourceTree = "<group>"; };
+		E894BDDE5C8CAD40F7D7D22FC12CE68C /* SessionManagerDelegate.html */ = {isa = PBXFileReference; includeInIndex = 1; name = SessionManagerDelegate.html; path = docs/Protocols/SessionManagerDelegate.html; sourceTree = "<group>"; };
+		E8C3FB47E8E399A4C3105ACD6FC94400 /* jquery.min.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jquery.min.js; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/js/jquery.min.js; sourceTree = "<group>"; };
+		E95F4AA970454A8C3170919352B8AB3B /* dash.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dash.png; path = docs/img/dash.png; sourceTree = "<group>"; };
+		EAEBB5EB2015575E36D231BE22276C6C /* RestBird.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RestBird.xcconfig; sourceTree = "<group>"; };
+		EE164387890580A15C7FB606D28FD1CB /* PostMiddleware.html */ = {isa = PBXFileReference; includeInIndex = 1; name = PostMiddleware.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Protocols/PostMiddleware.html; sourceTree = "<group>"; };
+		F416E269CB4F8F958D29D616E4B6D3B5 /* Structs.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Structs.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Structs.html; sourceTree = "<group>"; };
 		F5460AD0F6241621B45A17AB23A8E5B7 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
-		F5C8E9209341ACDD0264A96F48171BFA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		F640F61D5BEE8132009BAEAA65B587A4 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
-		F90E648DEB383C2A1A828EE77B1D6426 /* Request+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Request+Alamofire.swift"; sourceTree = "<group>"; };
-		F96A53912DD69AACE912721C7A9E311A /* Enums.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Enums.html; path = docs/Enums.html; sourceTree = "<group>"; };
+		F7BDDCFDA06BEF32A4289E082592BBFF /* AlamofireSessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlamofireSessionManager.swift; sourceTree = "<group>"; };
+		F7C5B99F4255B64EE40BC5DA6145A5DD /* UploadSource.html */ = {isa = PBXFileReference; includeInIndex = 1; name = UploadSource.html; path = docs/docsets/RestBird.docset/Contents/Resources/Documents/Enums/UploadSource.html; sourceTree = "<group>"; };
+		FC1BAA5A724D1E2AC92052E03AE82FDE /* HTTPMethod.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = Sources/RestBird/HTTPMethod.swift; sourceTree = "<group>"; };
+		FC3BEDF4F74287B66F01FE96B562BEB7 /* Typealiases.html */ = {isa = PBXFileReference; includeInIndex = 1; name = Typealiases.html; path = docs/Typealiases.html; sourceTree = "<group>"; };
+		FF78FBE918901E014AFCC3E7C0FA41E3 /* highlight.css */ = {isa = PBXFileReference; includeInIndex = 1; name = highlight.css; path = docs/css/highlight.css; sourceTree = "<group>"; };
+		FFB879FBDF1AF74F89D6AA05D25BAABE /* PostMiddleware.html */ = {isa = PBXFileReference; includeInIndex = 1; name = PostMiddleware.html; path = docs/Protocols/PostMiddleware.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		68122BE86102CAFBD29E98600F1FB6DE /* Frameworks */ = {
+		121CF9F6C984727F1C47B1027D49C206 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BACBC5FEE843FB1D8D8024C46609079 /* Alamofire.framework in Frameworks */,
-				8744B3BF3FE3F80F0DE180EB9272C493 /* Foundation.framework in Frameworks */,
+				B3B9E18C730A60C996628E6DD09AE660 /* Alamofire.framework in Frameworks */,
+				77BF4C939D7BF670B3E9F401EA42798B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,111 +225,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05BCC58AC35BA897CBD89B578BD2D6D1 /* Request */ = {
+		0CDC6ED15E8657ABE1E6DF27EDC07015 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				3CAE32B0D475BF44D7F558E0AD5C5ED6 /* DataRequest.swift */,
-				080B13715C1284CE2CA03C933E9B87DD /* EmptyResponse.swift */,
-				25EF172FEAA7B65B363D6B5A1B448BCE /* ParameterEncoding.swift */,
-				288BE77359BE116615AD84FC594BA4B8 /* Request.swift */,
-				292288273C072CB848E18818D29D9695 /* UploadRequest.swift */,
+				A79B36ABBA9AA7997CA0BACA10CFDFDF /* Data+Codable.swift */,
+				6E61C0B1072474506289C4970C61D991 /* Request+Alamofire.swift */,
 			);
-			name = Request;
-			path = Sources/RestBird/Request;
+			name = Utility;
+			path = Sources/RestBird/Utility;
 			sourceTree = "<group>";
 		};
-		11468D1B2C5287168134C3F9770FA710 /* Support Files */ = {
+		0EC52DAE2416F5F5A53453565A32A901 /* Alamofire */ = {
 			isa = PBXGroup;
 			children = (
-				C57F4AB2F84C96264F9C7B26B5C2011C /* RestBird.modulemap */,
-				CF59E6386AC7FCEA9A7858083DDE6004 /* RestBird.xcconfig */,
-				7DC9CDBEEFDF11CA0D132D4A91649EA6 /* RestBird-dummy.m */,
-				3EA1D2F39B40FB7B1B2A537ABD944C9D /* RestBird-Info.plist */,
-				EF78C0C2F07CD0C4E1E4D816CAF8AD18 /* RestBird-prefix.pch */,
-				AF21CEF8A22DFE5F7EA4D22C1545857E /* RestBird-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/RestBird";
-			sourceTree = "<group>";
-		};
-		195CD83DBF4A41D799257B23B23C3F52 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				666F7ECB28569C2E83CCFEB5C4CC5637 /* badge.svg */,
-				C701F277739C59F1527281D243AB81D9 /* badge.svg */,
-				0602B227EDB69496ED20A68D383B9F48 /* carat.png */,
-				CBAA3B00772773C285C3D4C12FF29FF5 /* carat.png */,
-				7E88776A1C070CD01B25F529D38E1CD9 /* Classes.html */,
-				19EA8EF81665AC938331BBF8B25859F0 /* Classes.html */,
-				7CBE611E53DE433E83047866DADBB0D3 /* dash.png */,
-				B251181DC87E99A474489B90AB1D962E /* dash.png */,
-				1604A0C2EFA926A8DDC3FE0368CF739A /* docSet.dsidx */,
-				F96A53912DD69AACE912721C7A9E311A /* Enums.html */,
-				4DD719766C013D6CCE90A5FCE239866F /* Enums.html */,
-				4D1B833AD1135B644B6ED8792E2A1235 /* gh.png */,
-				3F0ECB0265F40AFE1518F61BF6561447 /* gh.png */,
-				B7FC8D8F1D9BD23B0BA3CD3290AEEEC4 /* highlight.css */,
-				611BBF66FE177EC4FEBB146524B4751F /* highlight.css */,
-				0E6FEED22984BCBE8FDDD0DCC34FDFCB /* HTTPMethod.html */,
-				A98A50D96A7F8CCBEA33B38F8153415F /* HTTPMethod.html */,
-				BD2B62A27D04D4A12A6B15A23AE99A12 /* index.html */,
-				E95EBED9D372E204E84894CBB6F528F5 /* index.html */,
-				2AB4BC0EC86705F1F92EA84C2166EDE3 /* Info.plist */,
-				C340145A2D0EAAF7BF92982AD80AE0A4 /* jazzy.css */,
-				2F8AC231F082FCA921F41EF0B93E4945 /* jazzy.css */,
-				ADB5BD76732681D3AE557F1544355435 /* jazzy.js */,
-				1C95EA7D65C93C09206C86E048CB6F8F /* jazzy.js */,
-				18C535EECD0D2B0401A6D1453C31CFDD /* jquery.min.js */,
-				AA480A010B30B19DA53CE5E058C1C21C /* jquery.min.js */,
-				F5C8E9209341ACDD0264A96F48171BFA /* LICENSE */,
-				534958F74E4FE67192A7A4E659F0EBB2 /* NetworkClient.html */,
-				CDAE61A38F4C82677E80B6BE2509F9FC /* NetworkClient.html */,
-				6ABB8377DA95335A9606A2F77E249B06 /* NetworkClientConfiguration.html */,
-				F4D8E9D13556B41226159ECAFFDF77C1 /* NetworkClientConfiguration.html */,
-				0D333CA492636CFF02F0B7BD12BECDEA /* ParameterEncoding.html */,
-				7A71DFBC96C821253E8ED8C4D7407C41 /* ParameterEncoding.html */,
-				E08192C86F9ABFA83693669335A61839 /* PostMiddleware.html */,
-				7FAF1A4AE4EC6A0D132AC01D7FD41FA6 /* PostMiddleware.html */,
-				139F90B9893149E5919BF4C4CDBD96DF /* PreMiddleware.html */,
-				37781CCB105B138FFDDBFBBA7249ECEC /* PreMiddleware.html */,
-				CA51C3F7CA4D054C9EF455E73F4F08BA /* Protocols.html */,
-				51350BCAF10CCBFEE1CE5E8FE330363B /* Protocols.html */,
-				B7CA3E95BFC3EE6F56442B47F29B9747 /* README.md */,
-				276402B94FBBA80C7D122BF0C91E85D4 /* Request.html */,
-				6BF29A055661BCB78A4AC4EBB0BE8C80 /* Request.html */,
-				2E354DE30BEBD44BBBCFD565CF72CF16 /* RestBird.podspec */,
-				EEC2FB31EAA31CE99D1B46CD715034F8 /* RestBird.tgz */,
-				E381FACFE1323B138D4BBCE3FE4B1C74 /* Result.html */,
-				71A045DB08A995DDC6CCC34D3E9B3841 /* Result.html */,
-				13E97B239DE391DE4AFF165743D1FD02 /* search.json */,
-				3C6AA7978570EECD9E89A48C53A9FC49 /* search.json */,
-				CAF8837B6FEB9DEC8FF84D9FCD03FB1E /* SessionManager.html */,
-				D33B8823839C3A0077F803C1D48D7307 /* SessionManager.html */,
-				9B0875B8C52B3392E2DB7304300923D7 /* SessionManagerDelegate.html */,
-				7F567C6CEEE5A6D69BEBD4A9DFD4AF6F /* SessionManagerDelegate.html */,
-				CD08D37ECD0E41C6ED56AA40087B8E72 /* Structs.html */,
-				A0A23AB6ED2FA3EE590345F423200CDA /* Structs.html */,
-				DEF5BCD762BC60A551A60BBED7E4A088 /* Typealiases.html */,
-				64F2C23C3A5817ECBE3A0EDB428F6346 /* Typealiases.html */,
-				26A4237891B03539749C229524EC64AB /* undocumented.json */,
-				3A65CD8404A08151C25C46E13BCC4583 /* undocumented.json */,
-				53DE285F3C6B8E4F98F20CA1A3CC3ED5 /* UploadRequest.html */,
-				BF3192238BB4F22B80A2CFCC9DFF9F62 /* UploadRequest.html */,
-				0690576B89C0FF5CE1F647D51411E852 /* UploadSource.html */,
-				CD2C8CFD674102E434017495CC52DFF0 /* UploadSource.html */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		24374532DA4346CD23B19775FF6650C2 /* Alamofire */ = {
-			isa = PBXGroup;
-			children = (
-				9677E8165162C48044B164C00CE5E90E /* Alamofire+ArrayEncoding.swift */,
-				915656A0DCD81C17A3EB7E6A294AD175 /* AlamofireSessionManager.swift */,
-				F90E648DEB383C2A1A828EE77B1D6426 /* Request+Alamofire.swift */,
+				96A2D6FCB39B47A63AB2D3A7A0BCAF7B /* Alamofire+ArrayEncoding.swift */,
+				F7BDDCFDA06BEF32A4289E082592BBFF /* AlamofireSessionManager.swift */,
+				888DCE00B877F7BF293E44400A8A8798 /* Request+Alamofire.swift */,
 			);
 			name = Alamofire;
 			path = Sources/RestBird/Alamofire;
+			sourceTree = "<group>";
+		};
+		1402F3840BB578C75AA20AA2F00EB182 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D99DDF8E0B523EF53E28D36957627F12 /* RestBird.modulemap */,
+				EAEBB5EB2015575E36D231BE22276C6C /* RestBird.xcconfig */,
+				5945CC3165F46359112EFD55ED6D0030 /* RestBird-dummy.m */,
+				5270EE302963B5441E6FB9E883C3A774 /* RestBird-Info.plist */,
+				70332F8F2F0EC933C3BF30098CED607D /* RestBird-prefix.pch */,
+				71AD8A95E7F6CBC842517FE409642A66 /* RestBird-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/RestBird";
 			sourceTree = "<group>";
 		};
 		2F2A6FCCD7293377A61DF5D10894ACF2 /* Frameworks */ = {
@@ -340,13 +269,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3DD1C3C086868D334021C3D02B50B543 /* Client */ = {
+		376AF97799A5E97B7A2C750A9EBE7187 /* RestBird */ = {
 			isa = PBXGroup;
 			children = (
-				0223F9FC9F57335FDF93306A3DA72337 /* NetworkClient.swift */,
+				FC1BAA5A724D1E2AC92052E03AE82FDE /* HTTPMethod.swift */,
+				DC8CC332F2B3457E7C34697B2FF762B2 /* Middleware.swift */,
+				0EC52DAE2416F5F5A53453565A32A901 /* Alamofire */,
+				83B39539EE06A8AB818898E93CE82388 /* Client */,
+				C9C75A0C12AE474A2F5457B6659A1389 /* Pod */,
+				411F965C26F66BD1AE113AE438C4FCC3 /* Request */,
+				399CCA5321C6B4647D8099A5EDF6DAAE /* Session */,
+				1402F3840BB578C75AA20AA2F00EB182 /* Support Files */,
+				0CDC6ED15E8657ABE1E6DF27EDC07015 /* Utility */,
 			);
-			name = Client;
-			path = Sources/RestBird/Client;
+			name = RestBird;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		399CCA5321C6B4647D8099A5EDF6DAAE /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				08A17828533F735E2C0F39782A8495B3 /* SessionManager.swift */,
+			);
+			name = Session;
+			path = Sources/RestBird/Session;
+			sourceTree = "<group>";
+		};
+		411F965C26F66BD1AE113AE438C4FCC3 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				169D12C07A00921D641D9F1D65A03C7F /* DataRequest.swift */,
+				8C8D036723E2E649B4F434A0263DDADB /* EmptyResponse.swift */,
+				84D05A8C0721C02334E9259915868E1A /* MultipartRequest.swift */,
+				929DB1439C8943DC4045D8EAA309AD8E /* ParameterEncoding.swift */,
+				66F2040B92D11CA894F304A051603B1B /* Request.swift */,
+			);
+			name = Request;
+			path = Sources/RestBird/Request;
 			sourceTree = "<group>";
 		};
 		5C26875CAEBEFEDA19F66418CD7AE5DB /* Support Files */ = {
@@ -363,30 +322,13 @@
 			path = "../Target Support Files/Alamofire";
 			sourceTree = "<group>";
 		};
-		6C6B7969A4A0806A7638E7D82DD4881E /* RestBird */ = {
+		83B39539EE06A8AB818898E93CE82388 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				D2CFF8C4447CF3D85D5F2AACD5659286 /* HTTPMethod.swift */,
-				68EBEDCEA898C72D7D57DD1ACEA6BFD4 /* Middleware.swift */,
-				24374532DA4346CD23B19775FF6650C2 /* Alamofire */,
-				3DD1C3C086868D334021C3D02B50B543 /* Client */,
-				195CD83DBF4A41D799257B23B23C3F52 /* Pod */,
-				05BCC58AC35BA897CBD89B578BD2D6D1 /* Request */,
-				8B643C8561AFA33CC7148EE1A02DCD04 /* Session */,
-				11468D1B2C5287168134C3F9770FA710 /* Support Files */,
-				E34A32BA6B96168AE0E730C7AB3ABBAB /* Utility */,
+				2B90862581C4DE0F351772B2EE3CB212 /* NetworkClient.swift */,
 			);
-			name = RestBird;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		8B643C8561AFA33CC7148EE1A02DCD04 /* Session */ = {
-			isa = PBXGroup;
-			children = (
-				6E9B0A0C23A3EAD31F78FD12B7E4B336 /* SessionManager.swift */,
-			);
-			name = Session;
-			path = Sources/RestBird/Session;
+			name = Client;
+			path = Sources/RestBird/Client;
 			sourceTree = "<group>";
 		};
 		90FDDC7F5D24472360CA259A8D40AE98 /* Pods */ = {
@@ -400,7 +342,7 @@
 		A1C0F2D2B9B70B41F7C169DBCDF11F85 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6C6B7969A4A0806A7638E7D82DD4881E /* RestBird */,
+				376AF97799A5E97B7A2C750A9EBE7187 /* RestBird */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -437,6 +379,75 @@
 				E008CA7CCF1D2BE29B2EEA3406CCF535 /* Pods-iOS Example */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C9C75A0C12AE474A2F5457B6659A1389 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				E2AA00EA78ECFDB41E49CDC0DB427A7B /* badge.svg */,
+				1AD129E9AE16D79DCFBDA3E52E91B37C /* badge.svg */,
+				9E2323431BB43846C6750D4FFD59B38C /* carat.png */,
+				6C6984D4CA5D75CBF4695A0AB1EBB9F6 /* carat.png */,
+				5FD4700204CB5D9356883496747ED682 /* Classes.html */,
+				2800AA42E1CE57EAAAE2384145865082 /* Classes.html */,
+				D00301B5275CFEA22F23675B51B7646A /* dash.png */,
+				E95F4AA970454A8C3170919352B8AB3B /* dash.png */,
+				E83667D65C282940FA7C9429C71C19C9 /* docSet.dsidx */,
+				2AF7BF288A6272113536916025258BE9 /* Enums.html */,
+				6F16C0CDBDDD6C567CA40BC5635E3F95 /* Enums.html */,
+				1D912FACE8C1D4C6363FE084DFDD582E /* gh.png */,
+				15075AABAD4B818A9A8CBA6206EEF6B4 /* gh.png */,
+				FF78FBE918901E014AFCC3E7C0FA41E3 /* highlight.css */,
+				01F5573A7F5831953E5D254F2F1374CF /* highlight.css */,
+				05D70857AEED8788E65E23DD6DFFAE50 /* HTTPMethod.html */,
+				E7B47CCAD8CA3C8276DB49C3430C932D /* HTTPMethod.html */,
+				015703CF35D5D29380A494234F7E4B6F /* index.html */,
+				9B002C04F8C66FB453F46C134448A2E6 /* index.html */,
+				0603F796F51CA7B71F598495D542EE6A /* Info.plist */,
+				2B165E9629EAAB423F3CE1896308F9CF /* jazzy.css */,
+				7CC94BE3CE83C5BF3DF851F44F9BE69A /* jazzy.css */,
+				A81380AF0392058CE5AFCE01B552887D /* jazzy.js */,
+				DF9B721415DC61D1D8E194166EB01E53 /* jazzy.js */,
+				E8C3FB47E8E399A4C3105ACD6FC94400 /* jquery.min.js */,
+				B1B0AF317365418BE1070FA070C54DE2 /* jquery.min.js */,
+				48AC9C698C2CD9BCC4DDE972E8619903 /* LICENSE */,
+				3198B3C34688202E5DC378B21AD8E8E6 /* NetworkClient.html */,
+				206EBA37650FAA4684F69D27BFF483B0 /* NetworkClient.html */,
+				DC636EC39390C61C8B3E7B9288C88A33 /* NetworkClientConfiguration.html */,
+				7969F414E5A588107F98790E3168FEEF /* NetworkClientConfiguration.html */,
+				543BC55B73C0176F2233CE35B9241F11 /* ParameterEncoding.html */,
+				8B894947AD483E35F447D62DCC11B76B /* ParameterEncoding.html */,
+				FFB879FBDF1AF74F89D6AA05D25BAABE /* PostMiddleware.html */,
+				EE164387890580A15C7FB606D28FD1CB /* PostMiddleware.html */,
+				5D0D200408334C6FC2C700F549EBC796 /* PreMiddleware.html */,
+				71E987B68008E1CE73899E41FBCF3DDF /* PreMiddleware.html */,
+				56EA04105DF177A615ED0FCC2BB51FBF /* Protocols.html */,
+				C746FBA91DACB37FB243F0B38CEE9419 /* Protocols.html */,
+				4BB976D8916D339CE2FACDC1837DD046 /* README.md */,
+				C0D1791F3E6A81034E38546780A4A257 /* Request.html */,
+				7D225BE820A8630E2787FCDB5BBFA935 /* Request.html */,
+				62229AF0BAFA78B862BE42A60E28EA12 /* RestBird.podspec */,
+				428A3F3DB55DBD4256E3D6746FFCDE66 /* RestBird.tgz */,
+				14F802E268738316254A87EE1C999692 /* Result.html */,
+				DE62AC513714005C532A45A710C2CDB0 /* Result.html */,
+				111EF5A841FB86F1902ACE6840217D38 /* search.json */,
+				B4C6A2F4706863F0FBFFC49D0C801F09 /* search.json */,
+				89E189F3E1386F07FFFCF88E45DDD4F5 /* SessionManager.html */,
+				44C2C6DE0D99A9AAE0EA2833C173A84D /* SessionManager.html */,
+				B3879700DD6312038B159BD27450D439 /* SessionManagerDelegate.html */,
+				E894BDDE5C8CAD40F7D7D22FC12CE68C /* SessionManagerDelegate.html */,
+				5760383DFA8BD3CAD3513347CE4AB112 /* Structs.html */,
+				F416E269CB4F8F958D29D616E4B6D3B5 /* Structs.html */,
+				FC3BEDF4F74287B66F01FE96B562BEB7 /* Typealiases.html */,
+				BAD500802C516B16DA60CB5C96DE0E63 /* Typealiases.html */,
+				3355517A0A775B9AEA5B1D82BC1FC9D1 /* undocumented.json */,
+				4BC55472B2CA5F095F58A11B090C8415 /* undocumented.json */,
+				676781B35171D8DB3A9214D8D74F1AC7 /* UploadRequest.html */,
+				C4C239712D1A0A2C6C4781DE365C3C3F /* UploadRequest.html */,
+				3032AF8ECED20056FCB38EF529285090 /* UploadSource.html */,
+				F7C5B99F4255B64EE40BC5DA6145A5DD /* UploadSource.html */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -476,15 +487,6 @@
 			path = "Target Support Files/Pods-iOS Example";
 			sourceTree = "<group>";
 		};
-		E34A32BA6B96168AE0E730C7AB3ABBAB /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				1025F967D21D7E7F8F9B0F9DCEC94AE8 /* Data+Codable.swift */,
-			);
-			name = Utility;
-			path = Sources/RestBird/Utility;
-			sourceTree = "<group>";
-		};
 		E6455E8B1A499938158076D53D0AFCCE /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,11 +516,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9F00298ACA482D319559C9FE5946AAB /* Headers */ = {
+		33C9AF754C088314D57603B62F409345 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F9B3B411930798084E95F921457BC1D /* RestBird-umbrella.h in Headers */,
+				39665F5E66EEA54C86031F21E4000223 /* RestBird-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,17 +529,17 @@
 /* Begin PBXNativeTarget section */
 		9B58A8004894B0E813738F6FDF923D8C /* RestBird */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3D530A901F27067CFF37A5E604649CA3 /* Build configuration list for PBXNativeTarget "RestBird" */;
+			buildConfigurationList = 3E04C0C49C16FA192F06D0F518723F32 /* Build configuration list for PBXNativeTarget "RestBird" */;
 			buildPhases = (
-				E9F00298ACA482D319559C9FE5946AAB /* Headers */,
-				F0BE7A7CC9E708E0DFEE3D3E6C13703D /* Sources */,
-				68122BE86102CAFBD29E98600F1FB6DE /* Frameworks */,
-				37921A09AB38EC57BA4FD65C6C3C0AC3 /* Resources */,
+				33C9AF754C088314D57603B62F409345 /* Headers */,
+				C6D2109DEFFE441A44B8BE1AC462B454 /* Sources */,
+				121CF9F6C984727F1C47B1027D49C206 /* Frameworks */,
+				27440517ABE326D0809751E4DE5047D1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1A2A831E7ACFBF9B203D4F1AD943A6DD /* PBXTargetDependency */,
+				A95240C12AA4DC24A34FF9A60EDA6D3D /* PBXTargetDependency */,
 			);
 			name = RestBird;
 			productName = RestBird;
@@ -611,14 +613,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		28FF73341543B6F0A7DF3C20CFFEA0AA /* Resources */ = {
+		27440517ABE326D0809751E4DE5047D1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		37921A09AB38EC57BA4FD65C6C3C0AC3 /* Resources */ = {
+		28FF73341543B6F0A7DF3C20CFFEA0AA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -640,6 +642,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D9B36B23BA51804AB8F1A5FEDFEFD7E /* Pods-iOS Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6D2109DEFFE441A44B8BE1AC462B454 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04841E13EF44ADF6CBB6FDDF104E13D8 /* Alamofire+ArrayEncoding.swift in Sources */,
+				09809983823307FA7516E2B7F8673A70 /* AlamofireSessionManager.swift in Sources */,
+				C15C039200A702E5B717B51E6CC905F1 /* Data+Codable.swift in Sources */,
+				9B7C8FE9528C354F5CE230D16FA8A15A /* DataRequest.swift in Sources */,
+				32F651BAE7AAE621E15551E2A603DAD0 /* EmptyResponse.swift in Sources */,
+				5896FEB6C0C38F931A23EA7A80C83117 /* HTTPMethod.swift in Sources */,
+				3924C39F734413700081935AD8CEB024 /* Middleware.swift in Sources */,
+				FE2F7D23E059379143381DB0E5A2D119 /* MultipartRequest.swift in Sources */,
+				15101D34B030B2E37022B0F4B3F2DF27 /* NetworkClient.swift in Sources */,
+				0AA84345C8A3995C647675B28493809D /* ParameterEncoding.swift in Sources */,
+				E1D81143553574BF407F0ADC032357F3 /* Request+Alamofire.swift in Sources */,
+				E1D81143553574BF407F0ADC032357F3 /* Request+Alamofire.swift in Sources */,
+				4F6B69859618886FBB9E1629149774B6 /* Request.swift in Sources */,
+				8E9811E8513BC2909AEE20F3FFA9C449 /* RestBird-dummy.m in Sources */,
+				5802C4C7D1EBBA83DE05174FC117F343 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,41 +692,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F0BE7A7CC9E708E0DFEE3D3E6C13703D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3681AF18C737BD62E726B9B7324EFAE2 /* Alamofire+ArrayEncoding.swift in Sources */,
-				5A5E19BE27CAB7FDFCE927051B0457A1 /* AlamofireSessionManager.swift in Sources */,
-				BFFD47F84F36C8B29B09DA38B6003B4A /* Data+Codable.swift in Sources */,
-				4E267CA4462D0B3309C90A7290719A5E /* DataRequest.swift in Sources */,
-				3DA887E9610634EF7863C212B1B086B2 /* EmptyResponse.swift in Sources */,
-				87156229C78D5E552659939C07A729CB /* HTTPMethod.swift in Sources */,
-				76B5B70D139814A0FF935C585DDD9055 /* Middleware.swift in Sources */,
-				8A4C1615853D7766201BE3B5330AAB15 /* NetworkClient.swift in Sources */,
-				F699E59E10CA87D037B31D5AFFE2F112 /* ParameterEncoding.swift in Sources */,
-				8B19D8CDB9EB7AAA272560DB4AB4D684 /* Request+Alamofire.swift in Sources */,
-				66F8F08642F1434AC0E841E4BF28EEF9 /* Request.swift in Sources */,
-				187EC758311AB5002BD50F38FC2D2494 /* RestBird-dummy.m in Sources */,
-				D87DC002684E9DD14A6A0E3199AC9C97 /* SessionManager.swift in Sources */,
-				4A7CA6F073EF1C584946E4DF54E5E3A3 /* UploadRequest.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1A2A831E7ACFBF9B203D4F1AD943A6DD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Alamofire;
-			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
-			targetProxy = DA834EC74232343B4B4C15D1B8D13492 /* PBXContainerItemProxy */;
-		};
 		4DBADE0D2148E34D74C16FB396AED536 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
 			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
 			targetProxy = 2A85CD396FC2CD7671212E4CCD3DBCE4 /* PBXContainerItemProxy */;
+		};
+		A95240C12AA4DC24A34FF9A60EDA6D3D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = EAAA1AD3A8A1B59AB91319EE40752C6D /* Alamofire */;
+			targetProxy = 6BF32D316DE9EBADD0DE26582D5AD42B /* PBXContainerItemProxy */;
 		};
 		E295726CFBB615982C61554D295D825E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -777,9 +780,9 @@
 			};
 			name = Debug;
 		};
-		2DB7970F4F10AC91C0C547B18C7FCDBA /* Debug */ = {
+		5E2EC721ABDDBD8B92B364EF69365950 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF59E6386AC7FCEA9A7858083DDE6004 /* RestBird.xcconfig */;
+			baseConfigurationReference = EAEBB5EB2015575E36D231BE22276C6C /* RestBird.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1020,9 +1023,9 @@
 			};
 			name = Debug;
 		};
-		E503A59A40D74109E9DA3DAC7D8105FC /* Release */ = {
+		E2D43AECA04005BA45DD25342DD5DD83 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF59E6386AC7FCEA9A7858083DDE6004 /* RestBird.xcconfig */;
+			baseConfigurationReference = EAEBB5EB2015575E36D231BE22276C6C /* RestBird.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1059,11 +1062,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3D530A901F27067CFF37A5E604649CA3 /* Build configuration list for PBXNativeTarget "RestBird" */ = {
+		3E04C0C49C16FA192F06D0F518723F32 /* Build configuration list for PBXNativeTarget "RestBird" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2DB7970F4F10AC91C0C547B18C7FCDBA /* Debug */,
-				E503A59A40D74109E9DA3DAC7D8105FC /* Release */,
+				5E2EC721ABDDBD8B92B364EF69365950 /* Debug */,
+				E2D43AECA04005BA45DD25342DD5DD83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

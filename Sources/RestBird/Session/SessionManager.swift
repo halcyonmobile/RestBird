@@ -46,20 +46,10 @@ public protocol SessionManager: class {
     ///   - completion: Request completion handler.
     func performDataTask<Request: DataRequest>(request: Request, completion: @escaping (Result<Data, Error>) -> Void)
 
-    /// Perform upload task.
+    /// Perform multipart upload task.
     ///
-    /// - Parameters:
-    ///   - request: URLRequest instance.
-    ///   - source: Upload source type.
-    ///   - completion: Request completion handler.
-    func performUploadTask<Request: UploadRequest>(request: Request, source: UploadSource, completion: @escaping (Result<Data, Error>) -> Void)
-    
-    /// Perform upload task.
-    ///
-    /// - Parameters:
-    ///   - request: URLRequest instance.
-    ///   - source: Upload source type.
-    ///   - uploadProgress: The closure used to monitor the progress of the upload request.
-    ///   - completion: Request completion handler.
-    func performUploadTask<Request: UploadRequest>(request: Request, source: UploadSource, uploadProgress: UploadRequest.ProgressHandler?, completion: @escaping (Result<Data, Error>) -> Void)
+    /// - Parameter request: MultipartRequest instance
+    /// - Parameter uploadProgress: Upload progress handler
+    /// - Parameter completion: Request completion handler
+    func performUploadTask<Request: MultipartRequest>(request: Request,  uploadProgress: MultipartRequest.ProgressHandler?, completion: @escaping (Result<Data, Error>) -> Void)
 }

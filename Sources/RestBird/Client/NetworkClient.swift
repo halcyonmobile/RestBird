@@ -111,69 +111,31 @@ extension NetworkClient {
     }
 }
 
-// MARK: - UploadRequest
+// MARK: - MultipartRequest
 
 extension NetworkClient {
 
-    /// Perform UploadRequest a Void response is expected.
-    ///
-    /// - Parameters:
-    ///   - request: UploadRequest instance.
-    ///   - uploadProgress: The closure used to monitor the progress of the upload request.
-    ///   - completion: Void Result callback.
-    public func upload<Request: UploadRequest>(
+    func performUploadTask<Request: MultipartRequest>(
         request: Request,
-        uploadProgress: UploadRequest.ProgressHandler? = nil,
+        uploadProgress: MultipartRequest.ProgressHandler?,
+        completion: @escaping (Result<Data, Error>) -> Void
+    ) {
+        session.performUploadTask(request: request, uploadProgress: uploadProgress, completion: completion)
+    }
+
+    func performUploadTask<Request: MultipartRequest>(
+        request: Request,
+        uploadProgress: MultipartRequest.ProgressHandler?,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
-        performUploadTask(request: request, uploadProgress: uploadProgress) { [session] result in
+        session.performUploadTask(request: request, uploadProgress: uploadProgress, completion: { result in
             self.parseQueue.async {
                 let response = result.map { _ in () }
                 DispatchQueue.main.async {
                     completion(response)
                 }
             }
-        }
-    }
-
-    /// Perform UploadRequest a single object response is expected.
-    ///
-    /// - Parameters:
-    ///   - request: UploadRequest instance.
-    ///   - uploadProgress: The closure used to monitor the progress of the upload request.
-    ///   - completion: Single object Result callback.
-    public func upload<Request: UploadRequest>(
-        request: Request,
-        uploadProgress: UploadRequest.ProgressHandler? = nil,
-        completion: @escaping (Result<Request.ResponseType, Error>) -> Void
-    ) {
-        performUploadTask(request: request, uploadProgress: uploadProgress) { [session] result in
-            self.parseQueue.async {
-                let response = Result { try result.get().decoded(Request.ResponseType.self, with: session.config.jsonDecoder) }
-                DispatchQueue.main.async {
-                    completion(response)
-                }
-            }
-        }
-    }
-
-    // MARK: - Private
-
-    /// Perform UploadRequest and return the raw Data.
-    ///
-    /// - Parameters:
-    ///   - request: UploadRequest instance.
-    ///   - uploadProgress: The closure used to monitor the progress of the upload request.
-    ///   - completion: Data Result callback.
-    private func performUploadTask<Request: UploadRequest>(
-        request: Request,
-        uploadProgress: UploadRequest.ProgressHandler?,
-        completion: @escaping (Result<Data, Error>) -> Void
-    ) {
-        session.performUploadTask(request: request,
-                                  source: request.source,
-                                  uploadProgress: uploadProgress,
-                                  completion: completion)
+        })
     }
 }
 

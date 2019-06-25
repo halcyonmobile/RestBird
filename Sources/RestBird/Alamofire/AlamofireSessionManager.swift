@@ -67,24 +67,15 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
     }
 }
 
-// MARK: - Upload task
+// MARK: - Multipart
 
 extension AlamofireSessionManager {
 
     public func performUploadTask<Request>(
         request: Request,
-        source: UploadSource,
-        completion: @escaping (Swift.Result<Data, Error>) -> Void
-    ) where Request : UploadRequest {
-        performUploadTask(request: request, source: source, uploadProgress: nil, completion: completion)
-    }
-
-    public func performUploadTask<Request>(
-        request: Request,
-        source: UploadSource,
         uploadProgress: ((Progress) -> Void)?,
         completion: @escaping (Swift.Result<Data, Error>) -> Void
-    ) where Request : UploadRequest {
+    ) where Request : MultipartRequest {
         // We need to observe when `uploadRequest` gets set as in case of `.multipart` this will be set later, in `encodingCompletion` and we can't call these methods right after `sessionManager.upload` as `uploadRequest` will be nil at that point.
         var uploadRequest: Alamofire.UploadRequest? {
             didSet {
@@ -114,33 +105,32 @@ extension AlamofireSessionManager {
         }
 
         let apiURL = config.baseUrl + (request.suffix ?? "")
-        switch source {
-        case .url(let url):
-            uploadRequest = session.upload(url, to: apiURL)
-        case .data(let data):
-            uploadRequest = session.upload(data, to: apiURL)
-        case .stream(let stream):
-            uploadRequest = session.upload(stream, to: apiURL)
-        case .multipart(let data, let name, let fileName, let mimeType):
-            let multipartFormData: (Alamofire.MultipartFormData) -> Void = { multipartFormData in
-                multipartFormData.append(data, withName: name, fileName: fileName, mimeType: mimeType)
-                try? request.afParameters(using: self.config.jsonEncoder)?.forEach { (param) in
-                    guard let value = String(describing: param.value).data(using: .utf8) else { return }
-                    multipartFormData.append(value, withName: param.key)
+
+        let multipartFormData: (Alamofire.MultipartFormData) -> Void = { multipartFormData in
+            if let part = request.part {
+                switch part {
+                case .path(let url, let name):
+                    multipartFormData.append(url, withName: name)
+                case .data(let data, let name, let mimeType):
+                    multipartFormData.append(data, withName: name, mimeType: mimeType)
                 }
             }
-
-            let encodingCompletion: ((Alamofire.SessionManager.MultipartFormDataEncodingResult) -> Void) = { result in
-                switch result {
-                case .success(let request, _, _):
-                    uploadRequest = request
-                case .failure(let error):
-                    completion(.failure(error))
-                }
+            try? request.afParameters(using: self.config.jsonEncoder)?.forEach { (param) in
+                guard let value = String(describing: param.value).data(using: .utf8) else { return }
+                multipartFormData.append(value, withName: param.key)
             }
-
-            session.upload(multipartFormData: multipartFormData, to: apiURL, encodingCompletion: encodingCompletion)
         }
+
+        let encodingCompletion: ((Alamofire.SessionManager.MultipartFormDataEncodingResult) -> Void) = { result in
+            switch result {
+            case .success(let request, _, _):
+                uploadRequest = request
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+
+        session.upload(multipartFormData: multipartFormData, to: apiURL, encodingCompletion: encodingCompletion)
     }
 }
 
