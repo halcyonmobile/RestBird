@@ -130,7 +130,7 @@ extension AlamofireSessionManager {
             }
         }
 
-        session.upload(multipartFormData: multipartFormData, to: apiURL, encodingCompletion: encodingCompletion)
+        session.upload(multipartFormData: multipartFormData, to: apiURL, method: request.afMethod, encodingCompletion: encodingCompletion)
     }
 }
 

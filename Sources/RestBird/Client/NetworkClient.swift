@@ -115,7 +115,7 @@ extension NetworkClient {
 
 extension NetworkClient {
 
-    func execute<Request: MultipartRequest>(
+    public func execute<Request: MultipartRequest>(
         request: Request,
         uploadProgress: MultipartRequest.ProgressHandler?,
         completion: @escaping (Result<Void, Error>) -> Void
@@ -130,7 +130,7 @@ extension NetworkClient {
         })
     }
 
-    func execute<Request: MultipartRequest>(
+    public func execute<Request: MultipartRequest>(
         request: Request,
         uploadProgress: MultipartRequest.ProgressHandler?,
         completion: @escaping (Result<Request.ResponseType, Error>) -> Void
@@ -145,7 +145,7 @@ extension NetworkClient {
         })
     }
 
-    func execute<Request: MultipartRequest>(
+    public func execute<Request: MultipartRequest>(
         request: Request,
         uploadProgress: MultipartRequest.ProgressHandler?,
         completion: @escaping (Result<Data, Error>) -> Void
