@@ -9,7 +9,7 @@ import Foundation
 
 public enum Multipart {
     case path(url: URL, name: String)
-    case data(data: Data, name: String, mimeType: String)
+    case data(data: Data, name: String, fileName: String, mimeType: String)
 }
 
 public protocol MultipartRequest: Request {
