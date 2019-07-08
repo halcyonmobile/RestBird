@@ -112,7 +112,11 @@ extension AlamofireSessionManager {
                 case .path(let url, let name):
                     multipartFormData.append(url, withName: name)
                 case .data(let data, let name, let fileName, let mimeType):
-                    multipartFormData.append(data, withName: name, fileName: fileName, mimeType: mimeType)
+                    if let fileName = fileName {
+                        multipartFormData.append(data, withName: name, fileName: fileName, mimeType: mimeType)
+                    } else {
+                        multipartFormData.append(data, withName: name, mimeType: mimeType)
+                    }
                 }
             }
             try? request.afParameters(using: self.config.jsonEncoder)?.forEach { (param) in
