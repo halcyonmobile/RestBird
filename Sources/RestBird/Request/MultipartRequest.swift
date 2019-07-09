@@ -9,7 +9,11 @@ import Foundation
 
 public enum Multipart {
     case path(url: URL, name: String)
-    case data(data: Data, name: String, mimeType: String)
+    case data(data: Data, name: String, fileName: String?, mimeType: String)
+    
+    public static func data(data: Data, name: String, mimeType: String) -> Multipart {
+        return .data(data: data, name: name, fileName: nil, mimeType: mimeType)
+    }
 }
 
 public protocol MultipartRequest: Request {
