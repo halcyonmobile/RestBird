@@ -107,7 +107,7 @@ extension AlamofireSessionManager {
         let apiURL = config.baseUrl + (request.suffix ?? "")
 
         let multipartFormData: (Alamofire.MultipartFormData) -> Void = { multipartFormData in
-            if let part = request.part {
+            for part in request.parts {
                 switch part {
                 case .path(let url, let name):
                     multipartFormData.append(url, withName: name)

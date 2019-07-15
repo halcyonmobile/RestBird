@@ -24,12 +24,12 @@ public protocol MultipartRequest: Request {
     /// The HTTP Method of the request. Default: `.post`.
     var method: HTTPMethod { get }
 
-    var part: Multipart? { get }
+    var parts: [Multipart] { get }
 }
 
 extension MultipartRequest {
 
     public var method: HTTPMethod { return .post }
 
-    public var part: Multipart? { return nil }
+    public var parts: [Multipart] { return [] }
 }
