@@ -120,8 +120,15 @@ extension AlamofireSessionManager {
                 }
             }
             try? request.afParameters(using: self.config.jsonEncoder)?.forEach { (param) in
-                guard let value = String(describing: param.value).data(using: .utf8) else { return }
-                multipartFormData.append(value, withName: param.key)
+                if let value = param.value as? String {
+                    if let data = value.data(using: .utf8) {
+                        multipartFormData.append(data, withName: param.key)
+                    }
+                } else {
+                    if let data = try? JSONSerialization.data(withJSONObject: param.value, options: .fragmentsAllowed) {
+                        multipartFormData.append(data, withName: param.key)
+                    }
+                }
             }
         }
 
