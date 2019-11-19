@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target   = '10.0'
   s.osx.deployment_target   = '10.10'
   
-  s.source                  = { :git => "https://github.com/halcyonmobile/RestBird.git", :tag => "v#{s.version}" }
+  s.source                  = { :git => "https://github.com/halcyonmobile/RestBird.git", :tag => "#{s.version}" }
   
   s.source_files          = "Sources/RestBird/**/*.swift"
   s.dependency            "Alamofire"
