@@ -22,13 +22,13 @@ extension Request.Beer {
     // THIS IS JUST AN EXAMPLE REQUEST
     // BEER API DOES NOT SUPPORT POSTING NEW ITEMS
     // 
-    struct Create: UploadRequest {
+    struct Create: MultipartRequest {
         typealias ResponseType = EmptyResponse
         typealias RequestType = CreateBeerDTO
 
         let suffix: String? = "/beers"
         let method: HTTPMethod = .post
         let parameters: CreateBeerDTO?
-        let source: UploadSource
+        let parts: [Multipart]
     }
 }

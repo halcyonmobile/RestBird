@@ -1,13 +1,13 @@
 PODS:
   - Alamofire (4.8.2)
-  - RestBird (0.4.1):
+  - RestBird (0.5.1):
     - Alamofire
 
 DEPENDENCIES:
   - RestBird (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
 
 EXTERNAL SOURCES:
@@ -16,8 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  RestBird: 9907674d2a4245f4088e2cc4dae44e746d635cde
+  RestBird: e540aea635d00b0a4f8f4e32d21d3e2a73c5a9ff
 
 PODFILE CHECKSUM: 4951fb5815eb514f86bc7757b2697c658e7c7e3d
 
-COCOAPODS: 1.7.0.beta.2
+COCOAPODS: 1.8.4
