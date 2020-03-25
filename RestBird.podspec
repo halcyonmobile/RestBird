@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   s.source                  = { :git => "https://github.com/halcyonmobile/RestBird.git", :tag => "#{s.version}" }
   
   s.source_files          = "Sources/RestBird/**/*.swift"
-  s.dependency            "Alamofire"
+  s.dependency            "Alamofire", '~> 4.0'
 end
