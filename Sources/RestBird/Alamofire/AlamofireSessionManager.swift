@@ -15,9 +15,9 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
 
     public weak var delegate: SessionManagerDelegate?
 
-    private(set) var session: Alamofire.SessionManager
+    private(set) var session: Alamofire.Session
 
-    public init(config: NetworkClientConfiguration, session: Alamofire.SessionManager = .default) {
+    public init(config: NetworkClientConfiguration, session: Alamofire.Session = .default) {
         self.config = config
         self.session = session
     }
@@ -132,16 +132,12 @@ extension AlamofireSessionManager {
             }
         }
 
-        let encodingCompletion: ((Alamofire.SessionManager.MultipartFormDataEncodingResult) -> Void) = { result in
-            switch result {
-            case .success(let request, _, _):
-                uploadRequest = request
-            case .failure(let error):
-                completion(.failure(error))
-            }
+        guard let url = try? apiURL.asURL() else { return }
+        session.upload(multipartFormData: multipartFormData, to: url, method: request.afMethod, headers: request.afHeaders)
+            .validate()
+            .responseData { response in
+                completion(response.toResult())
         }
-
-        session.upload(multipartFormData: multipartFormData, to: apiURL, method: request.afMethod, encodingCompletion: encodingCompletion)
     }
 }
 
@@ -149,7 +145,7 @@ extension AlamofireSessionManager {
 
 extension Alamofire.DataResponse {
 
-    func toResult() -> Swift.Result<Value, Error> {
+    func toResult() -> Result<Success, Error> {
         switch self.result {
         case .success(let value):
             return .success(value)

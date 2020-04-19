@@ -37,7 +37,8 @@ extension Request {
     }
 
     var afHeaders: Alamofire.HTTPHeaders? {
-        return headers?.compactMapValues { String(describing: $0) }
+        guard let _headers: [String: String] = (headers?.compactMapValues { String(describing: $0) }) else { return nil }
+        return HTTPHeaders(_headers)
     }
 
     func afParameters(using encoder: JSONEncoder) throws -> Alamofire.Parameters? {
