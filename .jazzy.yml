@@ -1,0 +1,11 @@
+module: RestBird
+author: Halcyon Mobile
+github_url: https://github.com/halcyonmobile/RestBird
+	
+theme: fullwidth
+clean: true
+
+readme: README.md
+
+skip_undocumented: false
+hide_documentation_coverage: false
