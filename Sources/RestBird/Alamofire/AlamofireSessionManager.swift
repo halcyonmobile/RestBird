@@ -15,19 +15,19 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
 
     public weak var delegate: SessionManagerDelegate?
 
-    private(set) var session: Alamofire.SessionManager
+    private(set) var session: Alamofire.Session
 
-    public init(config: NetworkClientConfiguration, session: Alamofire.SessionManager = .default) {
+    public init(config: NetworkClientConfiguration, session: Alamofire.Session = .default) {
         self.config = config
         self.session = session
     }
 
     // MARK: - Data Task
 
-    public func performDataTask<Request>(
+    public func performDataTask<Request, T>(
         request: Request,
-        completion: @escaping (Swift.Result<Data, Error>) -> Void
-    ) where Request : DataRequest {
+        completion: @escaping (Result<T, Error>) -> Void
+    ) where Request : DataRequest, T : Decodable {
         let url = config.baseUrl + (request.suffix ?? "")
 
         let parameters: Alamofire.Parameters?
@@ -52,8 +52,8 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
                 return
             }
         }
-        
-        dataRequest.validate().responseData { response in
+
+        dataRequest.validate().responseDecodable(of: T.self, decoder: config.jsonDecoder) { response in
             if let urlRequest = response.request, let urlResponse = response.response {
                 do {
                     try self.delegate?.sessionManager(self, didPerform: urlRequest, response: urlResponse, data: response.data)
@@ -62,7 +62,8 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
                     return
                 }
             }
-            completion(response.toResult())
+
+            completion(response.result.mapError{ $0 })
         }
     }
 }
@@ -76,6 +77,14 @@ extension AlamofireSessionManager {
         uploadProgress: ((Progress) -> Void)?,
         completion: @escaping (Swift.Result<Data, Error>) -> Void
     ) where Request : MultipartRequest {
+
+    }
+
+    public func performUploadTask<Request, T>(
+        request: Request,
+        uploadProgress: ((Progress) -> Void)?,
+        completion: @escaping (Swift.Result<T, Error>) -> Void
+    ) where Request : MultipartRequest, T : Decodable {
         // We need to observe when `uploadRequest` gets set as in case of `.multipart` this will be set later, in `encodingCompletion` and we can't call these methods right after `sessionManager.upload` as `uploadRequest` will be nil at that point.
         var uploadRequest: Alamofire.UploadRequest? {
             didSet {
@@ -90,17 +99,18 @@ extension AlamofireSessionManager {
 
                 uploadRequest?.uploadProgress { uploadProgress?($0) }
 
-                uploadRequest?.validate().responseData { response in
-                    if let urlRequest = response.request, let urlResponse = response.response {
-                        do {
-                            try self.delegate?.sessionManager(self, didPerform: urlRequest, response: urlResponse, data: response.data)
-                        } catch {
-                            completion(.failure(error))
-                            return
+                uploadRequest?.validate()
+                    .responseDecodable(of: T.self, decoder: config.jsonDecoder, completionHandler: { response in
+                        if let urlRequest = response.request, let urlResponse = response.response {
+                            do {
+                                try self.delegate?.sessionManager(self, didPerform: urlRequest, response: urlResponse, data: response.data)
+                            } catch {
+                                completion(.failure(error))
+                                return
+                            }
                         }
-                    }
-                    completion(response.toResult())
-                }
+                        completion(response.result.mapError{ $0 })
+                    })
             }
         }
 
@@ -132,29 +142,12 @@ extension AlamofireSessionManager {
             }
         }
 
-        let encodingCompletion: ((Alamofire.SessionManager.MultipartFormDataEncodingResult) -> Void) = { result in
-            switch result {
-            case .success(let request, _, _):
-                uploadRequest = request
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+        guard let url = try? apiURL.asURL() else { return }
 
-        session.upload(multipartFormData: multipartFormData, to: apiURL, method: request.afMethod, encodingCompletion: encodingCompletion)
-    }
-}
-
-// MARK: - DataResponse -> Result<Data>
-
-extension Alamofire.DataResponse {
-
-    func toResult() -> Swift.Result<Value, Error> {
-        switch self.result {
-        case .success(let value):
-            return .success(value)
-        case .failure(let error):
-            return .failure(error)
+        session.upload(multipartFormData: multipartFormData, to: url, method: request.afMethod, headers: request.afHeaders)
+            .validate()
+            .responseDecodable(of: T.self, decoder: config.jsonDecoder) { response in
+                completion(response.result.mapError{ $0 })
         }
     }
 }

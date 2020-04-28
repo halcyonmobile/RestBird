@@ -44,12 +44,12 @@ public protocol SessionManager: class {
     ///   - request: DataRequest instance.
     ///   - baseUrl: The base URL for the upload task.
     ///   - completion: Request completion handler.
-    func performDataTask<Request: DataRequest>(request: Request, completion: @escaping (Result<Data, Error>) -> Void)
+    func performDataTask<Request: DataRequest, T: Decodable>(request: Request, completion: @escaping (Result<T, Error>) -> Void)
 
     /// Perform multipart upload task.
     ///
     /// - Parameter request: MultipartRequest instance
     /// - Parameter uploadProgress: Upload progress handler
     /// - Parameter completion: Request completion handler
-    func performUploadTask<Request: MultipartRequest>(request: Request,  uploadProgress: MultipartRequest.ProgressHandler?, completion: @escaping (Result<Data, Error>) -> Void)
+    func performUploadTask<Request: MultipartRequest, T: Decodable>(request: Request,  uploadProgress: MultipartRequest.ProgressHandler?, completion: @escaping (Result<T, Error>) -> Void)
 }
