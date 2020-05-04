@@ -13,7 +13,7 @@
     <a title="RestBird  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">RestBird Docs</a> (63% documented)</p>
+        <p><a href="index.html">RestBird 0.5.3 Docs</a> (51% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -30,6 +30,9 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Classes/AlamofireSessionManager.html">AlamofireSessionManager</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/NetworkClient.html">NetworkClient</a>
               </li>
             </ul>
@@ -41,13 +44,10 @@
                 <a href="Enums/HTTPMethod.html">HTTPMethod</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/Multipart.html">Multipart</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/ParameterEncoding.html">ParameterEncoding</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/Result.html">Result</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/UploadSource.html">UploadSource</a>
               </li>
             </ul>
           </li>
@@ -56,6 +56,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Protocols.html#/s:8RestBird11DataRequestP">DataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/MultipartRequest.html">MultipartRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/NetworkClientConfiguration.html">NetworkClientConfiguration</a>
@@ -75,14 +78,17 @@
               <li class="nav-group-task">
                 <a href="Protocols/SessionManagerDelegate.html">SessionManagerDelegate</a>
               </li>
-              <li class="nav-group-task">
-                <a href="Protocols/UploadRequest.html">UploadRequest</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/ArrayEncoding.html">ArrayEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs.html#/s:8RestBird12EmptyRequestV">EmptyRequest</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Structs.html#/s:8RestBird13EmptyResponseV">EmptyResponse</a>
               </li>
@@ -111,13 +117,10 @@
 <a href="https://travis-ci.org/halcyonmobile/RestBird"><img src="https://travis-ci.org/halcyonmobile/RestBird.svg?branch=master" alt="Build Status"></a>
 <a href="https://codecov.io/gh/halcyonmobile/RestBird"><img src="https://codecov.io/gh/halcyonmobile/RestBird/branch/master/graph/badge.svg" alt="codecov"></a></p>
 
-<p>Lightweight, stateless REST network manager over the Codable protocol.</p>
-
 <ul>
 <li><a href="#about">About</a></li>
 <li><a href="#requirements">Requirements</a></li>
 <li><a href="#features">Features</a></li>
-<li><a href="#driver-coverage">Driver Coverage</a></li>
 <li><a href="#installation-instructions">Installation Instructions</a>
 
 <ul>
@@ -126,11 +129,16 @@
 <li><a href="#carthage">Carthage</a></li>
 </ul></li>
 <li><a href="#setup">Setup</a></li>
-<li><p><a href="#usage">Usage</a></p></li>
-<li><p><a href="#convenience">Convenience</a></p></li>
-<li><p><a href="#license">License</a></p></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#meta-support">Meta Support</a></li>
+<li><a href="#convenience">Convenience</a></li>
+<li><a href="#license">License</a></li>
 </ul>
 <h2 id='about' class='heading'>About</h2>
+
+<p>Lightweight, stateless REST network manager over the Codable protocol built upon Alamofire.</p>
+
+<p>To learn more aboit this library, check out the <a href="https://halcyonmobile.github.io/RestBird/">documentation</a>.</p>
 <h2 id='requirements' class='heading'>Requirements</h2>
 
 <ul>
@@ -142,30 +150,10 @@
 
 <ul>
 <li>[x] Codable support.</li>
-<li>[x] Built-in Alamofire driver.</li>
-<li>[x] Built-in URLSession driver.</li>
 <li>[x] PromiseKit wrapper.</li>
-<li>[ ] Automatic request parameter serialization (Codable?)</li>
+<li>[x] RxSwift wrapper.</li>
+<li>[x] Automatic request parameter serialization (Codable?)</li>
 </ul>
-<h2 id='driver-coverage' class='heading'>Driver coverage</h2>
-
-<p>The following table describes how much the specific drivers cover <code><a href="Protocols/SessionManager.html">SessionManager</a></code> defined in the Core of RestBird.</p>
-
-<table><thead>
-<tr>
-<th></th>
-<th>Coverage</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>AlamofireSessionManager</td>
-<td>100%</td>
-</tr>
-<tr>
-<td>URLSessionManager</td>
-<td>70%</td>
-</tr>
-</tbody></table>
 <h2 id='installation-instructions' class='heading'>Installation Instructions</h2>
 <h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
 
@@ -173,35 +161,13 @@
 <pre class="highlight swift"><code><span class="o">.</span><span class="kt">Package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/halcyonmobile/RestBird.git"</span><span class="p">,</span> <span class="nv">majorVersion</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">minorVersion</span><span class="p">:</span> <span class="mi">4</span><span class="p">)</span>
 </code></pre>
 
-<p>You can use RestBird and implement your own session handling or use one of the built-in drivers implemented by RestBird (Alamofire and URLSession).</p>
-<pre class="highlight swift"><code><span class="c1">// Use RestBird without any driver</span>
-<span class="nv">targets</span><span class="p">:</span> <span class="p">[</span>
+<p>Then, simply integrate RestBird with your target.</p>
+<pre class="highlight swift"><code><span class="nv">targets</span><span class="p">:</span> <span class="p">[</span>
     <span class="kt">Target</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"YourTarget"</span><span class="p">,</span> <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">"RestBird"</span><span class="p">])</span>
-<span class="p">]</span>
-
-<span class="c1">// Use the URLSession Driver</span>
-<span class="nv">targets</span><span class="p">:</span> <span class="p">[</span>
-    <span class="kt">Target</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"YourTarget"</span><span class="p">,</span> <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
-        <span class="o">.</span><span class="nf">product</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"RestBird-URLSession"</span><span class="p">,</span> <span class="nv">package</span><span class="p">:</span> <span class="s">"RestBird"</span><span class="p">)</span>
-    <span class="p">])</span>
-<span class="p">]</span>
-
-<span class="c1">// Use the Alamofire Driver</span>
-<span class="nv">targets</span><span class="p">:</span> <span class="p">[</span>
-    <span class="kt">Target</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"YourTarget"</span><span class="p">,</span> <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
-        <span class="o">.</span><span class="nf">product</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"RestBird-Alamofire"</span><span class="p">,</span> <span class="nv">package</span><span class="p">:</span> <span class="s">"RestBird"</span><span class="p">)</span>
-    <span class="p">])</span>
 <span class="p">]</span>
 </code></pre>
 <h3 id='cocoapods' class='heading'>CocoaPods</h3>
-<pre class="highlight ruby"><code><span class="c1"># use RestBird without any driver</span>
-<span class="n">pod</span> <span class="s1">'RestBird'</span>
-
-<span class="c1"># use RestBird with Alamofire driver</span>
-<span class="n">pod</span> <span class="s1">'RestBird/Alamofire'</span>
-
-<span class="c1"># use RestBird with URLSession driver</span>
-<span class="n">pod</span> <span class="s1">'RestBird/URLSession'</span>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'RestBird'</span>
 </code></pre>
 
 <p>You can also try it out by running</p>
@@ -226,6 +192,8 @@
 <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">MainAPIConfiguration</span><span class="p">:</span> <span class="kt">NetworkClientConfiguration</span> <span class="p">{</span>
     <span class="k">let</span> <span class="nv">baseUrl</span> <span class="o">=</span> <span class="s">"https://api.example.com"</span>
     <span class="k">let</span> <span class="nv">sessionManager</span> <span class="o">=</span> <span class="kt">AlamofireSessionManager</span><span class="p">()</span>
+    <span class="k">let</span> <span class="nv">jsonEncoder</span> <span class="o">=</span> <span class="kt">JSONEncoder</span><span class="p">()</span>
+    <span class="k">let</span> <span class="nv">jsonDecoder</span> <span class="o">=</span> <span class="kt">JSONDecoder</span><span class="p">()</span>
 <span class="p">}</span>
 </code></pre>
 
@@ -282,20 +250,40 @@ struct ErrorMiddleware: PostMiddleware {
 networkClient.register(LoggerMiddleware())
 networkClient.register(ErrorMiddleware())
 </code></pre>
+<h2 id='meta-support' class='heading'>Meta support</h2>
+
+<p>To avoid writing boilerplate code for network classes, we wrote a couple of templates to generate code using <a href="https://github.com/krzysztofzablocki/Sourcery">Sourcery</a>. Head over to the <a href="https://github.com/halcyonmobile/RestBird-Sourcery">template repository</a>.</p>
+
+<p>Here&rsquo;s how two requests would look like using the templates:</p>
+<pre class="highlight plaintext"><code>/// sourcery: Service
+protocol PostService {
+
+    /// sourcery: path = /posts/\(id)
+    /// sourcery: pathParam = id
+    func get(id: String, completion: (result: Result&lt;Post&gt;) -&gt; Void)
+
+    /// sourcery: method = post, path = /posts
+    /// sourcery: parameter = post
+    /// sourcery: parameter = json
+    func save(post: Post, completion: (result: Result&lt;Post&gt;) -&gt; Void)
+}
+</code></pre>
 <h2 id='convenience' class='heading'>Convenience</h2>
 
-<p>You can find convenience wrappers for RestBird which are not distributed through the package. This includes a PromiseKit wrapper.</p>
+<p>You can find convenience wrappers for RestBird which are not distributed through the package. This includes a PromiseKit and an RxSwift wrapper.</p>
 
 <p>Check out <a href="https://github.com/halcyonmobile/RestBird/tree/master/Convenience">here</a>.</p>
 <h2 id='license' class='heading'>License</h2>
 
 <p>RestBird is released under the MIT license. <a href="https://github.com/halcyonmobile/RestBird/blob/master/LICENSE">See LICENSE</a> for details.</p>
 
+<p>If you use the open-source library in your project, please make sure to credit and backlink to <a href="http://halcyonmobile.com">http://halcyonmobile.com</a></p>
+
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/halcyonmobile/RestBird" target="_blank" rel="external">Halcyon Mobile</a>. All rights reserved. (Last updated: 2019-02-18)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://github.com/halcyonmobile/RestBird" target="_blank" rel="external">Halcyon Mobile</a>. All rights reserved. (Last updated: 2020-05-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -14,7 +14,7 @@
     <a title="Request Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">RestBird Docs</a> (63% documented)</p>
+        <p><a href="../index.html">RestBird 0.5.3 Docs</a> (51% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -31,6 +31,9 @@
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Classes/AlamofireSessionManager.html">AlamofireSessionManager</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/NetworkClient.html">NetworkClient</a>
               </li>
             </ul>
@@ -42,13 +45,10 @@
                 <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/Multipart.html">Multipart</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/ParameterEncoding.html">ParameterEncoding</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/Result.html">Result</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/UploadSource.html">UploadSource</a>
               </li>
             </ul>
           </li>
@@ -57,6 +57,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols.html#/s:8RestBird11DataRequestP">DataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MultipartRequest.html">MultipartRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/NetworkClientConfiguration.html">NetworkClientConfiguration</a>
@@ -76,14 +79,17 @@
               <li class="nav-group-task">
                 <a href="../Protocols/SessionManagerDelegate.html">SessionManagerDelegate</a>
               </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/UploadRequest.html">UploadRequest</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ArrayEncoding.html">ArrayEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:8RestBird12EmptyRequestV">EmptyRequest</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Structs.html#/s:8RestBird13EmptyResponseV">EmptyResponse</a>
               </li>
@@ -139,6 +145,33 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">ResponseType</span> <span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8RestBird7RequestP0C4TypeQa"></a>
+                    <a name="//apple_ref/swift/Alias/RequestType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8RestBird7RequestP0C4TypeQa">RequestType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">RequestType</span> <span class="p">:</span> <span class="kt">Encodable</span></code></pre>
 
                         </div>
                       </div>
@@ -250,9 +283,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8RestBird7RequestP10parametersSDySSypGSgvp"></a>
+                    <a name="/s:8RestBird7RequestP10parameters0C4TypeQzSgvp"></a>
                     <a name="//apple_ref/swift/Property/parameters" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8RestBird7RequestP10parametersSDySSypGSgvp">parameters</a>
+                    <a class="token" href="#/s:8RestBird7RequestP10parameters0C4TypeQzSgvp">parameters</a>
                     </code>
                       <span class="declaration-note">
                         Default implementation
@@ -263,7 +296,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The parameter dictionary of the request. Default: nil.</p>
+                        <p>Request parameters type. Default <code>nil</code>.</p>
 
                       </div>
                       <h4>Default Implementation</h4>
@@ -274,41 +307,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:8RestBird17RequestParametersa">RequestParameters</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8RestBird7RequestP18isDebugModeEnabledSbvp"></a>
-                    <a name="//apple_ref/swift/Property/isDebugModeEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8RestBird7RequestP18isDebugModeEnabledSbvp">isDebugModeEnabled</a>
-                    </code>
-                      <span class="declaration-note">
-                        Default implementation
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>If true, networking layer will print information about this request to the console. False by default.</p>
-
-                      </div>
-                      <h4>Default Implementation</h4>
-                      <div class="default_impl abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isDebugModeEnabled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Request.html#/s:8RestBird7RequestP0C4TypeQa">RequestType</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -354,8 +353,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/halcyonmobile/RestBird" target="_blank" rel="external">Halcyon Mobile</a>. All rights reserved. (Last updated: 2019-02-18)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://github.com/halcyonmobile/RestBird" target="_blank" rel="external">Halcyon Mobile</a>. All rights reserved. (Last updated: 2020-05-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

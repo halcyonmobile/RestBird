@@ -25,9 +25,9 @@ To learn more aboit this library, check out the [documentation](https://halcyonm
 
 ## Requirements
 
-- iOS 9.0+ / macOS 10.11+
-- XCode 10.0+
-- Swift 4.2+
+- iOS 10.0+ / macOS 10.12+
+- XCode 11.4+
+- Swift 5.2+
 
 ## Features
 
@@ -43,7 +43,7 @@ To learn more aboit this library, check out the [documentation](https://halcyonm
 Add RestBird as a dependency to your project.
 
 ```swift
-.Package(url: "https://github.com/halcyonmobile/RestBird.git", majorVersion: 0, minorVersion: 4)
+.package(url: "https://github.com/Alamofire/Alamofire.git", from: "0.5")
 ```
 
 Then, simply integrate RestBird with your target.

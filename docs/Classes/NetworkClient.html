@@ -14,7 +14,7 @@
     <a title="NetworkClient Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">RestBird Docs</a> (63% documented)</p>
+        <p><a href="../index.html">RestBird 0.5.3 Docs</a> (51% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -31,6 +31,9 @@
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Classes/AlamofireSessionManager.html">AlamofireSessionManager</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/NetworkClient.html">NetworkClient</a>
               </li>
             </ul>
@@ -42,13 +45,10 @@
                 <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/Multipart.html">Multipart</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/ParameterEncoding.html">ParameterEncoding</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/Result.html">Result</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/UploadSource.html">UploadSource</a>
               </li>
             </ul>
           </li>
@@ -57,6 +57,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols.html#/s:8RestBird11DataRequestP">DataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MultipartRequest.html">MultipartRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/NetworkClientConfiguration.html">NetworkClientConfiguration</a>
@@ -76,14 +79,17 @@
               <li class="nav-group-task">
                 <a href="../Protocols/SessionManagerDelegate.html">SessionManagerDelegate</a>
               </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/UploadRequest.html">UploadRequest</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ArrayEncoding.html">ArrayEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:8RestBird12EmptyRequestV">EmptyRequest</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Structs.html#/s:8RestBird13EmptyResponseV">EmptyResponse</a>
               </li>
@@ -109,6 +115,7 @@
               <div class="declaration">
                 <div class="language">
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">NetworkClient</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">NetworkClient</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SessionManagerDelegate.html">SessionManagerDelegate</a></span></code></pre>
 
                 </div>
               </div>
@@ -120,17 +127,19 @@
               <div class="task-name-container">
                 <a name="/Lifecycle"></a>
                 <a name="//apple_ref/swift/Section/Lifecycle" class="dashAnchor"></a>
-                <a href="#/Lifecycle">
-                  <h3 class="section-name">Lifecycle</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Lifecycle"></a>
+                  <h3 class="section-name"><p>Lifecycle</p>
+</h3>
+                </div>
               </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8RestBird13NetworkClientC13configurationAcA0cD13Configuration_p_tcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(configuration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8RestBird13NetworkClientC13configurationAcA0cD13Configuration_p_tcfc">init(configuration:)</a>
+                    <a name="/s:8RestBird13NetworkClientC7sessionAcA14SessionManager_p_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(session:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8RestBird13NetworkClientC7sessionAcA14SessionManager_p_tcfc">init(session:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -145,7 +154,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Protocols/NetworkClientConfiguration.html">NetworkClientConfiguration</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">session</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SessionManager.html">SessionManager</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -158,9 +167,11 @@
               <div class="task-name-container">
                 <a name="/Middleware"></a>
                 <a name="//apple_ref/swift/Section/Middleware" class="dashAnchor"></a>
-                <a href="#/Middleware">
-                  <h3 class="section-name">Middleware</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Middleware"></a>
+                  <h3 class="section-name"><p>Middleware</p>
+</h3>
+                </div>
               </div>
               <ul>
                 <li class="item">
@@ -168,7 +179,7 @@
                     <code>
                     <a name="/s:8RestBird13NetworkClientC8registeryyAA13PreMiddleware_pF"></a>
                     <a name="//apple_ref/swift/Method/register(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8RestBird13NetworkClientC8registeryyAA13PreMiddleware_pF">register(_:)</a>
+                    <a class="token" href="#/s:8RestBird13NetworkClientC8registeryyAA13PreMiddleware_pF">register(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -214,7 +225,7 @@
                     <code>
                     <a name="/s:8RestBird13NetworkClientC8registeryyAA14PostMiddleware_pF"></a>
                     <a name="//apple_ref/swift/Method/register(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8RestBird13NetworkClientC8registeryyAA14PostMiddleware_pF">register(_:)</a>
+                    <a class="token" href="#/s:8RestBird13NetworkClientC8registeryyAA14PostMiddleware_pF">register(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -261,17 +272,19 @@
               <div class="task-name-container">
                 <a name="/DataRequest"></a>
                 <a name="//apple_ref/swift/Section/DataRequest" class="dashAnchor"></a>
-                <a href="#/DataRequest">
-                  <h3 class="section-name">DataRequest</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/DataRequest"></a>
+                  <h3 class="section-name"><p>DataRequest</p>
+</h3>
+                </div>
               </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8RestBird13NetworkClientC7execute7request10completionyx_yAA6ResultOyytGctAA11DataRequestRzAA13EmptyResponseV0L4TypeRtzlF"></a>
+                    <a name="/s:8RestBird13NetworkClientC7execute7request10completionyx_ys6ResultOyyts5Error_pGctAA11DataRequestRzAA13EmptyResponseV0M4TypeRtzlF"></a>
                     <a name="//apple_ref/swift/Method/execute(request:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8RestBird13NetworkClientC7execute7request10completionyx_yAA6ResultOyytGctAA11DataRequestRzAA13EmptyResponseV0L4TypeRtzlF">execute(request:completion:)</a>
+                    <a class="token" href="#/s:8RestBird13NetworkClientC7execute7request10completionyx_ys6ResultOyyts5Error_pGctAA11DataRequestRzAA13EmptyResponseV0M4TypeRtzlF">execute(request:<wbr>completion:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -288,7 +301,7 @@
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">execute</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:8RestBird11DataRequestP">DataRequest</a></span><span class="o">&gt;</span><span class="p">(</span>
     <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="p">,</span>
-    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/Result.html">Result</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">Void</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
 <span class="p">)</span> <span class="k">where</span> <span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="o">.</span><span class="kt">ResponseType</span> <span class="o">==</span> <span class="kt"><a href="../Structs.html#/s:8RestBird13EmptyResponseV">EmptyResponse</a></span></code></pre>
 
                         </div>
@@ -330,9 +343,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8RestBird13NetworkClientC7execute7request10completionyx_yAA6ResultOy12ResponseTypeQzGctAA11DataRequestRzlF"></a>
+                    <a name="/s:8RestBird13NetworkClientC7execute7request10completionyx_ys6ResultOy12ResponseTypeQzs5Error_pGctAA11DataRequestRzlF"></a>
                     <a name="//apple_ref/swift/Method/execute(request:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8RestBird13NetworkClientC7execute7request10completionyx_yAA6ResultOy12ResponseTypeQzGctAA11DataRequestRzlF">execute(request:completion:)</a>
+                    <a class="token" href="#/s:8RestBird13NetworkClientC7execute7request10completionyx_ys6ResultOy12ResponseTypeQzs5Error_pGctAA11DataRequestRzlF">execute(request:<wbr>completion:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -349,7 +362,7 @@
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">execute</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:8RestBird11DataRequestP">DataRequest</a></span><span class="o">&gt;</span><span class="p">(</span>
     <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="p">,</span>
-    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/Result.html">Result</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="o">.</span><span class="kt">ResponseType</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="o">.</span><span class="kt">ResponseType</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
 <span class="p">)</span></code></pre>
 
                         </div>
@@ -379,67 +392,6 @@
                               <td>
                                 <div>
                                   <p>Single object Result callback.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8RestBird13NetworkClientC7execute7request10completionyx_yAA6ResultOySay12ResponseTypeQzGGctAA11DataRequestRzlF"></a>
-                    <a name="//apple_ref/swift/Method/execute(request:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8RestBird13NetworkClientC7execute7request10completionyx_yAA6ResultOySay12ResponseTypeQzGGctAA11DataRequestRzlF">execute(request:completion:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Perform DataRequest when an array of object response is expected.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">execute</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:8RestBird11DataRequestP">DataRequest</a></span><span class="o">&gt;</span><span class="p">(</span>
-    <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="p">,</span>
-    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/Result.html">Result</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="o">.</span><span class="kt">ResponseType</span><span class="p">]</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
-<span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>request</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>DataRequest instance</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completion</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>An array of objects Result callback.</p>
                                 </div>
                               </td>
                             </tr>
@@ -453,19 +405,21 @@
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/UploadRequest"></a>
-                <a name="//apple_ref/swift/Section/UploadRequest" class="dashAnchor"></a>
-                <a href="#/UploadRequest">
-                  <h3 class="section-name">UploadRequest</h3>
-                </a>
+                <a name="/MultipartRequest"></a>
+                <a name="//apple_ref/swift/Section/MultipartRequest" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/MultipartRequest"></a>
+                  <h3 class="section-name"><p>MultipartRequest</p>
+</h3>
+                </div>
               </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8RestBird13NetworkClientC7execute7request10completionyx_yAA6ResultOy12ResponseTypeQzGctAA13UploadRequestRzlF"></a>
-                    <a name="//apple_ref/swift/Method/execute(request:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8RestBird13NetworkClientC7execute7request10completionyx_yAA6ResultOy12ResponseTypeQzGctAA13UploadRequestRzlF">execute(request:completion:)</a>
+                    <a name="/s:8RestBird13NetworkClientC7execute7request14uploadProgress10completionyx_ySo10NSProgressCcSgys6ResultOyyts5Error_pGctAA16MultipartRequestRzAA13EmptyResponseV0P4TypeRtzlF"></a>
+                    <a name="//apple_ref/swift/Method/execute(request:uploadProgress:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8RestBird13NetworkClientC7execute7request14uploadProgress10completionyx_ySo10NSProgressCcSgys6ResultOyyts5Error_pGctAA16MultipartRequestRzAA13EmptyResponseV0P4TypeRtzlF">execute(request:<wbr>uploadProgress:<wbr>completion:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -473,50 +427,51 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Perform UploadRequest a single object response is expected.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">execute</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="p">:</span> <span class="kt"><a href="../Protocols/UploadRequest.html">UploadRequest</a></span><span class="o">&gt;</span><span class="p">(</span>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">execute</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="p">:</span> <span class="kt"><a href="../Protocols/MultipartRequest.html">MultipartRequest</a></span><span class="o">&gt;</span><span class="p">(</span>
     <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="p">,</span>
-    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/Result.html">Result</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="o">.</span><span class="kt">ResponseType</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
-<span class="p">)</span></code></pre>
+    <span class="nv">uploadProgress</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MultipartRequest.html">MultipartRequest</a></span><span class="o">.</span><span class="kt">ProgressHandler</span><span class="p">?,</span>
+    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">Void</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+<span class="p">)</span> <span class="k">where</span> <span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="o">.</span><span class="kt">ResponseType</span> <span class="o">==</span> <span class="kt"><a href="../Structs.html#/s:8RestBird13EmptyResponseV">EmptyResponse</a></span></code></pre>
 
                         </div>
                       </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>request</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>UploadRequest instance.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>completion</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Single object Result callback.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8RestBird13NetworkClientC7execute7request14uploadProgress10completionyx_ySo10NSProgressCcSgys6ResultOy12ResponseTypeQzs5Error_pGctAA16MultipartRequestRzlF"></a>
+                    <a name="//apple_ref/swift/Method/execute(request:uploadProgress:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8RestBird13NetworkClientC7execute7request14uploadProgress10completionyx_ySo10NSProgressCcSgys6ResultOy12ResponseTypeQzs5Error_pGctAA16MultipartRequestRzlF">execute(request:<wbr>uploadProgress:<wbr>completion:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">execute</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="p">:</span> <span class="kt"><a href="../Protocols/MultipartRequest.html">MultipartRequest</a></span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="p">,</span>
+    <span class="nv">uploadProgress</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MultipartRequest.html">MultipartRequest</a></span><span class="o">.</span><span class="kt">ProgressHandler</span><span class="p">?,</span>
+    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Request.html">Request</a></span><span class="o">.</span><span class="kt">ResponseType</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+<span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -527,9 +482,11 @@
               <div class="task-name-container">
                 <a name="/SessionManagerDelegate"></a>
                 <a name="//apple_ref/swift/Section/SessionManagerDelegate" class="dashAnchor"></a>
-                <a href="#/SessionManagerDelegate">
-                  <h3 class="section-name">SessionManagerDelegate</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/SessionManagerDelegate"></a>
+                  <h3 class="section-name"><p>SessionManagerDelegate</p>
+</h3>
+                </div>
               </div>
               <ul>
                 <li class="item">
@@ -537,7 +494,7 @@
                     <code>
                     <a name="/s:8RestBird22SessionManagerDelegateP07sessionD0_10didPerform8response4datayAA0cD0_p_10Foundation10URLRequestVSo13NSURLResponseCAI4DataVSgtKF"></a>
                     <a name="//apple_ref/swift/Method/sessionManager(_:didPerform:response:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8RestBird22SessionManagerDelegateP07sessionD0_10didPerform8response4datayAA0cD0_p_10Foundation10URLRequestVSo13NSURLResponseCAI4DataVSgtKF">sessionManager(_:didPerform:response:data:)</a>
+                    <a class="token" href="#/s:8RestBird22SessionManagerDelegateP07sessionD0_10didPerform8response4datayAA0cD0_p_10Foundation10URLRequestVSo13NSURLResponseCAI4DataVSgtKF">sessionManager(_:<wbr>didPerform:<wbr>response:<wbr>data:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -563,7 +520,7 @@
                     <code>
                     <a name="/s:8RestBird22SessionManagerDelegateP07sessionD0_11willPerformyAA0cD0_p_10Foundation10URLRequestVtKF"></a>
                     <a name="//apple_ref/swift/Method/sessionManager(_:willPerform:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8RestBird22SessionManagerDelegateP07sessionD0_11willPerformyAA0cD0_p_10Foundation10URLRequestVtKF">sessionManager(_:willPerform:)</a>
+                    <a class="token" href="#/s:8RestBird22SessionManagerDelegateP07sessionD0_11willPerformyAA0cD0_p_10Foundation10URLRequestVtKF">sessionManager(_:<wbr>willPerform:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -589,8 +546,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/halcyonmobile/RestBird" target="_blank" rel="external">Halcyon Mobile</a>. All rights reserved. (Last updated: 2019-02-18)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://github.com/halcyonmobile/RestBird" target="_blank" rel="external">Halcyon Mobile</a>. All rights reserved. (Last updated: 2020-05-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

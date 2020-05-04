@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>NetworkClientConfiguration Protocol Reference</title>
+    <title>MultipartRequest Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/NetworkClientConfiguration" class="dashAnchor"></a>
-    <a title="NetworkClientConfiguration Protocol Reference"></a>
+    <a name="//apple_ref/swift/Protocol/MultipartRequest" class="dashAnchor"></a>
+    <a title="MultipartRequest Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">RestBird 0.5.3 Docs</a> (51% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">RestBird Reference</a>
         <img id="carat" src="../img/carat.png" />
-        NetworkClientConfiguration Protocol Reference
+        MultipartRequest Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -111,14 +111,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>NetworkClientConfiguration</h1>
+            <h1>MultipartRequest</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">NetworkClientConfiguration</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MultipartRequest</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Request.html">Request</a></span></code></pre>
 
                 </div>
               </div>
-            <p>This protocol represents a backend server configuration.</p>
+            <p>Undocumented</p>
 
           </section>
           <section class="section task-group-section">
@@ -127,9 +127,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8RestBird26NetworkClientConfigurationP7baseUrlSSvp"></a>
-                    <a name="//apple_ref/swift/Property/baseUrl" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8RestBird26NetworkClientConfigurationP7baseUrlSSvp">baseUrl</a>
+                    <a name="/s:8RestBird16MultipartRequestP15ProgressHandlera"></a>
+                    <a name="//apple_ref/swift/Alias/ProgressHandler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8RestBird16MultipartRequestP15ProgressHandlera">ProgressHandler</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -137,14 +137,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The base URL of the backend service</p>
+                        <p>A closure executed when monitoring upload progress of a request.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">baseUrl</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">ProgressHandler</span> <span class="o">=</span> <span class="p">(</span><span class="kt">Progress</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -154,24 +154,32 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8RestBird26NetworkClientConfigurationP11jsonEncoder10Foundation11JSONEncoderCvp"></a>
-                    <a name="//apple_ref/swift/Property/jsonEncoder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8RestBird26NetworkClientConfigurationP11jsonEncoder10Foundation11JSONEncoderCvp">jsonEncoder</a>
+                    <a name="/s:8RestBird16MultipartRequestP6methodAA10HTTPMethodOvp"></a>
+                    <a name="//apple_ref/swift/Property/method" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8RestBird16MultipartRequestP6methodAA10HTTPMethodOvp">method</a>
                     </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>JSON encoder</p>
+                        <p>The HTTP Method of the request. Default: <code>.post</code>.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">jsonEncoder</span><span class="p">:</span> <span class="kt">JSONEncoder</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Enums/HTTPMethod.html">HTTPMethod</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -181,24 +189,32 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8RestBird26NetworkClientConfigurationP11jsonDecoder10Foundation11JSONDecoderCvp"></a>
-                    <a name="//apple_ref/swift/Property/jsonDecoder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8RestBird26NetworkClientConfigurationP11jsonDecoder10Foundation11JSONDecoderCvp">jsonDecoder</a>
+                    <a name="/s:8RestBird16MultipartRequestP5partsSayAA0C0OGvp"></a>
+                    <a name="//apple_ref/swift/Property/parts" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8RestBird16MultipartRequestP5partsSayAA0C0OGvp">parts</a>
                     </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>JSON decoder</p>
+                        <p>Undocumented</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">jsonDecoder</span><span class="p">:</span> <span class="kt">JSONDecoder</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">parts</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums/Multipart.html">Multipart</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

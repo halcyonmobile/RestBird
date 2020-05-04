@@ -6,6 +6,7 @@ theme: fullwidth
 clean: true
 
 readme: README.md
+swift-build-tool: spm
 
 skip_undocumented: false
 hide_documentation_coverage: false
