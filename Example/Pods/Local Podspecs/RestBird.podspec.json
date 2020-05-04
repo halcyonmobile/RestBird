@@ -1,6 +1,6 @@
 {
   "name": "RestBird",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "homepage": "https://github.com/halcyonmobile/RestBird",
   "license": {
     "type": "MIT",
@@ -15,7 +15,7 @@
   },
   "source": {
     "git": "https://github.com/halcyonmobile/RestBird.git",
-    "tag": "0.5.2"
+    "tag": "0.5.3"
   },
   "source_files": "Sources/RestBird/**/*.swift",
   "dependencies": {

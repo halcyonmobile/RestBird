@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.1.0)
-  - RestBird (0.5.2):
+  - RestBird (0.5.3):
     - Alamofire (~> 5.1)
 
 DEPENDENCIES:
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
-  RestBird: 9623f5ecde55cc4c70a632bd8ae5a6e7da4e9954
+  RestBird: 40c85a728196a1800d751d7929ebdb9414cc9f2c
 
 PODFILE CHECKSUM: 4951fb5815eb514f86bc7757b2697c658e7c7e3d
 
