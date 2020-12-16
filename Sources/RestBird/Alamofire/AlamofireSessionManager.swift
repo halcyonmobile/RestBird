@@ -15,7 +15,7 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
 
     public weak var delegate: SessionManagerDelegate?
 
-    private(set) var session: Alamofire.Session
+    private(set) public var session: Alamofire.Session
 
     public init(config: NetworkClientConfiguration, session: Alamofire.Session = .default) {
         self.config = config
