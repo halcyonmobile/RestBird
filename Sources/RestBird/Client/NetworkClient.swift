@@ -23,7 +23,7 @@ public final class NetworkClient {
 
     // MARK: - Properties
 
-    let session: SessionManager
+    public let session: SessionManager
     fileprivate var parseQueue: DispatchQueue
 
     private(set) var preMiddlewares: [PreMiddleware] = []
