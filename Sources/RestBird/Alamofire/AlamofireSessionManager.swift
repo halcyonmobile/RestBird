@@ -45,7 +45,7 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
             }
         }
 
-        dataRequest.validate().responseDecodable(of: T.self, decoder: config.jsonDecoder) { response in
+        dataRequest.validate().responseDecodable(of: T.self, decoder: config.jsonDecoder, emptyResponseCodes: Set(200..<300)) { response in
             if let urlRequest = response.request, let urlResponse = response.response {
                 do {
                     try self.delegate?.sessionManager(self, didPerform: urlRequest, response: urlResponse, data: response.data)
@@ -92,7 +92,7 @@ extension AlamofireSessionManager {
                 uploadRequest?.uploadProgress { uploadProgress?($0) }
 
                 uploadRequest?.validate()
-                    .responseDecodable(of: T.self, decoder: config.jsonDecoder, completionHandler: { response in
+                    .responseDecodable(of: T.self, decoder: config.jsonDecoder, emptyResponseCodes: Set(200..<300), completionHandler: { response in
                         if let urlRequest = response.request, let urlResponse = response.response {
                             do {
                                 try self.delegate?.sessionManager(self, didPerform: urlRequest, response: urlResponse, data: response.data)
@@ -140,7 +140,7 @@ extension AlamofireSessionManager {
 
         session.upload(multipartFormData: multipartFormData, to: url, method: request.afMethod, headers: request.afHeaders)
             .validate()
-            .responseDecodable(of: T.self, decoder: config.jsonDecoder) { response in
+            .responseDecodable(of: T.self, decoder: config.jsonDecoder, emptyResponseCodes: Set(200..<300)) { response in
                 completion(response.result.mapError{ $0 })
         }
     }
