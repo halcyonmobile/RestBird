@@ -67,7 +67,7 @@ extension NetworkClient {
         request: Request,
         completion: @escaping (Result<Void, Error>) -> Void
     ) where Request.ResponseType == EmptyResponse {
-        session.performDataTask(request: request) { (result: Result<EmptyResponse, Error>) in
+        session.performDataTask(request: request) { (result: Result<Alamofire.Empty, Error>) in
             let response = result.map { _ in () }
             completion(response)
         }

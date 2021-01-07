@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Alamofire
 
 public enum ParameterEncoding {
     case url
     case json
-    case custom(Any)
+    case custom(Alamofire.ParameterEncoder)
 }

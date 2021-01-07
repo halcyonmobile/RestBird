@@ -29,19 +29,11 @@ public final class AlamofireSessionManager: RestBird.SessionManager {
         completion: @escaping (Result<T, Error>) -> Void
     ) where Request : DataRequest, T : Decodable {
         let url = config.baseUrl + (request.suffix ?? "")
-
-        let parameters: Alamofire.Parameters?
-        do {
-            parameters = try request.afParameters(using: config.jsonEncoder)
-        } catch {
-            completion(.failure(error))
-            return
-        }
-
+        
         let dataRequest = session.request(url,
                                           method: request.afMethod,
-                                          parameters: parameters,
-                                          encoding: request.afEncoding,
+                                          parameters: request.parameters,
+                                          encoder: request.afEncoder(encoder: config.jsonEncoder),
                                           headers: request.afHeaders)
 
         if let request = dataRequest.request {
@@ -129,6 +121,8 @@ extension AlamofireSessionManager {
                     }
                 }
             }
+    
+            #warning("We should do this using Alamofire.")
             try? request.afParameters(using: self.config.jsonEncoder)?.forEach { (param) in
                 if let value = param.value as? String {
                     if let data = value.data(using: .utf8) {
