@@ -12,7 +12,7 @@ let package = Package(
         .library(name: "RestBird", targets: ["RestBird"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.1.0")
+        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.4.0")
     ],
     targets: [
         .target(name: "RestBird", dependencies: ["Alamofire"]),

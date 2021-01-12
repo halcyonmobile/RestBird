@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                    = "RestBird"
-  s.version                 = "0.5.3"
+  s.version                 = "0.5.4"
   s.homepage                = "https://github.com/halcyonmobile/RestBird"
   s.license                 = { :type => "MIT", :file => "LICENSE" }
   s.author                  = "Halcyon Mobile"
@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   s.source                  = { :git => "https://github.com/halcyonmobile/RestBird.git", :tag => "#{s.version}" }
   
   s.source_files          = "Sources/RestBird/**/*.swift"
-  s.dependency            "Alamofire", '~> 5.1'
+  s.dependency            "Alamofire", '~> 5.4'
 end
