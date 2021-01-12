@@ -10,21 +10,14 @@ import Alamofire
 
 extension Request {
 
-    var afEncoding: Alamofire.ParameterEncoding {
+    func afEncoder(encoder: JSONEncoder) -> Alamofire.ParameterEncoder {
         switch parameterEncoding {
-        case .url:
-            return URLEncoding.default
-        case .json:
-            return JSONEncoding.default
-        case .custom(let encoding):
-            guard let encoding = encoding as? Alamofire.ParameterEncoding else {
-                return URLEncoding.default
-            }
-            
-            return encoding
+        case .url: return URLEncodedFormParameterEncoder()
+        case .json: return JSONParameterEncoder(encoder: encoder)
+        case .custom(let encoder): return encoder
         }
     }
-
+    
     var afMethod: Alamofire.HTTPMethod {
         switch method {
         case .get: return .get
